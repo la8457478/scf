@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fkhwl.scf.dao.ScfUserDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="ScfUserResultMap" type="com.fkhwl.scf.entity.po.ScfUser">
+        <result column="id" property="id"/>
+        <result column="deleted" property="deleted"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="owner_id" property="ownerId"/>
+        <result column="user_type" property="userType"/>
+        <result column="role_id" property="roleId"/>
+        <result column="dept_id" property="deptId"/>
+        <result column="username" property="username"/>
+        <result column="user_password" property="userPassword"/>
+        <result column="nick_name" property="nickName"/>
+        <result column="user_email" property="userEmail"/>
+        <result column="user_mobile_no" property="userMobileNo"/>
+        <result column="user_avatar" property="userAvatar"/>
+        <result column="last_login_time" property="lastLoginTime"/>
+    </resultMap>
+
+    <select id="listPage" resultType="com.fkhwl.scf.entity.dto.ScfUserDTO">
+        SELECT
+            u.*,
+            r.role_name
+        FROM
+          scf_user u
+            LEFT JOIN auth_role r ON u.role_id = r.id AND r.deleted = 0
+        WHERE
+          u.deleted = 0 AND u.user_type = #{map.userType}
+        <if test="map.ownerId != null">
+            AND u.owner_id = #{map.ownerId}
+        </if>
+        <if test="map.deptId != null and map.deptId > 0">
+            AND u.dept_id = #{map.deptId}
+        </if>
+        <if test="map.keyword != null and map.keyword != '' ">
+            AND (u.nick_name LIKE concat('%',#{map.keyword},'%') OR r.role_name LIKE concat('%',#{map.keyword},'%'))
+        </if>
+    </select>
+
+    <select id="listPageCustomer" resultType="com.fkhwl.scf.entity.dto.ScfUserDTO">
+        SELECT
+            u.*
+        FROM
+          scf_user u
+        WHERE
+          u.deleted = 0 AND u.user_type = #{map.userType}
+        <if test="map.ownerId != null">
+            AND u.owner_id = #{map.ownerId}
+        </if>
+        <if test="map.keyword != null and map.keyword != '' ">
+            AND u.nick_name LIKE concat('%',#{map.keyword},'%')
+        </if>
+    </select>
+
+    <select id="updateByParams">
+        UPDATE scf_user SET
+        update_time = #{map.updateTime}
+        <if test="map.deptId != null">
+            ,dept_id = #{map.deptId}
+        </if>
+        WHERE 1 = 1
+        <if test="map.deptIds != null">
+            AND dept_id IN
+            <foreach collection="map.deptIds" item="item" separator="," open="(" close=")">
+                #{item}
+            </foreach>
+        </if>
+    </select>
+</mapper>

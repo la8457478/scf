@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/fkh-scf/fkh-mservice-scf/fkh-mservice-scf.iml" filepath="$PROJECT_DIR$/fkh-scf/fkh-mservice-scf/fkh-mservice-scf.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fkh-scf/fkh-scf.iml" filepath="$PROJECT_DIR$/fkh-scf/fkh-scf.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fkh-scf/fkh-mservice-scf/fkh-scf-client-dubbo/fkh-scf-client-dubbo.iml" filepath="$PROJECT_DIR$/fkh-scf/fkh-mservice-scf/fkh-scf-client-dubbo/fkh-scf-client-dubbo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fkh-scf/fkh-mservice-scf/fkh-scf-common/fkh-scf-common.iml" filepath="$PROJECT_DIR$/fkh-scf/fkh-mservice-scf/fkh-scf-common/fkh-scf-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fkh-scf/fkh-scf-openapi/fkh-scf-openapi.iml" filepath="$PROJECT_DIR$/fkh-scf/fkh-scf-openapi/fkh-scf-openapi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fkh-scf/fkh-mservice-scf/fkh-scf-service/fkh-scf-service.iml" filepath="$PROJECT_DIR$/fkh-scf/fkh-mservice-scf/fkh-scf-service/fkh-scf-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fkh-scf/fkh-mservice-scf/fkh-scf-storage/fkh-scf-storage.iml" filepath="$PROJECT_DIR$/fkh-scf/fkh-mservice-scf/fkh-scf-storage/fkh-scf-storage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fkh-scf/fkh-scf-web/fkh-scf-web.iml" filepath="$PROJECT_DIR$/fkh-scf/fkh-scf-web/fkh-scf-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/scf.iml" filepath="$PROJECT_DIR$/.idea/scf.iml" />
+    </modules>
+  </component>
+</project>

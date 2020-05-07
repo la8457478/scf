@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fkhwl.scf.dao.SubjectClaimsOrderDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="SubjectClaimsOrderResultMap" type="com.fkhwl.scf.entity.po.SubjectClaimsOrder">
+        <result column="id" property="id"/>
+        <result column="subject_claims_order_no" property="subjectClaimsOrderNo"/>
+        <result column="counterparty_id" property="counterpartyId"/>
+        <result column="counterparty_name" property="counterpartyName"/>
+        <result column="transfer_balance" property="transferBalance"/>
+        <result column="can_apply_balance" property="canApplyBalance"/>
+        <result column="waybill_count" property="waybillCount"/>
+        <result column="financial_product_name" property="financialProductName"/>
+        <result column="financial_product_id" property="financialProductId"/>
+        <result column="deleted" property="deleted"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="owner_id" property="ownerId"/>
+        <result column="create_user_id" property="createUserId"/>
+        <result column="review_status" property="reviewStatus"/>
+        <result column="project_id" property="projectId"/>
+    </resultMap>
+    <sql id="commonOwnerIdCondition">
+        <if test="map.ownerIds != null and map.ownerIds.size >null">
+            AND s.owner_id IN
+            <foreach collection="map.ownerIds" item="item" separator="," open="(" close=")">
+                #{item}
+            </foreach>
+        </if>
+    </sql>
+    <!-- DTO通用查询映射结果 -->
+    <select id="listPage" resultType="com.fkhwl.scf.entity.dto.SubjectClaimsOrderDTO">
+        SELECT
+        s.*
+        FROM
+        subject_claims_order s
+
+        <choose>
+            <when test="map.creditApplyId != null and map.creditApplyId != '' ">
+               LEFT  JOIN credit_apply_detail c on s.id=c.subject_claims_order_id WHERE  s.deleted = 0 AND c.deleted=0 AND c.credit_apply_id = #{map.creditApplyId}
+            </when>
+            <otherwise>
+                WHERE
+                s.deleted = 0
+            </otherwise>
+        </choose>
+        <include refid="commonOwnerIdCondition"/>
+<!--        <if test="map.counterpartyId != null and map.counterpartyId != '' ">-->
+            AND s.counterparty_id = #{map.counterpartyId}
+<!--        </if>-->
+        <if test="map.subjectClaimsOrderNo != null and map.subjectClaimsOrderNo != '' ">
+            AND s.subject_claims_order_no LIKE concat('%',#{map.subjectClaimsOrderNo},'%')
+        </if>
+        <if test="map.reviewStatus != null">
+            AND s.review_status = #{map.reviewStatus}
+        </if>
+        <if test="map.projectId != null and map.projectId!=''">
+            AND s.project_id = #{map.projectId}
+        </if>
+        order by s.create_time asc
+    </select>
+    <select id="countWaybillCountByCreditApplyId" resultType="java.lang.Long">
+        SELECT SUM(waybill_count) from    subject_claims_order s left join credit_apply_detail c1 on c1.subject_claims_order_id=s.id where
+        c1.credit_apply_id=#{creditApplyId}
+    </select>
+</mapper>

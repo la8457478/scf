@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fkhwl.scf.dao.RepayBillDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="RepayBillResultMap" type="com.fkhwl.scf.entity.po.RepayBill">
+        <result column="id" property="id"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="deleted" property="deleted"/>
+        <result column="repay_balance" property="repayBalance"/>
+        <result column="status" property="status"/>
+        <result column="flow_id" property="flowId"/>
+        <result column="flow_node_id" property="flowNodeId"/>
+        <result column="repay_date" property="repayDate"/>
+        <result column="owner_id" property="ownerId"/>
+        <result column="create_user_id" property="createUserId"/>
+        <result column="account_bill_ids" property="accountBillIds"/>
+        <result column="interest_rate_balance" property="interestRateBalance"/>
+        <result column="grace_rate_balance" property="graceRateBalance"/>
+        <result column="overdue_rate_balance" property="overdueRateBalance"/>
+        <result column="counterparty_id" property="counterpartyId"/>
+        <result column="counterparty_name" property="counterpartyName"/>
+        <result column="company_borrower_id" property="companyBorrowerId"/>
+        <result column="company_borrower_name" property="companyBorrowerName"/>
+        <result column="account_bill_balance_info" property="accountBillBalanceInfo"/>
+        <result column="review_reason" property="reviewReason"/>
+    </resultMap>
+
+    <sql id="commonOwnerIdCondition">
+        <if test="map.ownerIds != null and map.ownerIds.size>0">
+            AND p.owner_id IN
+            <foreach collection="map.ownerIds" item="item" separator="," open="(" close=")">
+                #{item}
+            </foreach>
+        </if>
+    </sql>
+    <select id="listPage"  resultType="com.fkhwl.scf.entity.dto.RepayBillDTO">
+        SELECT
+         p.*
+        FROM
+        repay_bill p
+        WHERE
+        p.deleted = 0
+        <include refid="commonOwnerIdCondition"/>
+
+        <if test="map.ownerId != null and map.ownerId != '' ">
+            AND p.owner_id=#{map.ownerId}
+        </if>
+        <if test="map.companyBorrowerName != null and map.companyBorrowerName != '' ">
+            AND p.company_borrower_name LIKE concat('%',#{map.companyBorrowerName},'%')
+
+        </if>
+        <if test="map.handleStatus != null and map.handleStatus != '' ">
+        <choose>
+            <when test="map.handleStatus==1">
+                AND p.status in (2)
+            </when>
+            <when test="map.handleStatus==2">
+                AND p.status in (-1,3)
+            </when>
+        </choose>
+        </if>
+        <if test="map.status != null and map.status != '' ">
+            AND p.status=#{map.status}
+        </if>
+        <if test="map.searchTimeType != null">
+            <choose>
+                <when test="map.searchTimeType == 1">
+                    <if test="map.beginTime != null and map.beginTime != ''">
+                        <![CDATA[ AND p.repay_date >= #{map.beginTime} ]]>
+                    </if>
+                    <if test="map.overTime != null and map.overTime != ''">
+                        <![CDATA[ AND p.repay_date <= #{map.overTime} ]]>
+                    </if>
+                </when>
+                <when test="map.searchTimeType == 2">
+                    <if test="map.beginTime != null and map.beginTime != ''">
+                        <![CDATA[ AND p.update_time >= #{map.beginTime} ]]>
+                    </if>
+                    <if test="map.overTime != null and map.overTime != ''">
+                        <![CDATA[ AND p.update_time <= #{map.overTime} ]]>
+                    </if>
+                </when>
+
+            </choose>
+        </if>
+        order by p.repay_date desc,p.id desc
+    </select>
+    <select id="getCheckingByCounterpartyId"  resultType="com.fkhwl.scf.entity.dto.RepayBillDTO">
+        SELECT
+        p.*
+        FROM
+        repay_bill p
+        WHERE
+        p.deleted = 0
+        and p.status=2
+        <if test="counterpartyId != null and counterpartyId != 0 ">
+            AND p.counterparty_id=#{counterpartyId}
+        </if>
+        order by p.create_time desc
+    </select>
+</mapper>

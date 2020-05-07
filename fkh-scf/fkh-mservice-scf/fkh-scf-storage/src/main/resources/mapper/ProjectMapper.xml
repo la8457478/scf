@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fkhwl.scf.dao.ProjectDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="ProjectResultMap" type="com.fkhwl.scf.entity.po.Project">
+        <result column="id" property="id"/>
+        <result column="deleted" property="deleted"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="third_id" property="thirdId"/>
+        <result column="project_name" property="projectName"/>
+        <result column="create_owner_name" property="createOwnerName"/>
+        <result column="create_user_id" property="createUserId"/>
+        <result column="create_user_name" property="createUserName"/>
+        <result column="send_user_id" property="sendUserId"/>
+        <result column="send_company_name" property="sendCompanyName"/>
+        <result column="transport_user_id" property="transportUserId"/>
+        <result column="transport_company_name" property="transportCompanyName"/>
+        <result column="consignee_userId" property="consigneeUserId"/>
+        <result column="consignee_company_name" property="consigneeCompanyName"/>
+        <result column="payment_user_id" property="paymentUserId"/>
+        <result column="project_status" property="projectStatus"/>
+        <result column="is_self" property="isSelf"/>
+        <result column="net_weight_only" property="netWeightOnly"/>
+        <result column="material_type" property="materialType"/>
+        <result column="signing_companyId" property="signingCompanyid"/>
+        <result column="signing_company_name" property="signingCompanyName"/>
+        <result column="company_id" property="companyId"/>
+        <result column="counterparty_id" property="counterpartyId"/>
+        <result column="counterparty_name" property="counterpartyName"/>
+        <result column="subject_claims_order_count" property="subjectClaimsOrderCount"/>
+        <result column="send_duty_user_name" property="sendDutyUserName"/>
+        <result column="transport_duty_user_name" property="transportDutyUserName"/>
+        <result column="consignee_duty_user_name" property="consigneeDutyUserName"/>
+        <result column="project_create_time" property="projectCreateTime"/>
+    </resultMap>
+    <!-- DTO通用查询映射结果 -->
+    <resultMap id="ProjectResultDTOMap" type="com.fkhwl.scf.entity.dto.ProjectDTO" extends="ProjectResultMap"/>
+    <!-- 通用查询映射结果 -->
+    <resultMap id="ProjectListResultMap" type="com.fkhwl.scf.entity.dto.ProjectListDTO" extends="ProjectResultDTOMap">
+        <result column="subitem_used_balance" property="subitemUsedBalance"/>
+        <result column="subitem_remain_balance" property="subitemRemainBalance"/>
+        <result column="subitem_limit_balance" property="subitemLimitBalance"/>
+    </resultMap>
+    <update id="updateSubitemClaimsOrderCount">
+
+        UPDATE project SET  subject_claims_order_count= subject_claims_order_count +(#{count})
+        WHERE id = #{projectId}
+
+    </update>    <!-- DTO通用查询映射结果 -->
+    <select id="listPage" resultMap="ProjectListResultMap">
+        SELECT
+          p.*,c.subitem_limit_balance,c.subitem_used_balance,c.subitem_remain_balance
+        FROM
+          project p
+        LEFT JOIN counterparty c ON p.counterparty_id = c.id
+        WHERE
+          p.company_id = #{map.companyId} AND p.deleted = 0  and c.`status`=1 and c.deleted = 0
+        <if test="map.projectName != null and map.projectName != '' ">
+            AND p.project_name LIKE concat('%',#{map.projectName},'%')
+        </if>
+        <if test="map.counterpartyName != null and map.counterpartyName != '' ">
+            AND c.counterparty_name LIKE concat('%',#{map.counterpartyName},'%')
+        </if>
+        order by c.id desc, p.id desc
+    </select>
+</mapper>

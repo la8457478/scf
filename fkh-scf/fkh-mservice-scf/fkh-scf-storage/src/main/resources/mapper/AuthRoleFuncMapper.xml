@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fkhwl.scf.dao.AuthRoleFuncDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="AuthRoleFuncResultMap" type="com.fkhwl.scf.entity.po.AuthRoleFunc">
+        <result column="id" property="id"/>
+        <result column="deleted" property="deleted"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="auth_role_id" property="authRoleId"/>
+        <result column="auth_func_id" property="authFuncId"/>
+    </resultMap>
+
+    <select id="listByRoleId" resultMap="AuthRoleFuncResultMap">
+        SELECT
+          *
+        FROM
+          auth_role_func
+        WHERE auth_role_id = #{roleId}
+    </select>
+
+    <update id="updateDeletedByParams">
+        UPDATE auth_role_func SET deleted = #{map.deleted}, update_time = #{map.updateTime}
+        WHERE 1 = 1
+        <if test="map.ids != null">
+            AND id IN
+            <foreach collection="map.ids" item="item" separator="," open="(" close=")">
+                #{item}
+            </foreach>
+        </if>
+        <if test="map.authRoleId != null">
+            AND auth_role_id = #{map.authRoleId}
+        </if>
+    </update>
+</mapper>

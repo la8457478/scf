@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/fkh-scf" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fkh-scf/fkh-mservice-scf" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fkh-scf/fkh-mservice-scf/fkh-scf-client-dubbo" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fkh-scf/fkh-mservice-scf/fkh-scf-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fkh-scf/fkh-mservice-scf/fkh-scf-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fkh-scf/fkh-mservice-scf/fkh-scf-storage" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fkh-scf/fkh-scf-openapi" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fkh-scf/fkh-scf-web" charset="UTF-8" />
+  </component>
+</project>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fkhwl.scf.dao.CompanyContractDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="CompanyContractResultMap" type="com.fkhwl.scf.entity.po.CompanyContract">
+        <result column="id" property="id"/>
+        <result column="deleted" property="deleted"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="company_capital_id" property="companyCapitalId"/>
+        <result column="company_borrower_id" property="companyBorrowerId"/>
+        <result column="company_borrower_name" property="companyBorrowerName"/>
+        <result column="contract_number" property="contractNumber"/>
+        <result column="start_time" property="startTime"/>
+        <result column="end_time" property="endTime"/>
+        <result column="manage_rate" property="manageRate"/>
+        <result column="interest_rate" property="interestRate"/>
+        <result column="total_balance" property="totalBalance"/>
+        <result column="contract_link" property="contractLink"/>
+        <result column="loan_success_balance" property="loanSuccessBalance"/>
+        <result column="remaining_balance" property="remainingBalance"/>
+        <result column="returned_balance" property="returnedBalance"/>
+        <result column="need_return_balance" property="needReturnBalance"/>
+        <result column="remaining_subitem_balance" property="remainingSubitemBalance"/>
+        <result column="had_subitem_balance" property="hadSubitemBalance"/>
+        <result column="status" property="status"/>
+        <result column="bank_name" property="bankName"/>
+        <result column="bank_account_no" property="bankAccountNo"/>
+        <result column="project_mg_name" property="projectMgName"/>
+        <result column="project_second_mg_name" property="projectSecondMgName"/>
+        <result column="department_manager" property="departmentManager"/>
+        <result column="department_name" property="departmentName"/>
+        <result column="bank_account_name" property="bankAccountName"/>
+        <result column="branch_bank_name" property="branchBankName"/>
+    </resultMap>
+
+
+    <select id="findPage" resultType="com.fkhwl.scf.entity.dto.CompanyContractDTO">
+        SELECT * FROM company_contract WHERE 1=1
+        <if test="map.companyBorrowerName != null and map.companyBorrowerName != ''">
+            AND company_borrower_name like concat('%',#{map.companyBorrowerName},'%')
+        </if>
+        <if test="map.companyCapitalId != null and map.companyCapitalId != 0">
+            AND company_capital_id =#{map.companyCapitalId}
+        </if>
+        ORDER BY id DESC
+    </select>
+    <select id="findInfoByCompanyId" resultMap="CompanyContractResultMap">
+        SELECT * FROM company_contract WHERE 1=1 AND company_borrower_id =#{companyBorrowerId} AND company_capital_id =#{companyCapitalId} limit 1
+    </select>
+    <update id="updateBaseConfig" parameterType="com.fkhwl.scf.entity.po.CompanyContract">
+        update company_contract
+        set  contract_number =#{contractNumber} ,
+            interest_rate =#{interestRate} ,
+            manage_rate =#{manageRate} ,
+            start_time =#{startTime} ,
+            end_time =#{endTime} ,
+            bank_name=#{bankName} ,
+            bank_account_no=#{bankAccountNo} ,
+            project_mg_name=#{projectMgName} ,
+            project_second_mg_name=#{projectSecondMgName} ,
+            department_manager=#{departmentManager} ,
+            department_name=#{departmentName} ,
+            contract_link = #{contractLink},
+            total_balance =#{totalBalance} ,
+            remaining_subitem_balance = #{totalBalance}-had_subitem_balance,
+            remaining_balance= #{totalBalance}-need_return_balance,
+            branch_bank_name= #{branchBankName},
+            update_time=now()
+        where id=#{id} and #{totalBalance}- had_subitem_balance>=0 and #{totalBalance}- need_return_balance>=0
+    </update>
+    <!-- 新增修改交易对手时，更新客户合同的可分配限额-->
+    <update id="updateSubitemBalance" parameterType="com.fkhwl.scf.entity.po.CompanyContract">
+        update company_contract
+        set remaining_subitem_balance = total_balance- had_subitem_balance - #{hadSubitemBalance} ,
+            had_subitem_balance =had_subitem_balance + #{hadSubitemBalance} ,
+            update_time=now()
+        where id=#{id} and total_balance- had_subitem_balance - #{hadSubitemBalance}>=0
+    </update>
+    <!-- 审核运营添加的新客户合同-->
+    <update id="review" parameterType="com.fkhwl.scf.entity.po.CompanyContract">
+        update company_contract
+        set status =#{map.status} ,
+            update_time=now()
+        where id=#{map.id}
+    </update>
+    <update id="updateLoanBalance"  parameterType="java.util.Map">
+     update company_contract
+        set remaining_balance = remaining_balance - #{map.applyBalance} ,
+            need_return_balance =need_return_balance + #{map.applyBalance} ,
+            loan_success_balance =loan_success_balance + #{map.applyBalance} ,
+            update_time=now()
+        where id=#{map.id} and remaining_subitem_balance - #{map.applyBalance}>=0
+    </update>
+    <update id="updateRepayBalance"  parameterType="java.util.Map">
+           update company_contract
+        set remaining_balance = remaining_balance +#{map.repayBalance} ,
+            need_return_balance =need_return_balance - #{map.repayBalance} ,
+            returned_balance =returned_balance + #{map.repayBalance} ,
+            update_time=now()
+        where id=#{map.id} and  need_return_balance - #{map.repayBalance}>=0
+
+    </update>
+
+</mapper>

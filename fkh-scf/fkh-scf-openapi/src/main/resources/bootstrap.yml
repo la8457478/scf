@@ -1,0 +1,33 @@
+spring:
+  profiles:
+    active: ${profile.active}
+  application:
+    name: ${project.artifactId}
+  resources:
+    static-locations: classpath:/META-INF/resources,classpath:/resources, classpath:/static
+  thymeleaf:
+    prefix: classpath:/templates/
+  cloud:
+    nacos:
+      config:
+        group: LIUAN
+        server-addr: 192.168.8.128
+        file-extension: yml
+#        namespace: local 配置了没用，starter模块默认取的JVM的-Duser.name参数
+#dubbo:
+#  protocol:
+#    port: 29910
+#    name: dubbo
+#  registry:
+#    address: nacos://192.168.8.128:8848
+#  consumer:
+#    check: true
+#    version: 1.0.1
+server:
+  servlet:
+    context-path: /openapi
+    application-display-name: ${spring.application.name}
+  port: 9907
+upload:
+  url: https://dev.fkhwl.com/devuploads/
+  path: D:/data/devuploads/

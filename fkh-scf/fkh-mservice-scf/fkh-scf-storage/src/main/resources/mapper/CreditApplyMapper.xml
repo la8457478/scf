@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fkhwl.scf.dao.CreditApplyDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="CreditApplyResultMap" type="com.fkhwl.scf.entity.po.CreditApply">
+        <result column="id" property="id"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="deleted" property="deleted"/>
+        <result column="status" property="status"/>
+        <result column="credit_apply_no" property="creditApplyNo"/>
+        <result column="apply_balance" property="applyBalance"/>
+        <result column="can_apply_balance" property="canApplyBalance"/>
+        <result column="waybill_count" property="waybillCount"/>
+        <result column="attachment" property="attachment"/>
+        <result column=" due_date" property="dueDate"/>
+        <result column=" manage_balance" property="manageBalance"/>
+        <result column=" interest_balance" property="interestBalance"/>
+        <result column="counterparty_id" property="counterpartyId"/>
+<!--        <result column="creator" property="creator"/>-->
+        <result column="transfer_balance" property="transferBalance"/>
+        <result column="loan_balance" property="loanBalance"/>
+        <result column="fact_ratio" property="factRatio"/>
+        <result column="owner_id" property="ownerId"/>
+        <result column="create_user_id" property="createUserId"/>
+        <result column="flow_node_id" property="flowNodeId"/>
+        <result column="flow_id" property="flowId"/>
+        <result column="grace_date" property="graceDate"/>
+        <result column="has_charge" property="hasCharge"/>
+        <result column="checked_waybill_count" property="checkedWaybillCount"/>
+        <result column="pdf_path" property="pdfPath"/>
+        <result column="sign_pdf_path" property="signPdfPath"/>
+        <result column="loan_time" property="loanTime"/>
+        <result column="pass_last_flow_node_id" property="passLastFlowNodeId"/>
+        <result column="review_bill_url" property="reviewBillUrl"/>
+        <result column="after_this_balance" property="afterThisBalance"/>
+        <result column="need_checked_waybill_count" property="needCheckWaybillCount"/>
+    </resultMap>
+    <sql id="commonOwnerIdCondition">
+        <if test="map.ownerIds != null and map.ownerIds.size>0">
+            AND c.owner_id IN
+            <foreach collection="map.ownerIds" item="item" separator="," open="(" close=")">
+                #{item}
+            </foreach>
+        </if>
+    </sql>
+    <!-- DTO通用查询映射结果 -->
+    <select id="listPage" resultType="com.fkhwl.scf.entity.dto.CreditApplyDTO">
+        SELECT
+        c.*
+        FROM
+        credit_apply c
+        WHERE
+        c.deleted = 0
+        <include refid="commonOwnerIdCondition"/>
+
+        <if test="map.ownerId != null and map.ownerId != '' ">
+            AND c.owner_id LIKE concat('%',#{map.ownerId},'%')
+        </if>
+
+        <if test="map.status != null and map.status != '' ">
+            <choose>
+                <when test="map.status==-1">
+                    AND c.status in (1,2,3,4,5)
+                </when>
+                <when test="map.status==-2">
+                    AND c.status in (6,7)
+                </when>
+                <otherwise>
+                    AND c.status = #{map.status}
+                </otherwise>
+            </choose>
+        </if>
+        <if test="map.creditApplyNo != null and map.creditApplyNo != '' ">
+            AND c.credit_apply_no LIKE concat('%',#{map.creditApplyNo},'%')
+        </if>
+        order by c.create_time desc
+    </select>
+    <!-- 通用查询映射结果 -->
+    <resultMap id="CreditApplyListResultMap" type="com.fkhwl.scf.entity.dto.CreditApplyListDTO"  extends="CreditApplyResultMap">
+        <result column=" company_borrower_name" property="companyBorrowerName"/>
+        <result column=" company_borrower_id" property="companyBorrowerId"/>
+        <result column="counterparty_name" property="counterpartyName"/>
+    </resultMap>    <!-- DTO通用查询映射结果 -->
+    <!-- 运营-放款申请列表需要正序 -->
+    <select id="listCreditApplyPage" resultType="com.fkhwl.scf.entity.dto.CreditApplyListDTO">
+        SELECT
+        c.*,c2.counterparty_name,c2.company_borrower_id ,c3.company_name as companyBorrowerName,c2.subitem_remain_balance
+        FROM
+        credit_apply c left join counterparty c2 on c.counterparty_id =c2.id left  join company c3 on c3.id=c2.company_borrower_id
+        WHERE
+        c.deleted = 0
+        <include refid="commonOwnerIdCondition"/>
+
+        <if test="map.status != null and map.status != '' ">
+            <choose>
+                <when test="map.status==-3">
+                    AND c.status in (-1,1,2,3,4,5)
+                </when>
+                <when test="map.status==-2">
+                    AND c.status in (5,6)
+                </when>
+                <otherwise>
+                    <if test="map.isReviewRecord != null and map.isReviewRecord == true and map.flowNodeId !=null">
+                    <!-- 如果是审核记录-->
+                        AND (c.pass_last_flow_node_id > #{map.flowNodeId} ) and c.status != -2
+                    </if>
+                    <if test="(map.isReviewRecord == null || map.isReviewRecord == false) and  map.flowNodeId !=null">
+                        <!-- 如果不是审核记录-->
+                        AND c.flow_node_id = #{map.flowNodeId}
+                    </if>
+                    <if test="map.isReviewRecord == null || map.isReviewRecord == false">
+                        <!-- 如果是主账号-->
+                        AND c.status = #{map.status}
+                    </if>
+                </otherwise>
+            </choose>
+        </if>
+        <if test="map.companyName != null and map.companyName != '' ">
+            AND c3.company_name LIKE concat('%',#{map.companyName},'%')
+        </if>
+        <if test="map.creditApplyNo != null and map.creditApplyNo != '' ">
+            AND c.credit_apply_no LIKE concat('%',#{map.creditApplyNo},'%')
+        </if>
+
+        order by c.id
+    </select>
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="CreditApplyReviewResultMap" type="com.fkhwl.scf.entity.dto.CreditApplyReviewDTO"  extends="CreditApplyListResultMap">
+        <result column=" total_balance" property="totalBalance"/>
+        <result column="remaining_balance" property="remainingBalance"/>
+        <result column=" subitem_limit_balance" property="subitemLimitBalance"/>
+        <result column=" subitem_remain_balance" property="subitemRemainBalance"/>
+        <result column="counterparty_name" property="counterpartyName"/>
+        <result column="flow_node_id" property="flowNodeId"/>
+        <result column="interest_rate" property="interestRate"/>
+        <result column="had_receivable_balance" property="hadReceivableBalance"/>
+
+    </resultMap>
+
+    <select id="getReviewDetail" resultType="com.fkhwl.scf.entity.dto.CreditApplyReviewDTO">
+   SELECT
+        c.*,c2.counterparty_name,c2.company_borrower_id,c2.interest_rate ,c3.company_borrower_name  ,c3.total_balance,c3.remaining_balance,c2.subitem_limit_balance,c2.subitem_remain_balance,c2.subitem_limit_balance,c2.rule_ratio,c2.total_lending_balance,c2.returned_balance,c2.had_receivable_balance,c3.bank_name,c3.bank_account_no
+        FROM
+        credit_apply c left join counterparty c2 on c.counterparty_id =c2.id left join company_contract c3 on c3.company_borrower_id=c2.company_borrower_id
+        WHERE c.id = #{creditApplyId} and c3.company_capital_id = #{companyCapitalId};
+    </select>
+    <select id="sumBalance" resultType="java.util.Map">
+        SELECT sum(apply_balance) as sumApplyBalance,sum(transfer_balance) as sumTransferBalance from credit_apply c where c.deleted=0
+
+        <if test="params.counterpartyId != null and params.counterpartyId != '' ">
+            AND c.counterparty_id = #{params.counterpartyId}
+        </if>
+        <if test="params.status != null and params.status != '' ">
+        <choose>
+            <when test=" params.status =='>1'">
+                AND c.status in (2,3,4,5)
+            </when>
+            <otherwise>
+                AND c.status = #{params.status}
+            </otherwise>
+        </choose>
+        </if>
+
+
+    </select>
+</mapper>

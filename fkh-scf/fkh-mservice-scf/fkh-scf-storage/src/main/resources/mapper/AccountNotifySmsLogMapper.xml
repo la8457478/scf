@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fkhwl.scf.dao.AccountNotifySmsLogDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="AccountNotifySmsLogResultMap" type="com.fkhwl.scf.entity.po.AccountNotifySmsLog">
+        <result column="id" property="id"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="deleted" property="deleted"/>
+        <result column="mobile_no" property="mobileNo"/>
+        <result column="company_borrower_id" property="companyBorrowerId"/>
+        <result column="company_capital_id" property="companyCapitalId"/>
+        <result column="create_user_id" property="createUserId"/>
+        <result column="send_status" property="sendStatus"/>
+    </resultMap>
+
+
+</mapper>

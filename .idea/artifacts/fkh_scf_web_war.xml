@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="fkh-scf-web:war">
+    <output-path>$PROJECT_DIR$/fkh-scf/fkh-scf-web/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>fkh-scf-web</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="fkh-scf-web.war">
+      <element id="artifact" artifact-name="fkh-scf-web:war exploded" />
+    </root>
+  </artifact>
+</component>

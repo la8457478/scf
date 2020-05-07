@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="fkh-scf-client-dubbo" />
+        <module name="fkh-scf-client-feign" />
+        <module name="fkh-scf-common" />
+        <module name="fkh-scf-service" />
+        <module name="fkh-scf-storage" />
+        <module name="fkh-template-storage" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="fkh-scf" target="1.8" />
+      <module name="fkh-scf-client-dubbo" target="1.8" />
+      <module name="fkh-scf-client-feign" target="1.8" />
+      <module name="fkh-scf-common" target="1.8" />
+      <module name="fkh-scf-service" target="1.8" />
+      <module name="fkh-scf-storage" target="1.8" />
+      <module name="fkh-sfc" target="1.8" />
+      <module name="fkh-template" target="1.8" />
+      <module name="fkh-template-client-dubbo" target="1.8" />
+      <module name="fkh-template-client-feign" target="1.8" />
+      <module name="fkh-template-service" target="1.8" />
+      <module name="fkh-template-storage" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="fkh-scf-client-dubbo" options="-parameters" />
+      <module name="fkh-scf-client-feign" options="-parameters" />
+      <module name="fkh-scf-common" options="-parameters" />
+      <module name="fkh-scf-service" options="-parameters" />
+      <module name="fkh-template-client-dubbo" options="-parameters" />
+      <module name="fkh-template-client-feign" options="-parameters" />
+      <module name="fkh-template-service" options="-parameters" />
+      <module name="fkh-template-storage" options="-parameters" />
+    </option>
+  </component>
+</project>

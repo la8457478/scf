@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fkhwl.scf.dao.ReviewRecordDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="ReviewRecordResultMap" type="com.fkhwl.scf.entity.po.ReviewRecord">
+        <result column="id" property="id"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="deleted" property="deleted"/>
+        <result column="review_result" property="reviewResult"/>
+        <result column="pass_status" property="passStatus"/>
+        <result column="review_reason" property="reviewReason"/>
+        <result column="business_id" property="businessId"/>
+        <result column="owner_id" property="ownerId"/>
+        <result column="create_user_id" property="createUserId"/>
+        <result column="flow_node_id" property="flowNodeId"/>
+        <result column="flow_id" property="flowId"/>
+        <result column="flow_node_name" property="flowNodeName"/>
+
+
+    </resultMap>
+    <select id="listReviewHistory" resultType="com.fkhwl.scf.entity.dto.ReviewRecordDTO">
+        SELECT
+          r.*,
+          u.nick_name createUserName
+        FROM
+          review_record r
+        LEFT JOIN scf_user u ON r.create_user_id = u.id
+        WHERE
+        r.deleted = 0
+        <if test="map.creditApplyId != null and map.creditApplyId != '' ">
+            AND r.business_id =#{map.creditApplyId}
+        </if>
+        <if test="map.flowId != null and map.flowId != '' ">
+            AND r.flow_id =#{map.flowId}
+        </if>
+        <if test="map.passStatus != null and map.passStatus != '' ">
+            AND r.pass_status =#{map.passStatus}
+        </if>
+        order by r.create_time desc
+
+    </select>
+
+
+</mapper>

@@ -1,0 +1,28 @@
+server:
+  port: 63708
+
+spring:
+  profiles:
+    active: ${profile.active}
+  application:
+    name: ${package.name}
+  cloud:
+    nacos:
+      config:
+        group: LIUAN
+        server-addr: 192.168.8.128
+        file-extension: yml
+#        namespace: local 配置了没用，starter模块默认取的JVM的-Duser.name参数
+fkh:
+  logging:
+    level: DEBUG
+  rest:
+    enable-browser: false
+    enable-request-log: true
+#  mongo:
+#    uri: 多数据源配置可使用
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

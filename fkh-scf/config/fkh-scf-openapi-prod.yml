@@ -1,0 +1,12 @@
+dubbo:
+  protocol:
+    port: 29910
+    name: dubbo
+  registry:
+    address: nacos://192.168.2.81:8848
+  consumer:
+    check: true
+    version: 0.0.1
+    timeout: 60000
+  cloud:
+    subscribed-services: fkh-scf-openapi

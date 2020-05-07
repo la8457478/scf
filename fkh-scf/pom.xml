@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>fkh-company-parent</artifactId>
+        <groupId>com.fkhwl</groupId>
+        <version>1.0.2.RELEASE</version>
+        <relativePath/>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <version>1.0.1</version>
+    <artifactId>fkh-scf</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <!--<module>fkh-scf-client-feign</module>-->
+        <module>fkh-mservice-scf</module>
+        <module>fkh-scf-web</module>
+        <module>fkh-scf-openapi</module>
+    </modules>
+
+    <properties>
+        <maven.deploy.skip>true</maven.deploy.skip>
+        <fkh-starter-dependencies.version>1.2.4.RELEASE</fkh-starter-dependencies.version>
+        <javax-validation.version>2.0.1.Final</javax-validation.version>
+        <commons-utils.version>2.0.2</commons-utils.version>
+        <org.apache.shiro>1.4.0</org.apache.shiro>
+        <kaptcha.version>2.3.2</kaptcha.version>
+        <jstl.version>1.2</jstl.version>
+        <thumbnailator.version>0.4.7</thumbnailator.version>
+        <commons.version>2.6</commons.version>
+
+        <httpclient.version>4.5.5</httpclient.version>
+        <httpcore.version>4.4.9</httpcore.version>
+        <httpmime.version>4.5.5</httpmime.version>
+        <poi.version>3.14</poi.version>
+        <pdfbox.version>2.0.6</pdfbox.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+                <version>${commons.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.isharing.commons</groupId>
+                <artifactId>commons-utils</artifactId>
+                <version>${commons-utils.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fkhwl</groupId>
+                <artifactId>fkh-starter-dependencies</artifactId>
+                <version>${fkh-starter-dependencies.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.fkhwl</groupId>
+                <artifactId>fkh-scf-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fkhwl</groupId>
+                <artifactId>fkh-scf-client-dubbo</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fkhwl</groupId>
+                <artifactId>fkh-scf-storage</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!-- 验证码 -->
+            <dependency>
+                <groupId>com.google.code.kaptcha</groupId>
+                <artifactId>kaptcha</artifactId>
+                <version>${kaptcha.version}</version>
+            </dependency>
+
+            <!-- 缩略图 -->
+            <dependency>
+                <groupId>net.coobird</groupId>
+                <artifactId>thumbnailator</artifactId>
+                <version>${thumbnailator.version}</version>
+            </dependency>
+
+            <!-- http client引入开始 -->
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${httpclient.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>commons-logging</groupId>
+                        <artifactId>commons-logging</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpcore</artifactId>
+                <version>${httpcore.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpmime</artifactId>
+                <version>${httpmime.version}</version>
+            </dependency>
+            <!-- http client引入结束 -->
+            <!-- Excel 引入开始 -->
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+            <!-- Excel 引入结束 -->
+
+
+            <!--pdf文件生成-->
+            <dependency>
+                <groupId>org.apache.pdfbox</groupId>
+                <artifactId>pdfbox</artifactId>
+                <version>${pdfbox.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>commons-logging</groupId>
+                        <artifactId>commons-logging</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>

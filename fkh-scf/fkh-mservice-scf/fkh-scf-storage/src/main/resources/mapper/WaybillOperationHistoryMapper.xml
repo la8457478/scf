@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fkhwl.scf.dao.WaybillOperationHistoryDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="WaybillOperationHistoryResultMap" type="com.fkhwl.scf.entity.po.WaybillOperationHistory">
+        <result column="id" property="id"/>
+        <result column="deleted" property="deleted"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="waybill_id" property="waybillId"/>
+        <result column="handle_desc" property="handleDesc"/>
+        <result column="handle_time" property="handleTime"/>
+    </resultMap>
+
+    <select id="listByWaybillId" resultType="com.fkhwl.scf.entity.dto.WaybillOperationHistoryDTO">
+        SELECT
+          w.*
+        FROM
+          waybill_operation_history w
+        WHERE
+          w.waybill_id = #{waybillId} AND w.deleted = 0
+        ORDER BY handle_time ASC
+    </select>
+</mapper>

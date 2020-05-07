@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fkhwl.scf.dao.CompanyDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="CompanyResultMap" type="com.fkhwl.scf.entity.po.Company">
+        <result column="id" property="id"/>
+        <result column="company_type" property="companyType"/>
+        <result column="company_name" property="companyName"/>
+        <result column="province_id" property="provinceId"/>
+        <result column="province_name" property="provinceName"/>
+        <result column="city_id" property="cityId"/>
+        <result column="city_name" property="cityName"/>
+        <result column="area_id" property="areaId"/>
+        <result column="area_name" property="areaName"/>
+        <result column="company_address" property="companyAddress"/>
+        <result column="company_tel" property="companyTel"/>
+        <result column="create_user_id" property="createUserId"/>
+        <result column="create_owner_id" property="createOwnerId"/>
+        <result column="owner_id" property="ownerId"/>
+        <result column="owner_login_name" property="ownerLoginName"/>
+        <result column="owner_name" property="ownerName"/>
+        <result column="user_mobile_no" property="userMobileNo"/>
+        <result column="legal_person" property="legalPerson"/>
+        <result column="id_card_no" property="idCardNo"/>
+        <result column="id_card_picture" property="idCardPicture"/>
+        <result column="id_card_picture_back" property="idCardPictureBack"/>
+        <result column="register_type" property="registerType"/>
+        <result column="account_mobile_nos" property="accountMobileNos"/>
+        <result column="business_scope" property="businessScope"/>
+        <result column="registered_capital" property="registeredCapital"/>
+        <result column="business_license_no" property="businessLicenseNo"/>
+        <result column="business_license_picture" property="businessLicensePicture"/>
+        <result column="remark" property="remark"/>
+        <result column="company_status" property="companyStatus"/>
+        <result column="deleted" property="deleted"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="sign_seal_data" property="signSealData"/>
+        <result column="sign_account_id" property="signAccountId"/>
+        <result column="short_company_name" property="shortCompanyName"/>
+        <result column="sms_consult_phone_no" property="smsConsultPhoneNo"/>
+    </resultMap>
+
+    <select id="listPage" resultType="com.fkhwl.scf.entity.dto.CompanyDTO">
+        SELECT
+            c.id,
+            c.owner_id as ownerId,
+            c.company_type as companyType,
+            c.company_name as companyName,
+            c.owner_name as ownerName,
+            c.establishing_time as establishingTime,
+            c.business_license_no as businessLicenseNo,
+            c.company_status as companyStatus
+        FROM
+          company c
+        WHERE
+        c.deleted = 0
+        <if test="map.companyName != null and map.companyName != '' ">
+            AND c.company_name LIKE concat('%',#{map.companyName},'%')
+        </if>
+        <if test="map.companyType != null">
+            AND c.company_type = #{map.companyType}
+        </if>
+        <if test="map.createOwnerId != null">
+            AND c.create_owner_id = #{map.createOwnerId}
+        </if>
+        <if test="map.hasContract != null">
+            AND id not in (SELECT company_borrower_id from company_contract)
+        </if>
+        order by c.create_time desc
+    </select>
+    <select id="getBorrowerOwnerIdsByCapital" resultType="java.lang.Long">
+
+        SELECT
+            c1.owner_id
+        FROM
+            company c1
+            LEFT JOIN company_contract c2 ON c2.company_borrower_id = c1.id
+        WHERE
+            c2.company_capital_id = #{companyId}
+    </select>
+
+    <select id="getByOwnerId" resultType="com.fkhwl.scf.entity.dto.CompanyDTO">
+        SELECT
+            c.*
+        FROM
+            company c
+        WHERE
+            c.owner_id = #{ownerId} AND deleted = 0 LIMIT 1
+    </select>
+
+    <select id="getByParams" resultType="com.fkhwl.scf.entity.dto.CompanyDTO">
+        SELECT
+            c.*
+        FROM
+            company c
+        WHERE
+            deleted = 0
+        <if test="map.companyName != null">
+            AND c.company_name = #{map.companyName}
+        </if>
+        LIMIT 1
+    </select>
+</mapper>

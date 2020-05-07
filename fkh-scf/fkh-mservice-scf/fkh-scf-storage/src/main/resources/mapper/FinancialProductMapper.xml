@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fkhwl.scf.dao.FinancialProductDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="FinancialProductResultMap" type="com.fkhwl.scf.entity.po.FinancialProduct">
+        <result column="id" property="id"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="deleted" property="deleted"/>
+        <result column="interest_rate" property="interestRate"/>
+        <result column="repay_term" property="repayTerm"/>
+        <result column="repay_type" property="repayType"/>
+    </resultMap>
+
+
+</mapper>

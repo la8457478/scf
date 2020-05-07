@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fkhwl.scf.dao.WaybillDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="WaybillResultMap" type="com.fkhwl.scf.entity.po.Waybill">
+        <result column="id" property="id"/>
+        <result column="deleted" property="deleted"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="third_id" property="thirdId"/>
+        <result column="waybill_no" property="waybillNo"/>
+        <result column="departure_city" property="departureCity"/>
+        <result column="arrival_city" property="arrivalCity"/>
+        <result column="cargo_type" property="cargoType"/>
+        <result column="cargo_num" property="cargoNum"/>
+        <result column="project_id" property="projectId"/>
+        <result column="project_name" property="projectName"/>
+        <result column="program_id" property="programId"/>
+        <result column="program_name" property="programName"/>
+        <result column="driver_name" property="driverName"/>
+        <result column="driver_mobile_no" property="driverMobileNo"/>
+        <result column="license_plate_no" property="licensePlateNo"/>
+        <result column="car_type" property="carType"/>
+        <result column="axle_num" property="axleNum"/>
+        <result column="car_length" property="carLength"/>
+        <result column="cargo_tonnage" property="cargoTonnage"/>
+        <result column="fuel_type" property="fuelType"/>
+        <result column="remark" property="remark"/>
+        <result column="unit" property="unit"/>
+        <result column="upload_send_invoice" property="uploadSendInvoice"/>
+        <result column="upload_receive_invoice" property="uploadReceiveInvoice"/>
+        <result column="gross_weight_by_send" property="grossWeightBySend"/>
+        <result column="tare_weight_by_send" property="tareWeightBySend"/>
+        <result column="net_weight_by_send" property="netWeightBySend"/>
+        <result column="send_gross_weight" property="sendGrossWeight"/>
+        <result column="send_tare_weight" property="sendTareWeight"/>
+        <result column="send_net_weight" property="sendNetWeight"/>
+        <result column="receive_gross_weight" property="receiveGrossWeight"/>
+        <result column="receive_tare_weight" property="receiveTareWeight"/>
+        <result column="receive_net_weight" property="receiveNetWeight"/>
+        <result column="allow_difference" property="allowDifference"/>
+        <result column="allow_difference_val" property="allowDifferenceVal"/>
+        <result column="allow_difference_amount" property="allowDifferenceAmount"/>
+        <result column="unit_price" property="unitPrice"/>
+        <result column="value_price" property="valuePrice"/>
+        <result column="total_price" property="totalPrice"/>
+        <result column="income_price" property="incomePrice"/>
+        <result column="etc_card_amount" property="etcCardAmount"/>
+        <result column="cash_pay_amount" property="cashPayAmount"/>
+        <result column="deposit_amount" property="depositAmount"/>
+        <result column="oil_card_amount" property="oilCardAmount"/>
+        <result column="gas_card_amount" property="gasCardAmount"/>
+        <result column="oil_used_credit" property="oilUsedCredit"/>
+        <result column="oil_credit_limit" property="oilCreditLimit"/>
+        <result column="operator_type" property="operatorType"/>
+        <result column="loading_time" property="loadingTime"/>
+        <result column="receive_time" property="receiveTime"/>
+        <result column="bill_pass_time" property="billPassTime"/>
+        <result column="pay_freight_time" property="payFreightTime"/>
+        <result column="edit_send_time" property="editSendTime"/>
+        <result column="edit_receive_time" property="editReceiveTime"/>
+        <result column="review_send_time" property="reviewSendTime"/>
+        <result column="review_receive_time" property="reviewReceiveTime"/>
+        <result column="subject_claims_order_id" property="subjectClaimsOrderId"/>
+        <result column="pdf_path" property="pdfPath"/>
+        <result column="cfca_pdf_path" property="cfcaPdfPath"/>
+        <result column="waybill_status" property="waybillStatus"/>
+        <result column="invoice_money" property="invoiceMoney"/>
+        <result column="gps_count" property="gpsCount"/>
+        <result column="waybill_create_time" property="waybillCreateTime"/>
+        <result column="cfca_no" property="cfcaNo"/>
+        <result column="gps_type" property="gpsType"/>
+
+    </resultMap>
+
+    <select id="listPage" resultType="com.fkhwl.scf.entity.dto.WaybillDTO">
+        SELECT
+            w.*
+        FROM
+          waybill w
+        WHERE
+           w.deleted = 0
+        <if test="map.isTransferred != null and map.isTransferred == false">
+            AND (w.subject_claims_order_id is null OR w.subject_claims_order_id = 0)
+        </if>
+        <include refid="CommonCondition" />
+    </select>
+
+    <select id="listSubjectClaimsOrderWaybill" resultType="com.fkhwl.scf.entity.dto.WaybillDTO">
+        SELECT
+            w.project_id,
+            w.id,
+            w.invoice_money,
+            w.waybill_no,
+            w.bill_pass_time,
+            p.counterparty_id
+        FROM
+          waybill w
+        LEFT JOIN project p ON p.id = w.project_id
+        WHERE
+            w.deleted = 0 AND p.deleted = 0
+        <if test="map.waybillIds != null">
+            AND w.id IN
+            <foreach collection="map.waybillIds" item="item" separator="," open="(" close=")">
+                #{item}
+            </foreach>
+        </if>
+        <if test="map.newCreate != null and map.newCreate == true">
+            AND (w.subject_claims_order_id is null OR w.subject_claims_order_id = 0)
+        </if>
+        <include refid="CommonCondition" />
+    </select>
+
+    <!-- 共同查询条件 -->
+    <sql id="CommonCondition">
+        AND w.waybill_status !=-2
+        <if test="map.projectId != null">
+            AND w.project_id = #{map.projectId}
+        </if>
+        <if test="map.waybillNo != null and map.waybillNo != '' ">
+            AND w.waybill_no LIKE concat('%',#{map.waybillNo},'%')
+        </if>
+        <if test="map.subjectClaimsOrderId != null and map.subjectClaimsOrderId != '' ">
+            AND w.subject_claims_order_id =#{map.subjectClaimsOrderId}
+        </if>
+        <if test="map.creditApplyId != null and map.creditApplyId != '' ">
+            AND w.subject_claims_order_id in (select subject_claims_order_id from credit_apply_detail where credit_apply_id = #{map.creditApplyId})
+        </if>
+        <if test="map.waybillStatus != null">
+            AND w.waybill_status = #{map.waybillStatus}
+        </if>
+        <if test="map.searchTimeType != null">
+            <choose>
+                <when test="map.searchTimeType == 1">
+                    <if test="map.beginTime != null and map.beginTime != ''">
+                        <![CDATA[ AND w.waybill_create_time >= #{map.beginTime} ]]>
+                    </if>
+                    <if test="map.overTime != null and map.overTime != ''">
+                        <![CDATA[ AND w.waybill_create_time <= #{map.overTime} ]]>
+                    </if>
+                    ORDER BY w.waybill_create_time DESC
+                </when>
+                <when test="map.searchTimeType == 2">
+                    <if test="map.beginTime != null and map.beginTime != ''">
+                        <![CDATA[ AND w.loading_time >= #{map.beginTime} ]]>
+                    </if>
+                    <if test="map.overTime != null and map.overTime != ''">
+                        <![CDATA[ AND w.loading_time <= #{map.overTime} ]]>
+                    </if>
+                    ORDER BY w.loading_time DESC
+                </when>
+                <when test="map.searchTimeType == 3">
+                    <if test="map.beginTime != null and map.beginTime != ''">
+                        <![CDATA[ AND w.receive_time >= #{map.beginTime} ]]>
+                    </if>
+                    <if test="map.overTime != null and map.overTime != ''">
+                        <![CDATA[ AND w.receive_time <= #{map.overTime} ]]>
+                    </if>
+                    ORDER BY w.receive_time DESC
+                </when>
+                <when test="map.searchTimeType == 4">
+                    <if test="map.beginTime != null and map.beginTime != ''">
+                        <![CDATA[ AND w.bill_pass_time >= #{map.beginTime} ]]>
+                    </if>
+                    <if test="map.overTime != null and map.overTime != ''">
+                        <![CDATA[ AND w.bill_pass_time <= #{map.overTime} ]]>
+                    </if>
+                    ORDER BY w.bill_pass_time DESC
+                </when>
+            </choose>
+        </if>
+    </sql>
+
+    <update id="updateSubjectClaimsOrderId">
+        UPDATE waybill SET subject_claims_order_id = #{subjectClaimsOrderId}, update_time = #{updateTime}
+        WHERE
+        <if test="isNewCreate ==true">
+            (subject_claims_order_id is null OR subject_claims_order_id = 0)  and
+        </if>
+
+        id IN
+        <foreach collection="ids" item="item" separator="," open="(" close=")">
+            #{item}
+        </foreach>
+    </update>
+
+    <update id="updateByParams">
+        UPDATE waybill SET
+        update_time = #{map.updateTime}
+        <if test="map.waybillStatus != null">
+            ,waybill_status = #{map.waybillStatus}
+        </if>
+        WHERE 1 = 1
+        <if test="map.waybillId != null">
+            AND id = #{map.waybillId}
+        </if>
+    </update>
+
+    <select id="listIdsByParams" resultType="long">
+        SELECT
+          w.id
+        FROM
+          waybill w
+        WHERE
+          w.deleted = 0
+        <if test="map.isTransferred != null and map.isTransferred == false">
+            AND (w.subject_claims_order_id is null OR w.subject_claims_order_id = 0)
+        </if>
+        <include refid="CommonCondition" />
+    </select>
+</mapper>

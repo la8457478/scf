@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fkhwl.scf.dao.ChinaAreaDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="ChinaAreaResultMap" type="com.fkhwl.scf.entity.po.ChinaArea">
+        <result column="id" property="id"/>
+        <result column="deleted" property="deleted"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="code" property="code"/>
+        <result column="province" property="province"/>
+        <result column="city" property="city"/>
+        <result column="area" property="area"/>
+        <result column="parent_id" property="parentId"/>
+    </resultMap>
+
+    <select id="listParentId" resultType="com.fkhwl.scf.entity.dto.ChinaAreaDTO">
+        SELECT
+          *
+        FROM
+          china_area
+        WHERE parent_id = #{parentId}
+    </select>
+</mapper>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fkhwl.scf.dao.ScfConfigDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="ScfConfigResultMap" type="com.fkhwl.scf.entity.po.ScfConfig">
+        <result column="id" property="id"/>
+        <result column="deleted" property="deleted"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="parent_id" property="parentId"/>
+        <result column="config_key" property="configKey"/>
+        <result column="config_value" property="configValue"/>
+        <result column="config_desc" property="configDesc"/>
+        <result column="config_status" property="configStatus"/>
+    </resultMap>
+
+    <select id="findPage" resultType="com.fkhwl.scf.entity.dto.ScfConfigDTO">
+        SELECT * FROM scf_config WHERE deleted = 0
+        <if test="map.configKey != null and map.configKey != ''">
+            AND config_key like concat('%',#{map.configKey},'%')
+        </if>
+        <if test="map.configDesc != null and map.configDesc != ''">
+            AND config_desc like concat('%',#{map.configDesc},'%')
+        </if>
+        <if test="map.beginTime != null and map.beginTime != ''">
+            <![CDATA[ AND update_time >= #{map.beginTime} ]]>
+        </if>
+        <if test="map.overTime != null and map.overTime != ''">
+            <![CDATA[ AND update_time <= #{map.overTime} ]]>
+        </if>
+        ORDER BY id ASC
+    </select>
+    <select id="findAllParentList"  resultMap="ScfConfigResultMap">
+        SELECT * FROM scf_config WHERE parent_id = 0
+    </select>
+
+    <select id="getConfigByConfigKey" parameterType="string" resultMap="ScfConfigResultMap">
+		SELECT * FROM scf_config WHERE config_key = #{configKey} ORDER BY id DESC LIMIT 1;
+	</select>
+
+    <select id="getConfigsByParentConfigKey" parameterType="string" resultMap="ScfConfigResultMap">
+		SELECT * FROM scf_config WHERE parent_id = (SELECT id FROM scf_config WHERE parent_id = 0 AND config_key = #{configKey} ORDER BY id DESC)
+	</select>
+
+    <select id="getConfigByParentId" parameterType="long" resultMap="ScfConfigResultMap">
+		SELECT * FROM scf_config WHERE parent_id=#{parentId} AND config_status=1
+	</select>
+</mapper>

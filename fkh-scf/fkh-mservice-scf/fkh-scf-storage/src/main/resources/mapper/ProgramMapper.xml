@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fkhwl.scf.dao.ProgramDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="ProgramResultMap" type="com.fkhwl.scf.entity.po.Program">
+        <result column="id" property="id"/>
+        <result column="deleted" property="deleted"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="third_id" property="thirdId"/>
+        <result column="project_id" property="projectId"/>
+        <result column="create_user_id" property="createUserId"/>
+        <result column="create_owner_id" property="createOwnerId"/>
+        <result column="create_user_name" property="createUserName"/>
+        <result column="program_name" property="programName"/>
+        <result column="departure_city" property="departureCity"/>
+        <result column="arrival_city" property="arrivalCity"/>
+        <result column="load_address" property="loadAddress"/>
+        <result column="arrival_address" property="arrivalAddress"/>
+        <result column="arrival_address_warn" property="arrivalAddressWarn"/>
+        <result column="load_address_warn" property="loadAddressWarn"/>
+        <result column="model_type" property="modelType"/>
+        <result column="packaged_form" property="packagedForm"/>
+        <result column="cargo_price" property="cargoPrice"/>
+        <result column="program_no" property="programNo"/>
+        <result column="units" property="units"/>
+        <result column="program_status" property="programStatus"/>
+        <result column="program_start_date" property="programStartDate"/>
+        <result column="program_end_date" property="programEndDate"/>
+        <result column="mileage" property="mileage"/>
+        <result column="car_length" property="carLength"/>
+        <result column="car_type" property="carType"/>
+        <result column="unit_price" property="unitPrice"/>
+        <result column="cargo_desc" property="cargoDesc"/>
+        <result column="pound_key" property="poundKey"/>
+        <result column="pound_value" property="poundValue"/>
+        <result column="program_type" property="programType"/>
+        <result column="material_type" property="materialType"/>
+        <result column="driver_fill" property="driverFill"/>
+        <result column="cargo_owner_type" property="cargoOwnerType"/>
+        <result column="income_price" property="incomePrice"/>
+        <result column="line_id" property="lineId"/>
+        <result column="oil_onit_price" property="oilOnitPrice"/>
+        <result column="contacter" property="contacter"/>
+        <result column="excution_time" property="excutionTime"/>
+        <result column="message_switch" property="messageSwitch"/>
+        <result column="freight_volume" property="freightVolume"/>
+        <result column="pound_lesser" property="poundLesser"/>
+        <result column="is_open_location_check" property="isOpenLocationCheck"/>
+        <result column="line_name" property="lineName"/>
+    </resultMap>
+    <!-- DTO通用查询映射结果 -->
+    <resultMap id="ProgramResultDTOMap" type="com.fkhwl.scf.entity.dto.ProgramDTO" extends="ProgramResultMap"/>
+
+    <select id="listPage" resultMap="ProgramResultDTOMap">
+        SELECT
+        p.*
+        FROM
+        program p
+        WHERE
+        p.deleted = 0
+        <if test="map.programName != null and map.programName != '' ">
+            AND p.program_name LIKE concat('%',#{map.programName},'%')
+        </if>
+        <if test="map.projectId != null and map.projectId != '' ">
+            AND p.project_id = #{map.projectId}
+        </if>
+        order by p.create_time desc
+
+    </select>
+
+</mapper>

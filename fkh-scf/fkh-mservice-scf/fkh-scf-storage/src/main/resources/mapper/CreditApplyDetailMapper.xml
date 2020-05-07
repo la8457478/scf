@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fkhwl.scf.dao.CreditApplyDetailDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="CreditApplyDetailResultMap" type="com.fkhwl.scf.entity.po.CreditApplyDetail">
+        <result column="id" property="id"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="deleted" property="deleted"/>
+        <result column="apply_balance" property="applyBalance"/>
+        <result column="transfer_balance" property="transferBalance"/>
+        <result column="remain_transfer_balance" property="remainTransferBalance"/>
+        <result column="diposit_balance" property="dipositBalance"/>
+        <result column="fact_ratio" property="factRatio"/>
+        <result column="in_rule_ratio" property="inRuleRatio"/>
+        <result column="credit_apply_id" property="creditApplyId"/>
+        <result column="subject_claims_order_id" property="subjectClaimsOrderId"/>
+        <result column="counterparty_id" property="counterpartyId"/>
+    </resultMap>
+    <select id="listPage" resultType="com.fkhwl.scf.entity.dto.CreditApplyDetailDTO">
+
+        SELECT
+        c.*
+        FROM
+        credit_apply_detail c
+        WHERE
+        c.deleted = 0
+        <if test="map.counterpartyId != null and map.counterpartyId != '' ">
+            AND c.counterparty_id =#{map.counterpartyId}
+        </if>
+        <if test="map.subjectClaimsOrderId != null and map.subjectClaimsOrderId != '' ">
+            AND c.subject_claims_order_id =#{map.subjectClaimsOrderId}
+        </if>
+        <if test="map.creditApplyId != null and map.creditApplyId != '' ">
+            AND c.credit_apply_id =#{map.creditApplyId}
+        </if>
+        order by c.create_time desc
+
+    </select>
+    <!-- 通用查询映射结果 -->
+    <resultMap id="ReviewPageResultMap" type="com.fkhwl.scf.entity.dto.ReviewPageDTO">
+        <result column="id" property="id"/>
+        <result column="subitem_limit_balance" property="subitemLimitBalance"/>
+        <result column="counterparty_name" property="counterpartyName"/>
+        <result column="subitem_used_balance" property="subitemUsedBalance"/>
+        <result column="transfer_balance" property="transferBalance"/>
+        <result column="remain_transfer_balance" property="remainTransferBalance"/>
+        <result column="apply_balance" property="applyBalance"/>
+        <result column="diposit_balance" property="dipositBalance"/>
+        <result column="fact_ratio" property="factRatio"/>
+        <result column="in_rule_ratio" property="inRuleRatio"/>
+        <result column="subitem_remain_balance" property="subitemRemainBalance"/>
+    </resultMap>
+    <select id="reviewPage" resultMap="ReviewPageResultMap">
+
+        SELECT
+        cad.id,c.subitem_limit_balance ,c.rule_ratio ,c.counterparty_name,c.subitem_used_balance,cad.transfer_balance,cad.remain_transfer_balance,
+        cad.apply_balance,c.subitem_remain_balance,cad.diposit_balance,cad.fact_ratio,cad.in_rule_ratio
+        FROM
+        credit_apply_detail cad left JOIN counterparty c on cad.counterparty_id =c.id
+        WHERE
+        cad.deleted = 0 and  c.deleted = 0
+        <choose>
+            <when test="map.creditApplyId != null and map.creditApplyId != '' ">
+                AND cad.credit_apply_id = #{map.creditApplyId}
+            </when>
+        </choose>
+        order by cad.create_time desc
+    </select>
+
+    <select id="getBySubjectClaimsOrderId" resultType="com.fkhwl.scf.entity.dto.CreditApplyDetailDTO">
+
+        SELECT *
+        FROM
+        credit_apply_detail cad
+        WHERE
+        cad.deleted = 0
+        <choose>
+            <when test="subjectClaimsOrderId != null and subjectClaimsOrderId != '' ">
+                AND cad.subject_claims_order_id = #{subjectClaimsOrderId}
+            </when>
+        </choose>
+        order by cad.create_time desc
+    </select>
+</mapper>

@@ -1,0 +1,12 @@
+.SA{ width: 400px; height: auto; margin-top: 5px; border: 1px solid #CCCCCC; display: none; position: absolute; z-index: 2; background-color: #FFFFFF;}
+.SA .IM{ width: 133px; height: 27px; line-height: 27px; text-align: center; cursor: pointer; float: left; border-bottom: 1px solid #C6C6C6;}
+.SA .IMC{ border-bottom: 1px solid #0070db; background-color: #FFFFFF; color: #0070db; }
+.SA .BAR{ width: 100%; height: 30px; position: absolute;bottom: 0px;}
+.SA .OB{ width: 40px; height: 27px; line-height: 27px; font-size: 12px; margin-right: 2px; float: right; cursor: pointer; background-color: #CCCCCC; text-align: center; }
+.SA .OB:hover{color: #F86106;}
+.SA .CB{ width: 40px; height: 27px; line-height: 27px; font-size: 12px; margin-right: 2px; float: right; cursor: pointer; background-color: #CCCCCC; text-align: center;}
+.SA .CB:hover{color: #F86106;}
+.SA .AI{ width: 100%; float: left;}
+.SA .AI ul{ list-style: none; margin: 5px 0px 0px 0px; padding: 0px; }
+.SA .AI li{ width: 90px; height: 27px; line-height: 27px; font-size: 12px; margin-left: 6px; float: left; padding: 0px; text-align: center; cursor: pointer;}
+.SA .AI li:hover{ background-color: #0071db; color: #FFFFFF; }

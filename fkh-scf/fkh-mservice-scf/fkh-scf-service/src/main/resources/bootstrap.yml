@@ -1,0 +1,31 @@
+server:
+  port: 63708
+
+spring:
+  profiles:
+    active: ${profile.active}
+  application:
+    name: ${package.name}
+  cloud:
+    nacos:
+      config:
+        group: LIUAN
+        server-addr: 192.168.8.128
+        file-extension: yml
+#        namespace: local 配置了没用，starter模块默认取的JVM的-Duser.name参数
+fkh:
+  logging:
+    level: DEBUG
+#   location: D:\document\工作计划安排\20200205-金融监管平台\安心签\test\tmp.log
+anxinsign:
+  url: https://210.74.42.33:9443/FEP/
+  pdf:
+    template:
+      company: companySign
+      driver: driverSign
+  fkhwl:
+    platId: 98376A4511637E5AE05312016B0A08F3
+  jks:
+    path: D:\document\工作计划安排\20200205-金融监管平台\安心签\anxinsign\test\anxinsign.jks
+    password: fkhwl2019
+

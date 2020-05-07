@@ -1,0 +1,106 @@
+dubbo:
+  registry:
+    # 挂载到 Spring Cloud 注册中心
+    address: nacos://192.168.2.81:8848
+  protocol:
+    # dubbo 协议
+    name: dubbo
+    port: 20881
+  provider:
+    version: 0.0.1
+    timeout: 60000
+  consumer:
+    timeout: 60000
+fkh:
+  logging:
+    level: DEBUG
+  rest:
+    enable-browser: false
+    enable-request-log: true
+  sms:
+    yiMeiAppId: EUCP-EMY-SMS1-0GVAX
+    yiMeiPassword: 652831
+    yiMeiBaseUrl: http://sdk999in.eucp.b2m.cn:8080/
+    yiMeiSendUrl: sdkproxy/sendsms.action
+    yiMeiMoUrl: sdkproxy/getmo.action
+    clientName: yimei
+spring:
+  datasource:
+    url: jdbc:mysql://192.168.2.31:3306/fkh_test_scf?useUnicode=true&characterEncoding=utf8&useSSL=false&allowMultiQueries=true&serverTimezone=GMT%2b8&useAffectedRows=true
+    username: fkh
+    password: fkh@CD0819
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    host: 192.168.2.24
+    port: 6379
+    # 密码（默认为空）
+    password: 123456
+    # 连接超时时长（毫秒）
+    timeout: 6000ms
+    jedis:
+      pool:
+        # 连接池最大连接数（使用负值表示没有限制）
+        max-active: 1000
+        # 连接池最大阻塞等待时间（使用负值表示没有限制）
+        max-wait: -1ms
+        # 连接池中的最大空闲连接
+        max-idle: 10
+        # 连接池中的最小空闲连接
+        min-idle: 5
+  data:
+    mongodb:
+      database: fkh_scf
+      uri: mongodb://114.67.83.106:27017
+      username: migration
+      password: 12345
+upload:
+  url: https://dev.fkhwl.com/uploads/
+  #path: /data/devuploads/
+  path: /data/uploads/
+  #url: http://192.168.8.103:8855/uploads/
+  #path: d:/data/uploads/
+anxinsign:
+  url: https://210.74.42.33:9443/FEP/
+  pdf:
+    template:
+      #待盖章合同的pdf模版中签约主体盖章位置的域名称
+      company: companySign
+      #待盖章合同的pdf模版中驾驶员盖章位置的域名称
+      driver: driverSign
+  path:
+    #合同模版位置
+    contract: cfca/cantract_template_anxinqian.pdf
+    #合同模版字体位置
+    font: cfca/simsun.ttc,1
+  fkhwl:
+    platId: 98376A4511637E5AE05312016B0A08F3
+  jks:
+    #通讯证书路径
+    path: cfca/anxinsign.jks
+    #通讯证书密码
+    password: fkhwl2019
+cfca:
+  url: 'https://cstest.baoquanonline.com/csserver/evidence.preserve'
+  txCode1101: '1101'
+  txCode1103: '1103'
+  #机构编码
+  branchCode: '0044'
+  #应用编码  模拟生产0002
+  applicationCode: '0051'
+  #模板编码 模拟0002
+  templateCode: '010C'
+  #连接超时时间,毫秒
+  connectTimeout: 3000
+  #读超时时间,毫秒
+  readTimeout: 15000
+  #通讯证书位置
+  certPathFileName: 'cfca/cstest.jks'
+  #证书账号
+  certAlias: 'fkh'
+  #证书密码
+  password: '11111111'
+  #保全对应的文件存储位置：比如单据图片，驾驶员签章合同等
+  fileDirPath: 'project_file/'
+scf:
+  schedule:
+    open: true

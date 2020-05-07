@@ -1,0 +1,1324 @@
+
+table{cursor:pointer;}
+/* CSS Document */
+i{ font-style:normal}
+ul,ol,li{list-style-type:none;}
+a{text-decoration:none;}
+img{border:0px;moz-user-select: -moz-none;  -moz-user-select: none;  -o-user-select:none;  -khtml-user-select:none;  -webkit-user-select:none;  -ms-user-select:none;  user-select:none;  }
+input{outline: none;}
+select{outline: none;}
+.icon_start{color: red;position: relative;top:2px;left: -2px;}
+.newAlertSelect{height: 26px;  border: 1px solid #e2e2e2;  outline: none;  cursor: pointer;}
+.clear{clear:both;}
+.publicRightContainer{width: 96%;height: 500px;margin: 0 auto;}
+/*顶部导航公用样式*/
+.publicHeaderNav{width: 100%;height: 35px;line-height: 35px;}
+.publicHeaderNav ul li{float: left;}
+.publicHeaderNav ul li a{color: #0071db;font-size: 13px;cursor:pointer;}
+.publicHeaderNav ul li img{margin-left: 5px;margin-right:4px;}
+/*顶部导航公用样式 end*/
+/*公用顶部表格布局*/
+.publicNavMain{width: 100%;  height: 68px;  border: 1px solid #e6e6ef;  line-height: 68px;  background: white;border-radius:3px;}
+/*公用顶部表格布局end*/
+.newPublicTable{width: 100%;margin-top: 18px;}
+.newPublicTable table{width: 100%;  height: auto;table-layout:fixed; font-size: 12px;  color: #333333;background: white;  border-width: 1px;  border-color: #dedede;  border-collapse: collapse;}
+.newPublicTable table th { border-width: 1px; text-overflow:ellipsis;overflow:hidden;white-space: nowrap;  font-weight: bold;  color: #333;  background: #edf1f4;  line-height: 40px;  text-align: left;  border-style: solid;  border-color: #dedede;  text-indent:8px;  font-size: 12px;  }
+.newTextIndent{text-indent: 8px !important;}
+.newPublicTableCenter{text-align: center !important;text-indent: 0px  !important;}
+.newPublicTable table td {  color: #555;text-overflow:ellipsis;overflow:hidden;white-space: nowrap;
+    height: 36px;  font-size: 13px;  border-width: 1px;  line-height: 36px;  text-indent: 8px;  border-style: solid;  border-color: #dddddd;}
+.newTableActive{background:#f4f7fa;}
+.new_icon_pic li{display: inline-block;margin-left: 10px;moz-user-select: -moz-none;  -moz-user-select: none;  -o-user-select:none;  -khtml-user-select:none;  -webkit-user-select:none;  -ms-user-select:none;  user-select:none; cursor: pointer; }
+.new_icon_pic img{position:relative;top:3px;left:-2px;}
+.new_icon_pic span{padding-left: 0px;color: #0071db;font-size: 13px;}
+.new_icon_pic li:first-child{margin-left: 0px;}
+.new_PublicProjectSelect{display: inline-block;height:30px;border:1px solid #d3d4e0;line-height: 30px;text-indent: 5px;margin-left: 1%;border-radius:3px;  position: relative;top:11px;  text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
+.publicSwitchProject_icon{background: url("../../newassets/imgs/icon_new_switchProjrct.png") no-repeat;background-position: 98%;}
+.publicNewTime_icon{background: url("../../newassets/imgs/icon_new_selectTime.png") no-repeat;background-position: 98%;}
+.new_PublicProjectSelect a{display: block;width: 90%;height: 100%;    text-overflow: ellipsis;  overflow: hidden;  white-space: nowrap;}
+/*公用选项卡样式*/
+.new_public_tab{width: 100%;height: 44px;line-height: 44px;border:1px solid #e6e6ef;background: white;border-radius:3px;}
+.new_public_tab span{display: inline-block;width: 70px;height: 95%;color: #5e6771;font-size: 14px;margin-left: 20px;cursor: pointer;text-align: center;}
+.new_public_tab_container{width: 100%;margin-top: 18px;display: none;}
+.newPublicTable table tr:nth-of-type(even){background: #f4f7fa;}
+/*公用选项卡样式 end*/
+/*详情界面模块*/
+.publicDetailsModule{width: 100%;height:auto;padding-bottom:30px;border:1px solid #e6e6ef;background: white;}
+.newPublicHeader{width: 100%;height: 50px;border-bottom:1px solid #e6e6ef;line-height: 50px;background: white;}
+.newPublicHeader span{font-size: 16px;padding-left: 20px;}
+.publicDetailsModuleReturnBtn{ moz-user-select: -moz-none;  -moz-user-select: none;  -o-user-select:none;  -khtml-user-select:none;  -webkit-user-select:none;  -ms-user-select:none;  user-select:none;  padding-left:18px;padding-right:18px;height:32px;line-height:32px;border:1px solid #e6e6ef;float: right;border-radius:5px;margin-top: 9px;margin-right: 15px;font-size: 14px;cursor:pointer;}
+.publicDetailsModuleContainer{width: 98%;margin: 0 auto;}
+.publicDetailsModuleContainerHeader{width: 100%;line-height: 50px;}
+.publicDetailsModuleContainerHeader img{position: relative;top:2px;}
+.publicDetailsModuleContainerHeader span{font-size: 15px;color:#272a42;padding-left: 8px;}
+/*详情界面模块end*/
+/*首页*/
+.godChartStatistics{width: 100%;height:auto;}
+.godChartStatistics .godChartStatisticsList{width:32%;height: 150px;float: left;margin-left: 1.7%;border-radius:3px;border:1px solid #d5d5dc;background: white;}
+.godChartStatisticsListHeaderTitle{width: 100%;height: 40px;line-height: 40px;border-top-left-radius: 3px;border-top-right-radius: 3px;}
+.godChartStatisticsListHeaderTitle img{margin-left: 15px;width: 20px;position: relative;top:5px;}
+.godChartStatisticsListHeaderTitle a{color: white;font-size: 16px;padding-left: 8px;}
+.godChartStatisticsListHeaderTitle span{float: right;color: white;font-size: 12px;margin-right: 20px;}
+.godChartStatisticsListHeaderData{width: 100%;height: 115px;}
+.godChartStatistic_public{width: 50%;height: 100%;float: left;line-height:115px;text-align: center;}
+.godChartStatistic_left{background: url("../../newassets/imgs/icon_new_line.png") no-repeat;background-position: right;}
+.godChartStatistic_public span{font-size: 36px;}
+.godChartStatistic_public a{float: right;margin-right: 20px;font-weight:bold;color: #272a42;}
+.godChartStatisticsList4{margin-top: 1%}
+.godChartStatisticsList5{margin-top: 1%}
+.godChartStatisticsList6{margin-top: 1%}
+.godChartStatisticsList1 .godChartStatisticsListHeaderTitle{background:#3598dc;}
+.godChartStatisticsList2 .godChartStatisticsListHeaderTitle{background:#eb5e6b;}
+.godChartStatisticsList3 .godChartStatisticsListHeaderTitle{background:#f58243;}
+.godChartStatisticsList4 .godChartStatisticsListHeaderTitle{background:#9a44ad;}
+.godChartStatisticsList5 .godChartStatisticsListHeaderTitle{background:#12b7c4;}
+.godChartStatisticsList6 .godChartStatisticsListHeaderTitle{background:#f5c143;}
+.godChart1 span{color: #007ff8;}
+.godChart2 span{color: #eb5e6b;}
+.godChart3 span{color: #f58243;}
+.godChart4 span{color: #9a44ad;}
+.godChart5 span{color: #12b7c4;}
+.godChart6 span{color: #f5c143;}
+.godChart5 a{float: none;padding-left: 15px;}
+.godChart6 a{float: none;padding-left: 15px;}
+.godChartMain{width: 100%;height: 315px;margin-top: 1%;}
+.godChartMainLeft{width:53.4%;height: 100%;float: left;border:1px solid #d5d5dc;border-radius:3px;background: white;}
+.godChartMainRight{width:45.1%;height: 100%;float: left;margin-left: 1%;border:1px solid #d5d5dc;border-radius:3px;background: white;}
+.godChartTitle{width:100%;height: 50px;line-height: 50px;}
+.godChartTitle_Data{float: right;margin-right: 30px;color: #005eb6;font-size: 14px;}
+.godChartTitle span{font-size:16px;font-weight:bold;padding-left: 10px;color: #272a42;}
+.godChartTitle img{position: relative;top:2px;margin-left: 20px;}
+.godChartMainRightList{width: 47%;height: 115px;background: #ccc;float: left;margin-left: 12px;border-radius:3px;}
+.godChartMainRightList p{width: 90%;height:auto;text-align: right;margin-top: 20px;color: white;}
+.godChartMainRightList p a{font-size: 18px;}
+.godChartMainRightList p span{font-size: 24px;}
+.godChartMainRightList p i{font-size: 12px;padding-left:5px;}
+.godChartMainRightList1{background:url("../../newassets/imgs/icon_money_bg1.png")no-repeat;background-size:cover; }
+.godChartMainRightList2{background:url("../../newassets/imgs/icon_money_bg2.png")no-repeat;background-size:cover; }
+.godChartMainRightList3{background:url("../../newassets/imgs/icon_money_bg3.png")no-repeat;background-size:cover;margin-left: 0%;margin-top: 15px; }
+.godChartMainRightList4{background:url("../../newassets/imgs/icon_money_bg4.png")no-repeat;background-size:cover;;margin-top: 15px;}
+/*首页 end*/
+/*统计分析*/
+.staticsTitleLeft{float: left;width: 50%;}
+.staticsTitleRight{float: left;width: 50%;}
+.staticsTitle{width: 100%;height:68px;border:1px solid #e6e6ef;line-height: 68px;background: white;}
+.publicStyles{width:40%;background: url("../../newassets/imgs/icon_selelct_pic.png") no-repeat;background-position:  95% ;}
+.NewTimeInput{width: 20%; background: url("../../newassets/imgs/icon_new_selectTime.png") no-repeat;background-position:  95% ;}
+.staticsSelect{width: 13%; }
+.businessStatistics{width: 100%;height:142px;margin-top: 18px;border-left: 1px solid #e6e6ef;border-right: 1px solid #e6e6ef;}
+.businessStatisticsLeft{width: 55%;height: 100%;float: left;border:1px solid #e6e6ef;background: white;border-left:none;border-right:none;}
+.businessStatisticsRight{width: 43.2%;height:100%;float: right;border:1px solid #e6e6ef;background: white;border-left: none;border-right:  none;}
+.businessStatisticsTitle{width: 100%;height:45px;line-height: 45px;}
+.businessStatisticsTitle img{margin-left: 12px;position: relative;top:0px;}
+.businessStatisticsTitle span{font-size: 18px;font-weight: 500;}
+.businessStatisticsBox{width: 16.5%;height: 96px;float: left;    background: url(../../newassets/imgs/icon_new_line.png) no-repeat;  background-position: right;}
+.businessStatisticsBox span{display: block;margin-left:10%;padding-top: 5px;color: #272a42;}
+.businessStatisticsBox i{display: block;margin-left:10%;font-size: 21px;padding-top: 15px;color: #2489f8;}
+.businessStatisticsBox i b{font-weight: 100;font-size: 12px;color: #272a42;padding-left: 5px;}
+.businessStatisticsRight .businessStatisticsBox{width: 25%;text-align: center;}
+.businessStatisticsRight .businessStatisticsBox i{color:#eb385e;}
+.statisticsMainContainers{margin-top:18px;width: 100%;height:430px;border:1px solid #e6e6ef;background: white;}
+.statisticsMainTitles{width: 100%;height:62px;border-bottom:1px solid #e6e6ef;line-height: 60px;}
+.statisticsMainTitles span{display:inline-block;margin-left:30px;font-size: 18px;cursor: pointer;color:#5e6771;}
+.statisticsMainPublicChart{display: none;}
+.staticsActives{color: #007ff8 !important;border-bottom: 2px solid #007ff8;}
+.staticsIcon_pic{float: right;margin-right: 30px;}
+.staticsIcon_pic a{padding-left: 5px;font-size: 13px;}
+.staticsIcon_pic img{margin-left: 18px;}
+/*统计分析 end*/
+/*项目管理界面*/
+.projectMgmtForm .projectPersonCompany{width: 220px;}
+.projectMgmtForm .projectCompanys{width: 110px;}
+.projectMgmtForm .newProjectTimes{width: 170px;background: url("../../newassets/imgs/icon_new_selectTime.png") no-repeat;background-position:142px  }
+/*车辆召集*/
+.projectGrabDriverForm{line-height: 80px;}
+.icon_new_arrow{position: relative;top:7px;}
+.projectGoodsFormLeft{float: left;width:65%;}
+.projectGoodsFormRight{width: 30%;float: left;}
+.publicSelectSwitchTimeProject{width: 15%;}
+.publicSwitchProject{width: 30%;}
+.publicSwitchTimeProject{width:18%; }
+.projectGrabDriverLeft{width: 42%;}
+.projectGrabDriverRight{width: 58%;}
+.projectGrabDriverLeft .publicSwitchProject{width: 48%;}
+.newPublicInputOne{border-top-right-radius:0px !important;border-bottom-right-radius:0px !important; }
+.newPublicInputOneTwo{border-top-left-radius:0px !important;border-bottom-left-radius:0px !important; }
+.newTmsTo{display: inline-block;width:32px;line-height: 32px;background: #0071db;text-align: center;color: white; font-size: 14px;position: relative;}
+
+
+/*车辆召集 end*/
+/*运输作业*/
+.dispatchTables table tr td{line-height:18px !important;}
+.new_dispatchGoodsMessage span{display: block}
+.new_dispatchGoodsMessage span:first-child{padding-top: 5px;}
+.new_dispatchGoodsMessage span:last-child{padding-bottom: 5px;}
+
+/*运输作业 end*/
+/*跟单作业*/
+.documentaryTaskTable table tr td{line-height: 24px !important;}
+.new_publicTextLoadName {  position: relative;  top: 8px;}
+.documentaryTaskTable .new_icon_pic li{margin-left:5px !important;}
+.documentaryTaskTable .new_icon_pic li:last-child{margin-right: 10px !important;}
+/*跟单作业end*/
+.new_allMessage{cursor: pointer;  margin-top: 10px;  text-align: center;  font-size: 13px;  height: 32px;  background: #0071db;  color: white;  line-height: 32px;  padding-left: 15px;  padding-right: 15px;  border-radius:3px;  float: left;}
+/*结算支付*/
+.publicSwitchPlanProject{width:18%; }
+.newPaymentFormLeft{width: 60%;}
+.publicNewPaymentForm{width: 40%;}
+.new_allCheckbox{cursor:pointer;}
+.new_public_top{position: relative;top:3px;}
+.new_public_bottom{position: relative;bottom:3px;}
+#waybillTable td{line-height: 26px;}
+#new_billPaymentTb table th{line-height: 34px;}
+.new_paymentList{margin-left:17px;}
+.new_paymentList ul li{margin-top: 6px;font-size: 12px;}
+.new_paymentList ul li i{font-size: 14px;}
+.new_paymentList ul li span{display:inline-block;width: 130px;font-size: 14px;color: #272a42;}
+.new_paymentList ul li a{color: #ff0006;font-size: 20px;}
+/*结算支付 end*/
+/*结算支付详情弹出框*/
+.payDialog ul li {  margin-top: 12px;  }
+.payDialog ul li span {  display: inline-block;  }
+.payDialog ul li a {  font-size: 18px;  color: #ff0006;  }
+.deductionDialog .pwd-box input[type="password"] {  width: 80%;  vertical-align: middle;  line-height: 40px;  height: 40px;  color: black;  border: 1px solid #ccc;  font-size: 40px;  text-align: center;  opacity: 1;  letter-spacing: 15px;  }
+.financialReviewDialog .pwd-box input[type="password"] {  width: 80%;  vertical-align: middle;  line-height: 40px;  height: 40px;  color: black;  border: 1px solid #ccc;  font-size: 40px;  text-align: center;  opacity: 1;  letter-spacing: 15px;  }
+.payDialog input[type='button'] {  display: block;  margin: 0 auto;  margin-top: 30px;  }
+/*结算支付详情弹出框end*/
+/*计划列表*/
+.newProjectPlanForm .newPublicInput{width: 23%}
+.newProjectPlanForm select{width: 23%;}
+.newProjectPlanForm .projectGoodsFormLeft{width:46%}
+.newProjectPlanForm .projectGoodsFormRight{width: 45%}
+/*增值服务*/
+.thirdServiceContainer{width: 100%;min-height:270px;border:1px solid #e6e6ef;background:white;}
+.addService{width: 410px;  height: 340px;  margin-top: 20px;  margin-left: 28px;  margin-bottom: 10px;float: left;position: relative;}
+.addService img{ cursor: pointer;display: block;margin-top: 8px;}
+.addServiceText{width:410px;height: 114px;position:absolute;bottom: 0px;background: #0c958d;margin: 0 auto;left: 5px;text-align: center;color: white;cursor:pointer;}
+.addServiceText span{font-size: 20px;display: block;padding-top: 10px;padding-bottom: 10px;color: white;}
+.addServiceText p{padding-top: 5px;}
+.addServiceText p i{font-size:15px;padding-left: 5px;}
+/*增值服务 end*/
+.new_public_call_phone{    position: relative; top:3px;}
+/*媒体查询代码兼容1024屏幕*/
+@media screen and (min-width:100px) and (max-width:1024px) {
+    .godChartStatistic_public span{font-size: 20px;}
+    .godChartStatistic_public a{font-size: 12px}
+    .godChartMainRightList p a{font-size: 16px;}
+    .godChartMainRightList p span{font-size: 20px;}
+    .godChartStatistic_public{line-height: 90px;height: 90px;}
+    .godChartStatistics .godChartStatisticsList{margin-left: 1.5%;}
+    .godChartStatistics .godChartStatisticsList{height: 130px;}
+    /*.publicLeftMenu{width: 180px;}*/
+}
+@media screen and (min-width:100px) and (max-width:1440px) {
+    .godChartStatistic_public span{font-size: 24px;}
+    .godChartStatistic_public a{font-size: 12px}
+    .godChartMainRight{float: none;clear: both;}
+    .godChartMainRightList p a{font-size: 16px;}
+    .godChartMainRightList p span{font-size: 20px;}
+    .godChartStatistics .godChartStatisticsList{margin-left: 1.5%;}
+    .godChartStatistic_public{line-height: 90px;height: 90px;}
+    .godChartStatistics .godChartStatisticsList{height: 130px;}
+    .staticsTitleRight{float: none;position:relative;top:-20px;}
+    .staticsTitle{height: 115px;}
+    .staticsTitleLeft{float: left;width: 100%;}
+    .staticsTitleRight{float: left;width: 100%;}
+    .staticsTitleLeft1{width: 100% !important;}
+    .projectGoodsFormLeft{width: 100%;float: none;}
+    .projectGoodsFormRight{width: 100%;float: none;position:relative;top:-20px;}
+    .projectGoodsForm{height: 115px;}
+    .projectGrabDriverForm{line-height: 70px;height: 110px;}
+    .newSelectCarType{width: 18% !important;}
+    .projectGoodsFormRight .SA{top: 40px !important;
+        left: 10px !important;}
+    .newProjectPlanForm .projectGoodsFormLeft{width:100% !important;}
+    .newProjectPlanForm .projectGoodsFormRight{width: 100% !important;}
+    .newProjectPlanForm{height: 115px;}
+    .newPublicGoodsCustomSearchBtn{margin-left: 5px !important;}
+    .projectGrabDriverLeft1{width: 60% !important;}
+    .newPublicInput1{width:48% !important;}
+    .newPublicSelect1{width: 48% !important;}
+    .projectGrabDriverLeft2{width: 100% !important;}
+    .newPublicCustomSearchBtn1{margin-left: 10px !important;}
+}
+@media screen and (min-width:1600px) and (max-width:1820px) {
+    .businessStatisticsBox i{font-size: 18px !important;}
+}
+@media screen and (min-width:1451px) and (max-width:1599px) {
+    .businessStatisticsBox i{font-size: 16px !important;}
+}
+@media screen and (min-width:100px) and (max-width:1450px) {
+    .businessStatisticsBox i{font-size: 19px !important;}
+}
+@media screen and (min-width:100px) and (max-width:1550px) {
+#carInfo{width: 50% !important;}
+#goodsInfo{width: 50% !important;;}
+}
+@media screen and (min-width:100px) and (max-width:1600px) {
+
+    .documentaryTaskTable .documentaryTaskTable .new_icon_pic li{margin-left: 20px !important;}
+    .documentaryTaskTable .new_icon_pic li:last-child {
+        margin-right: 20px !important;
+    }
+}
+@media screen and (min-width:100px) and (max-width:200px) {
+    .documentaryTaskTable .new_icon_pic li span{display: none;}
+}
+@media screen and (min-width:100px) and (max-width:1600px) {
+    .godChartMainLeft{width: 99.6%;}
+    .godChartMainRight{float: none;clear: both;margin-left: 0%;position: relative;top:3%;}
+    .godChartMainRight{width: 99.6%;height: 60%;}
+    .godChartMainRightList{width: 24.6%;margin-left: 0px;}
+    .godChartMainRightList3{margin-top: 0px;}
+    .godChartMainRightList4{margin-top: 0px;}
+}
+@media screen and (min-width:100px) and (max-width:1450px) {
+    .businessStatisticsLeft{float: none;width: 100%;}
+    .businessStatisticsRight{float: none;width: 100%;margin-top: 18px;}
+
+}
+#dispatchersTableWidth{width: 150px\9;}
+/*处理电脑屏幕1024兼容*/
+@media screen and (min-width:100px) and (max-width:1230px) {
+    #managerDriverList .new_icon_pic li span{display: none;}
+    #managerDriverList .new_icon_pic li{margin-left: 7px;}
+    #managerDriverList .new_icon_pic li:first-child{margin-left:0px;}
+    #meCarList .new_icon_pic li span{display: none;}
+    #meCarList .new_icon_pic li{margin-left: 7px;}
+    #meCarList .new_icon_pic li:first-child{margin-left:0px;}
+    #roleManagerList .new_icon_pic li span{display: none;}
+    #roleManagerList .new_icon_pic li{margin-left: 10px;}
+    #roleManagerList .new_icon_pic li:first-child{margin-left:0px;}
+    #myVehicleList  .new_icon_pic li span{display: none;}
+    #tmsWaybillCarListTable .new_icon_pic li span{display: none;}
+    #tblMyVehicles .new_icon_pic li span{display: none;}
+    #tblSocialVehicle  .new_icon_pic li span{display: none;}
+    #paymentWaybillList .new_icon_pic li span{display: none;}
+    #dispatchersTable .new_icon_pic li span{display: none;}
+    #projectPaymentsTb   .new_icon_pic li span{display: none;}
+    .listCheckBillWidth .new_icon_pic li span{display: none;}
+    #projectListTable .new_icon_pic li span{display: none;}
+    #cargosListTable .new_icon_pic li span{display: none;}
+    #planListTable .new_icon_pic li span{display: none;}
+    #payToGoodsTb .new_icon_pic li span{display: none;}
+
+
+    #paymentWaybillList .new_icon_pic li{margin-left: 7px;}
+    #paymentWaybillList .new_icon_pic li:first-child{margin-left:0px;}
+    #paymentTitleTd{width: 115px;}
+    #newDriverWidth{width: 115px;}
+    #tblMyVehiclesWidth{width: 155px;}
+    #dispatchersTableWidth{width: 85px;}
+    #listCheckBillWidth{width: 85px;}
+    #cargosListWidth{width: 145px;}
+    #planListWidth{width: 110px;}
+    #newProjectWidth{width: 145px;}
+    #tblSocialVehicleWidth{width:85px;}
+    .childrenMenuList ul li{width: 50px !important;}
+}
+@media screen and (min-width:100px) and (max-width:1440px) {
+
+}
+@media screen and (min-width:100px) and (max-width:1320px){
+    #roleListTable .new_icon_pic li span{display: none;}
+}
+@media screen and (min-width:100px) and (max-width:1130px) {
+    .PersonalList ul li{width:125px !important;}
+}
+
+
+#textfield{font-size: 14px;text-indent: 5px;}
+#textfield_up{font-size: 14px;text-indent: 5px;}
+.borderColorBoxBtn{color: #0070db !important;border:1px solid #0070db !important;background: white !important;}
+/*弹出框*/
+/* loading */
+#loading{ top: 40%; left: 0px; width: 100%; text-align: center; height: auto; position: fixed; z-index: 99999999999; display: none;}
+#loading img{ width: 60px;}
+#loadingBg{ width: 100%; height: 100%; background-color: #000000; opacity: 0.5; filter:alpha(opacity=50); position: fixed; top: 0px; left: 0px; z-index: 999999999; display: none;}
+/* alert */
+#alert{ width: 250px; margin: 0px auto; background-color: #FFFFFF; font-family: Helvetica; display: none; font-size: 14px;}
+#alertTitle{ height: 40px; line-height: 40px; font-weight: bold; text-align: center; color: #000000;}
+#alertContent{ width: 230px; height: auto; line-height: 25px; margin: 10px auto; text-align: center;    font-size: 14px;}
+#alertOk{width:100%;height: 40px; line-height: 40px; font-weight: bold; border-top: 1px solid #E0E0E0; margin-top:10px; text-align: center; color: #000000; cursor: pointer;}
+#alertOk:hover{ color: #F86106; background-color: #F8F8F8; }
+/* confirm */
+#comfirm{ width: 250px; height: auto; margin: 0px auto; background-color: #FFFFFF; font-family: Helvetica; display: none; border: 1px solid #CCCCCC;}
+#comfirmTitle{ height: 40px; line-height: 40px; font-weight: bold; text-align: center; color: #000000;}
+#comfirmContent{ width: 240px; height: auto; line-height: 25px; margin: 10px auto; text-align: center;}
+#comfirmYes{ width: 124px; height: 40px; line-height: 40px; font-weight: bold; border-top: 1px solid #E0E0E0; margin-top: 10px; text-align: center; color: #000000; float: left; border-right: 1px solid #E0E0E0; display: inline-block;  cursor: pointer;}
+#comfirmYes:hover{ color: #F86106; background-color: #F8F8F8; }
+#comfirmCancel{ width: 50%; height: 40px; line-height: 40px; font-weight: bold; border-top: 1px solid #E0E0E0; margin-top:10px; text-align: center; color: #000000; float: right; display: inline-block;  cursor: pointer;}
+#comfirmCancel:hover{ color: #F86106; background-color: #F8F8F8; }
+/*弹框公用样式修改*/
+.publicContainerShow{display: none;}
+.new_publicHeaderMain{width: 98%;margin:0 auto;}
+.publicAlertHeader{width:100%;height: 40px;line-height: 40px;}
+.newPublicAlertInput{height: 24px;outline: none;  border: 1px solid #e2e2e2;  border-radius: 2px;  text-indent: 5px;line-height: 24px;}
+.newPublicAlertBtn{padding-left:15px;padding-right:15px;height: 26px;line-height:26px;outline: none;border:none;color: white;border-radius:2px;cursor:pointer;}
+.newPublicAlertSelect {  height: 26px;  border: 1px solid #e2e2e2;  outline: none;  cursor: pointer;}
+.newBtnBlue{background: #0070db;}
+.newPublicAlertBtnText{padding-left:25px;padding-right:25px;height: 32px;line-height:26px;outline: none;border:none;color: white;border-radius:2px;cursor:pointer;}
+.newPublicAlertTableMarginTop{margin-top: 8px;}
+.newPublicAlertTableMarginTop table th{line-height: 34px;}
+.newPublicAlertTableMarginTop table tr td{height:32px;line-height: 32px;}
+.NewAlertprojectLine{    left: -3px;  position: relative;  top: 4px;margin-right: 4px;}
+/*创建项目样式*/
+.projectPage .items {  width: 850px;  height: auto;  background: white;  }
+.projectPage .items .page {  width: 600px;  margin: 0 auto;}
+.projectPage .imgProcess {  display: block;  margin: 30px auto; }
+.projectPage .items .projectName {  width: 100%;  height: auto;  border: 1px solid #bfbfbf;  margin-top: 10px;}
+.projectPage .items .projectName span {  display: inline-block;  line-height: 55px;  width: 150px;  text-align: right;font-size: 13px;}
+.projectPage .btn_nav {  width: 100%;  text-align: center;  padding-bottom: 300px;}
+.projectMargin {  margin-top: 40px;}
+.projectPage .items .companyName{    width: 100%;  height: auto;  padding-bottom: 20px;}
+.projectPage .companyName i {  display: inline-block;  width: 150px;  text-align: right;  color: #000;}
+.projectPage .companyName a {  display: inline-block;  text-indent: 5px; }
+.selectCompanyName {  position: relative;  left: 65px;  top: 13px;  cursor: pointer;  padding-bottom: 10px;}
+.selectCompanyName img {  position: absolute;  top: -2px;}
+.selectCompanyName a {  padding-left: 25px;}
+.new_createProject{margin-top: 30px;}
+#icon_new_default_dot{float: left;margin-left: 20px;}
+.new_createProject_container_main_box{margin-top: 25px;}
+.new_createProject_container{float: left;margin-left: 40px;}
+.new_public_createProject{min-height: 60px;position: relative;}
+.new_public_createProject input[type="text"]{width: 330px;}
+.new_public_createProject span{display: inline-block;width:70px;padding-top: 8px;padding-top: 13px\9;}
+.new_companyName{display: none;margin-left: 73px;}
+.new_companyName p{padding-top: 10px;}
+.new_companyName p:first-child{padding-top: 15px;}
+.new_companyName p:last-child{padding-bottom: 10px;}
+.new_createProject_container_main{width: 100%;height: 600px;border:1px solid #e2e2e2;background: white;}
+.new_public_UlList{position: absolute;width: 330px;border:1px solid #e2e2e2;margin-left: 73px;background: white;border-top:none;height: 130px;overflow-y:auto;z-index: 5; display: none;}
+.new_public_UlList li{line-height: 32px;text-indent: 5px;cursor:pointer;text-overflow: ellipsis;  overflow: hidden;  white-space: nowrap;}
+.new_public_UlList li a{display: block;width: 100%;height: 100%;}
+.dispatchContainerShow {  width: 90%;  margin: 0 auto;}
+.dispatchContainerMessage {  width: 100%;  height: auto;}
+.dispatchContainerMessage p {  padding-top: 5px; }
+.dispatchContainerMessage p span {  display: inline-block;  width: 80px;  text-align: right; }
+.publicInputs {  width: 285px;  margin-left: 5px !important;  }
+.operationBtn {  width: 100%;  text-align: center;  margin-top: 0px;}
+.new_public_blue_bg{background: #0071db !important; border: 1px solid #0071db !important;}
+.new_public_gray_bg{background: #cbcbcd !important; border: 1px solid #cbcbcd !important;}
+.new_public_white_bg{background: #FFFFFF !important; border: 1px solid #0071db !important; color: #0071db !important;}
+.new_selectCompany{width: 405px;cursor: pointer;}
+.new_selectCompany img{    float: right;  margin-top: 9px;}
+.new_selectCompany a{    float: right;  margin-top: 6px;  margin-right: 3px;}
+.publicContainerShow {display: none;}
+.source-mains{display: none;}
+/*弹出指派车辆公共样式*/
+.navMain {  width: 98%;  overflow: hidden;  border-bottom: 1px solid #cbcbcd;  margin: 0 auto;}
+.navMain ul li span {  display: block;  line-height: 35px;  color: #666666;cursor:pointer;padding-left: 10px;padding-right: 10px;}
+.source-active{border-bottom:3px solid #0071db;}
+.tab_assign tr th{line-height: 30px;}
+.tab_assign tr td{line-height: 30px;height: 30px;}
+/*弹出完善数据弹框*/
+.voucherContainer {  width: 94%;  margin: 0 auto;}
+.voucherContainer h5 {  width: 100%;  line-height: 24px;  background: #eeeeee;  text-indent: 10px;  font-size: 12px;  margin-top: 10px;  color: #0071db;}
+.voucherContainer table span {  display: inline-block;  width: 65px;  text-align: left;  font-size: 13px;  }
+.publicVoucherInput {  width: 118px;  height: 24px;}
+.voucherContainer table p a {  padding-left: 5px; padding-right: 1px;}
+.picTab {  width: 100%;  margin-top: 10px;}
+.addPicShowLoadBox {  width: 80%;  margin: 0px auto;  margin-left: 20px;  margin-top: 60px;}
+.addPicShowLoadBox h4 {  padding-bottom: 5px;}
+.uploadPicImgsBox .txts {  height: 25px;  border: 1px solid #cdcdcd;  width: 180px;  font-size: 12px;  margin-top: 5px; }
+.uploadPicImgsBox .btn {  background-color: #FFF;  height: 27px;  width: 70px;  float: none;  border: 1px solid #ccc !important;}
+.uploadPicImgsBox .file {  position: absolute;  left: 20px;  cursor: pointer;  height: 25px;  filter: alpha(opacity:0);  opacity: 0;  width: 272px;  border: 1px solid red;
+}.uploadPicImgsBox .btn {  background-color: #FFF;  height: 27px;  width: 70px;  float: none;  border: 1px solid #ccc !important;  }
+.btn {  width: auto;  height: 27px;  padding: 0px 12px 0px 12px;  float: left;  }
+.upLoadingtext {  text-align: center;  padding-top: 45px; }
+.uploadPicImgsBox img {  width: 100px;  height: 100px;  }
+.upLoadingtext span {  padding-bottom: 10px;  display: inline-block;}
+.btnBoxUpload {  width: 100%;  text-align: center;  margin-top: 0px;}
+.picTab .pictureBox {  width: 530px;  height: 330px;  float: left; }
+.voucherContainer table td {  line-height: 30px;}
+.picTab .pictureBox img {  width: 530px;  height: 330px;  display: none;  cursor: move;  }
+.pictureTitle {  width: 110px;  height: 293px;  float: right; }
+.pictureTitle ul li {  float: left;  margin-left: 10px;  margin-bottom: 19px;  border: 2px solid white;  height: 64px;  cursor: pointer;  }
+.pictureActive {  border: 2px solid #0071db !important;}
+.pictureTitle img {  width: 93px;  height: 64px; }
+.icon_addpicImg {  width: 93px;  height: 64px;  border: 2px solid #0071db; margin-left: 10px;  cursor: pointer;  text-align: center;clear: both; }
+.icon_addpicImg img {  display: block;  margin: 10px auto;}
+.icon_addpicImg span {  color: #0071db;}
+.voucherBtn {  text-align: center;  margin-top: 20px;}
+.mew_alert_publicSelect {  height: 26px;  border: 1px solid #e2e2e2;  outline: none;  cursor: pointer; padding-left: 5px;}
+.publicAllBillBtn {  position: relative;  top: 2px;  border-radius: 2px;  line-height: 28px;  font-size: 14px !important;  text-align: center !important;  color: white; }
+/*弹出完善数据弹框 end*/
+/*消息弹框调整*/
+.list-head1 {  width: 96%;  height: 50px;  margin: 0 auto;  border-bottom: 1px solid #ccc;  line-height: 50px; }
+.see-monitor1 {  width: 96%;  padding-top: 5px;  margin: 0 auto; }
+.bgBoxContaer{background:url("../imgs/icon_meg-alert-line.png") no-repeat left;background-position: 8px 22px;position: relative;top:10px;}
+.messagePs {  color: #7bd0df;  position: relative;  margin-left: 25px;  top: 2px;  margin-top: 0px !important; }
+.bgBoxContaerlist span {  margin-left: 5px;  margin-top: 0px;  display: inline-block;  }
+.bgBoxContaer p {  margin-top: 14px;}
+/*消息弹框调整 end*/
+/*组织架构*/
+.sectorStructure {  width: 15%;  height: 520px;  border: 1px solid #e2e2e2;  float: left;  background: white;  border-radius:3px;}
+.tissueStructure .sectorTitle {  width: 100%;  height: 35px;  border-bottom: 1px solid #e6e6e6;  text-indent: 10px;  line-height: 35px;  color: #535456;}
+#new_operationMessage_header{display: none;}
+.sectorStructure .ztree {  margin-left: 10px !important;  height: 91%;  overflow-x: auto;}
+.operationMessage {  width: 84%;  height: auto;  float: right;}
+.sectorPublicBtn {  padding-left: 12px;  border: none;  outline: none;  padding-right: 12px;  height: 26px;  border-radius: 2px;  color: white;  margin-left: 10px;}
+.operationMessage .operationMessage-head {  width: 100%;  height: 38px;  line-height: 38px;}
+.operationMessage .operationMessage-head h4 {  font-weight: normal;  float: left;}
+.operationBtn .sectorPublicBtn{  float: right; display: none;}
+.searchBtnTextNameInput {  float: right;  height: 25px;  display: none;  border-radius: 2px;}
+.iconlinePic {  float: right;  margin-right: 3px;  margin-top: 1.5px;  display: none;}
+.searchBtnTextName {  float: right;  margin-right: 14px;  display: none;}
+/*组织架构 end*/
+/*个人资料*/
+.publicBox {  width: 100%;  height: auto;  padding-bottom: 15px;  display: none;}
+.personalWallet {  width: 100%;  height: 145px;}
+.personalWallet-left {  width: 160px;}
+.personalWallet-left img {  display: block;  margin: 30px auto;}
+.publicRequired{    position: relative;  top: -1px;  padding-right: 6px;}
+.personCenterPic img {  border-radius: 150px;  margin-left: 10px;}
+.publicContainer .publicTab .publicTitle {  width: 100%;  height: 30px;  border-bottom: 2px solid #009dc8;  position: relative;}
+.publicContainer .publicTab .publicTitle span {  display: inline-block;  width: 100px;  height: 30px;  font-size: 14px;  text-align: center;  line-height: 32px;  color: #666666;  border-top-right-radius: 3px;  border-top-left-radius: 3px;  cursor: pointer;  }
+.personCenterPic input[type='button'] {  background: #0071db;  color: white;  border-radius: 2px;  display: block;  font-size: 12px; cursor:pointer;}
+.modifyBtn {  width: 85px;  height: 26px;  margin: 10px auto;}
+.PersonalInformation table td {  padding: 2px 0px 5px 20px;  font-size: 15px;  overflow: hidden;  word-break: break-all;}
+.personmsgs p {  margin-top: 5px;}
+.tstatusname {  font-size: 16px;  color: #f86106;  font-weight: bold;}
+.PersonalInformation em {  padding-left: 10px;  font-style: normal;position: relative;top:1px;}
+.personCenterPic {  width: 167px;  position: relative;  top: -10px;}
+.yesimgs {  position: relative;  top: 8px;}
+.personmsgs span {  display: inline-block;  width: 68px; }
+.new_title_text{padding-top: 15px;}
+.new_title_text img{position: relative;top:1px;left: -10px;}
+.new_title_text a{font-size: 18px;position: relative;left: -2px;}
+.CompanySpan {  font-size: 20px;  font-weight: bold;position: relative;left: -10px;}
+.personalWallet-left {  width: 160px; }
+.personalWallet-left img {  display: block;  margin: 0px auto;  position: relative;  top:30px;}
+.personalWallet-center {  width: 290px;}
+.personalWallet-center ul {  margin-top: 38px;}
+.personalWallet-center ul li p {  padding-top: 8px;}
+.account {  color: #06bdc3;}
+.personalWallet-center ul li p span {  color: #9c9c9c;}
+.personalWallet-center ul li p label {  color: #f86106;}
+.PersonalList {  width: 100%;  height: 290px;  border:1px solid #e6e6ef;border-radius: 3px;margin-top: 15px;background: white; }
+.PersonalList ul li {
+    float: left;
+    margin-left: 30px;
+    margin-right: 30px;
+    text-align: center;
+    width: auto;
+    margin-top: 30px;
+    cursor: pointer;
+}
+.PersonalList ul li .publicTableBtn{background: #71a5db;color: white;}
+.publicTableBtn {
+    padding-left: 15px;
+    padding-right: 15px;
+    height: 30px;
+    outline: none;
+    border: none;
+    border-radius: 2px;
+    color: white;
+    line-height: 30px;
+    cursor: pointer;
+}
+.PersonalList ul li img {     display: block;  margin: 0 auto;  padding-bottom: 20px;}
+.PersonalList ul li span {  display: block;  text-align: center;  padding-top: 6px;}
+.personalWallet-left, .personalWallet-center, .personalWallet-right {  float: left;}
+.personalWallet-right {  width: 100px;}
+.walletBtnName input{margin-left: 15px;margin-top: 0px !important;}
+.walletBtnName input:first-child{margin-left: 50px;}
+.walletBtnName {float: right;}
+.walletBtn {  width: 80px;  height: 30px;  border-radius: 2px;  font-size: 14px;  color: white;  margin-top: 10px;  border: none;  outline: none;  cursor: pointer;}
+.PersonalInformation table {  width: 100%;  padding: 0px;}
+.accountMessage{float: left;}
+.accountMessage i{display:inline-block;color: #909090;font-size: 14px;padding-top: 20px;}
+.accountMessage i:last-child{padding-top: 15px;}
+.hlepImgs{position: relative;left: 4px;top:4px;cursor: pointer;}
+.accountMessage a{display: block;font-size: 16px;color: #ff5234;}
+.accountMessage a label{font-size: 16px;padding-left: 10px;color: #333333;}
+.seeProjectMoney{padding-left: 15px;color: #5255ff !important;cursor: pointer;}
+.accountMessageHeader{width: 530px;height: 80px;border-bottom:1px solid #d7d7d7;}
+.accountTitle{width: 116px;
+    height: 36px;
+    background: url(../imgs/icon_wallet_bg.png) no-repeat;
+    margin-top: 10px;
+    line-height: 36px;
+    color: white;
+    text-indent: 20px;font-size: 16px;}
+.thisProjectText{float: left;}
+/*
+个人中心 - 充值
+*/
+.recharge table tr td{line-height:40px;}
+.recharge table tr td span{display:inline-block;width:84px;text-align: right;color:#838383;}
+.recharge table tr td a{padding-left: 10px;}
+.recharge .selectChecked{position: relative;top:5px;}
+/**
+个人中心-主账户充值
+ */
+.rechargeToMasterAccount table tr td{line-height:40px;}
+.rechargeToMasterAccount table tr td span{display:inline-block;width:84px;text-align: right;color:#838383;}
+.rechargeToMasterAccount table tr td a{padding-left: 24px;}
+
+/**
+个人中心-转入项目
+ */
+.transferToProject table tr td{line-height:40px;}
+.transferToProject table tr td span{display:inline-block;width:84px;text-align: right;color:#838383;}
+.transferToProject table tr td a{padding-left: 24px;}
+.transferToProject .selectChecked{position: relative;top:5px;}
+
+
+/*
+个人中心 - 余额转移
+*/
+.transfer table tr td{line-height:40px;}
+.transfer table tr td span{display:inline-block;width:84px;text-align: right;color:#838383;}
+.transfer table tr td a{padding-left: 10px;}
+.transfer .selectChecked{position: relative;top:5px;}
+
+/*
+个人中心 -  充值记录
+*/
+.backRecord {display: none;}
+.backRecord table{  width:100%; height:auto;font-family: verdana,arial,sans-serif;  font-size:11px; color:#333333;border-width: 1px;  border-color: #666666;  border-collapse: collapse;  }
+.backRecord table th { border-width: 1px;background: #efefef; font-weight:normal; height:40px; line-height: 40px; font-size:16px; border-style: solid;  border-color: #dddddd;  text-align: center; }
+.backRecord table td { color:#333333; vertical-align:middle; word-break: break-all; height:20px; font-size:14px;  border-width: 1px; line-height: 30px;   text-indent:10px; border-style: solid;  border-color: #dddddd; }
+.backRecord .assignBtn{width: auto;  height: 30px;  padding: 0px 15px 0px 15px;background:#0DBFC8;border:none;border-radius: 2px;outline:none;color:white}
+.backRecord .backboder{border-color:#ccc;}
+.backRecord .Recordimgs{padding-bottom:10px;margin-top:10px;}
+.backRecord .tableone{border-top:none !important;}
+/*公用控件*/
+.tabTurnGroupBtn{width:100%;margin:0 auto;height:50px;border-bottom:1px solid #cbcbcd;}
+.tabTurnGroupBtn span{display:block;width:160px;height:47px;line-height:50px;color:#666666;float:left;text-align: center;cursor:pointer;}
+.tabTurnGroupBtn span:hover{border-bottom:3px solid #0071db;}
+.tabTurnGroupBtn .source-active{color:black !important;border-bottom:3px solid #0071db;font-weight:bold;}
+.tabTurnPanel{width:100%;height:auto;display:none;}
+.red{color: red;}
+.green{color: green;}
+.table_t12 { font-size: 12px; }
+.table_t12 td{ font-size: 12px; line-height: 24px;}
+.mini_btn{ width: 65px; height: 25px; background-color: #18ADC8;}
+
+.searchBar{ width: 98%; height: auto; line-height: 50px; margin: 0px auto; }
+.searchBar input[type="text"]{     border: 1px solid #e2e2e2; height: 30px; text-indent: 5px; border-radius: 2px;}
+.searchBar select{ height: 30px; border-radius: 2px; border: 1px solid #ccc; font-size: 15px; color: #6E6B6B;}
+.searchResult{ width: 98%; margin: 0px auto; }
+.projectLine{position: relative;top:3px;margin-right: 5px;}
+/*********添加银行卡******/
+.addBankcardShow{height:auto; display: none;}
+.addBankcardShow table{width:95%; height:auto; margin: 0 auto; font-family: verdana,arial,sans-serif;  font-size:16px; margin-top:15px; color:#333333;border-width: 1px;  border-color: #666666;  border-collapse: collapse;}
+.deleteBtn{height:26px;background:#ff5353; color:white;}
+.addBankcardShow table td{padding: 2px 0px 2px 10px; border: 1px solid #cccccc; height: 35px; word-break:break-all; overflow:auto;}
+.addBackBtn{padding-left: 15px;padding-right:15px;height:26px;background: #0071db;display: block; margin :10px auto;color: white;border:none;}
+.addBackBOX{    width: 95%;  margin: 10px auto;}
+.addBankcard{height:auto; display: none;}
+.addBankcard table{width:95%; height:auto; margin: 0 auto; font-family: verdana,arial,sans-serif;  font-size:16px; margin-top:15px; color:#333333;border-width: 1px;  border-color: #666666;  border-collapse: collapse;}
+.addBankcard input[type='submit']{border-radius: 2px;font-size:14px;}
+.addBankcard table td{padding: 2px 0px 2px 10px;  height: 35px; line-height:35px; word-break:break-all; overflow:auto;}
+#bankCode{height:24px;border-radius: 2px;}
+.addBankcard .Backinput{width:200px;height:24px;border-radius: 2px;border:1px solid #ccc;outline: none;text-indent: 5px; }
+#BoxName{display: block;text-align: center;color: red;padding-top: 10px;}
+.seeRcord{padding-left: 10px;padding-right: 10px;height:25px;background: #f86106;top:0px !important;}
+.tabTurnPanel table th {  border-width: 1px;  white-space: nowrap;  font-weight: normal;  height: 30px;  line-height: 30px;  font-size: 13px;  text-align: left;  border-style: solid;  border-color: #dddddd;  text-indent: 10px;  font-weight: bold;}
+.publicBtn {  height: 26px;line-height: 26px;  padding-left: 15px;  padding-right: 15px;  border: none;  outline: none;  cursor: pointer;  border-radius: 2px;  color: white;}
+/******体现**********/
+.Reflect{display: none;}
+.Reflect table{width:100%;padding-top: 10px;}
+.Reflect table td{    padding: 2px 0px 2px 10px; overflow: hidden;  height: 27px;  line-height: 34px;  word-break: break-all;}
+.Reflect table td span{display:inline-block;width: 125px;text-align: right;}
+#BoxNames{width:100%;color: red;text-align: center;}
+.buttons{padding-left: 15px;padding-right: 15px;height:35px;border-radius: 2px;background: #f86106;color: white;font-size:15px;margin-left: 10px;}
+#ReflectSelect{height: 30px;  border-radius: 2px;}
+/*体现我的钱包- 修改布局*/
+.applyWithdrawConcainer p{padding-top: 15px;}
+.applyWithdrawConcainer p span{display: inline-block;width:110px;text-align: right;}
+.applyWithdrawConcainer p input[type="text"]{margin-left: 10px;}
+.applyWithdrawConcainer p input[type="password"]{margin-left: 10px;width: 260px;font-size: 20px;}
+.applyWithdrawConcainer p a{display: block;padding-left: 135px;padding-top: 6px;color: #666;}
+
+.applyWithdrawConcainer p select{margin-left: 10px;width: 260px;}
+.walletBtnOne {  background: #2468d7;}
+.walletBtnTwo{background: white;border:1px solid #2468d7;color:#2468d7;}
+.cancelBtn {  min-width: 40px;  border-radius: 2px;  width: auto;  height: 27px;  font-size: 14px;  color: #FFFFFF;  margin-left: 5px;  border: none;  background-color: #3E3337;  padding: 0px 5px 0px 5px;  -webkit-appearance: none;  cursor: pointer;  }
+.modifyPassWord{width:99.5%;height:auto;border-top:none;}
+.modifyPassWord table{width:100%;padding-top: 10px;}
+.modifyPassWord table td{ padding: 2px 0px 2px 10px; overflow: hidden;  height: 27px;  line-height: 30px;  word-break: break-all;}
+.modifyPassWord table td span{display:inline-block;}
+.modifyPassWord table td input[type='password']{width:200px;height:28px;border-radius: 2px;border:1px solid #ccc;text-indent:10px;outline:none;}
+.rechargeWait table{width:100%;margin-top:30px;}
+.rechargeWait table td{font-size:14px;text-indent:20px;text-align:left;color:#5f5f60;}
+.rechargeWait table td .publicBtn{margin-top:30px;margin-left:10px;}
+.grayBtn {  background: #b5b5b5;  color: #000 !important;}
+/* 车辆召集 - 我的车辆 - 新增车辆  */
+.editMyVehicleDialog table{width:84%;margin-top: 10px;}
+.editMyVehicleDialog table tr td{line-height: 35px;}
+.editMyVehicleDialog table tr td span{display: inline-block;width: 100px;text-align:right;}
+.editMyVehicleDialog table tr td span i{color: #f86106;}
+/* 车辆召集 - 我的车辆 - 新增车辆 end */
+/***********添加车辆*************/
+.AddCarMain{display:none;}
+.AddCarMain table{margin-top:10px;}
+.tables .names{width:170px;height:28px;outline:none;border:1px solid #ccc;border-radius: 2px;}
+.tables td{height:40px;}
+.tables span{display:block;text-indent:20px;}
+.addBtn{padding-left:15px;padding-right:15px;height:30px;background:#f86a14;color:white;border-radius: 2px;margin-top: 10px;border: none;margin-left:55px; }
+/*新增装卸地*/
+.unloadingBox{margin-top: 20px;}
+.unloadingBox p{display: inline-block;}
+.unloadingBox p span{display: inline-block;width: 80px;text-align: right;}
+.unloadingBox p select{width: 160px;}
+.unloadingBox p input{width: 160px;}
+.mapBoxMain{position: relative;width: 610px;margin: 0 auto;}
+.searchMap{position: absolute;z-index: 888;margin-top: 1px;}
+.searchMap .publicInput{    width: 550px;  border: 1px solid #ccc;  height: 30px;  margin-left: 30px;  margin-top: 10px;  text-indent: 5px;  border-radius: 3px;}
+.searchMap .publicBtn{background: #169bd5;height: 30px;width: 90px;border-radius:3px;}
+.saveLoadding{display: block;margin: 0 auto;background: #0070db ;}
+/*新增装卸地end*/
+/*角色管理弹出修改与编辑角色*/
+.MenuBtn{padding-left: 15px;padding-right: 15px;height:30px;color:white;border-radius: 2px;margin-left: 10px;cursor:pointer;background:#f86a14;font-size: 13px;border:none;}
+.deletes{background: #F93C3C;margin-left:10px;}
+.PublicShow {display: none;}
+.PublicShow .ztree li ul.line {background-position: 11px; display: none;}
+.PublicShow h4{width:100%;height:35px;border-bottom:1px solid #ccc; line-height: 35px;text-indent: 10px;font-size: 16px;  color: #010101;}
+.PublicShow .nameInput{width:120px;border-radius: 2px;border: 1px solid #ccc;height:28px;text-indent: 5px;}
+.PublicShow table{ width:98%; height:auto; font-family: verdana,arial,sans-serif;  font-size:11px;margin: 0 auto;  color:#333333;border-width: 1px;  border-color: #666666;  border-collapse: collapse;}
+.PublicShow table tr td{color:#5C5A5A;  word-break: break-all; height:48px; font-size:14px;line-height: 48px;   text-indent:10px; }
+.PublicShow i{display: inline-block;width:130px;text-align: right;font-size: 15px;}
+.MenuBtns{padding-left: 5px !important;padding-right: 5px !important;}
+.rolePublicManage .companyManage {  width: 100%;  height: 175px;  overflow-x: auto;}
+/*角色管理弹出修改与编辑角色end*/
+/*项目详情*/
+#new_public_height{width: 100%;background: white; border: 1px solid #e6e6ef;}
+.fl {  float: left;  line-height: 34px;  color: #0071db;  }
+.selectPerson {  height: 200px;  overflow-y: auto;  }
+.publicHeader {  width: 98%;  height: auto;  min-height: 30px;  margin: 10px auto;  }
+#personnalsTbody {  width: 98%;  height: 215px;  border: 1px solid #ccc;  margin: 10px auto;  overflow-y: auto;  }
+.publicHeaderMain {  width: 98%;  margin: 0 auto;  }
+#personnalsTbody p {  text-align: center;  padding-top: 20px;  }
+#personnalsTbody span {  display: inline-block;  width: 190px;  padding-left: 5px;  padding-top: 10px;  }
+.tableList tr td{border:1px solid #ccc;}
+.userMessage_pic{width: 80%;line-height: 15px;margin-left: 30px;padding-top: 10px;padding-bottom: 15px;}
+.userMessage_pic p{padding-top: 3px;}
+.userMessage_pic p .userMessage_pic_a {  display: inline-block;  padding-left: 5px;  padding-right: 5px;  height: 20px;  line-height: 20px;  background: #0071db;  color: white;  border-radius: 3px;  }
+.userMessage_pic span {  padding-left: 4px;  color: #666666;  font-size: 14px;  }
+.userMessage_pic span a {  padding-left: 5px;  color: #878893;  font-size: 14px;  }
+.activeop1 {  opacity: 1 !important;  }
+.activeTabProject {  border-bottom: 3px solid #0071db;  color: #0071db !important;  }
+.companyBasicMessage {  margin-top: 10px;  margin-bottom: 10px;  margin-left:30px;  }
+.companyBasicMessage p {  padding-top: 5px;  }
+.companyBasicMessage p span {  font-size: 13px;  color: #333333;  }
+.projectBox span {  display: inline-block;  width: auto;  text-align: right;  }
+.companyBasicMessage p a {  font-size: 13px;  color: #333333;  }
+.projectBox h4 {  width: 98%;  height: 40px;  border-bottom: 1px solid #ccccce;  margin: 0 auto;  line-height: 50px;  color: #313131;  font-weight: bold;  }
+.userMessage_pic p i{color: #878893;}
+.personListNameText {  width: 900px;  }
+.personListNameTextBox {  float: left;  margin-top:6px;  width: 220px;  height: 110px;}
+.shipperIconImages {  width: 45px;  height: 75px;}
+.personListNameTextBox img {  width: 45px;  height: 45px;  border-radius: 45px;}
+.personListNameTextBox .person {  width: 220px;  min-height:70px;}
+.personListNameTextBox .phone_value {  margin-left: 50px;}
+.personListNameTextBox ul li {  padding-top: 2px;}
+.personConfigureBox {  margin-top: 20px;  margin-left: 30px; }
+.newMessageCenter{right: 15px !important; top: -10px !important;opacity: 0.5;background: none !important;width: 20px !important;height:20px !important;}
+.messageCenter {  display: inline-block; padding-left: 0px !important;color: white; text-align: center;  width: 8px;  height: 8px;  background: #ff1301;  font-family: "微软雅黑";  position: absolute;  right: 20px;  border-radius: 50%;  line-height: 25px;  color: white;  }
+table.tableList {  width: 100%;  height: auto;  font-family: verdana,arial,sans-serif;  font-size: 11px;  margin-top: 0px;  color: #333333;  border-width: 1px;  border-color: #666666;  border-collapse: collapse;}
+table.tableList td {  color: #5C5A5A;  word-break: break-all;  height: 35px;  font-size: 13px;  border-width: 1px;  line-height: 35px;  text-indent: 10px;  border-style: solid;  border-color: #dddddd;}
+/*项目详情end*/
+/*阻止架构弹出信息*/
+.new_companyAlert_bxo p{text-align: center;padding-top: 20px;}
+/*.curSelectedNode {  background: #B8C8E3 !important;  border: none !important; }*/
+.publicTissue table {  width: 96%;  margin: 15px auto;  height: auto;  font-family: verdana,arial,sans-serif;  color: #333333;  border-width: 1px;  border-color: #666666;  border-collapse: collapse; }
+.publicTissue td {  line-height: 45px;  color: #5C5A5A;  word-break: break-all;  height: 40px;  font-size: 14px;  border-width: 1px;  text-indent: 10px;  border-style: solid;  border-color: #dddddd;  }
+
+.publicTissue i {  display: inline-block;  width: 100px !important;  text-align: right;  }
+.publicTissue .positionMessage {  width: 99%;  height: 180px;  margin-left: 5px;  overflow-x: auto;}
+/*阻止架构弹出信息end*/
+.messagePayInvoices {  width: 98%;  margin: 0 auto;}
+.messagePayInvoices p {  padding-top: 15px; }
+.messagePayInvoices span {  display: inline-block;  width: 140px;  text-align: right;  color: #666666;  padding-right: 5px; }
+.icon_Check {  position: relative;  top: 5px;  cursor: pointer; }
+.messagePayInvoices p a {  display: inline-block;  text-align: right;  font-size: 16px;  padding-left: 10px;}
+.paymentMoney ul {  margin-top: 15px; }
+.paymentMoney_confirm ul li {  width: 100%;  height: 20px;  margin-top: 22px;}
+.paymentMoney_confirm ul li span {  width: 118px !important;  color: #666666;  font-size: 14px;  float: left;  display: inline-block;  text-align: right;}
+.paymentMoney_confirm ul li i {  display: inline-block;  width: 240px;  float: left;  font-size: 13px;  }
+.paymentMoney .pwd-box {  width: 245px;  padding-left: 4px;  position: relative;   border-radius: 3px;  margin: 0 auto;  margin-top: 20px;  }
+.paymentMoney .pwd-box input[type="password"] { width: 100%;  vertical-align: middle;  line-height: 40px;  height: 40px;  color: black;  border: 1px solid #ccc;  font-size: 40px;  text-align: center;  opacity: 1;  letter-spacing: 15px; }
+.paymentMoney .fake-box input {  width: 36px;  height: 35px;  border: none;  border-right: 1px solid #ccc;  text-align: center;  font-size: 30px;  line-height: 35px;  }
+.paymentMoney input[type='button'] {  display: block;  margin: 0 auto;  margin-top: 20px;  }
+.news_publicTable table td {  color: #5C5A5A;  word-break: break-all;  height: 30px;  font-size: 12px;  border-width: 1px;  line-height: 30px;  text-indent: 6px;  border-style: solid;  border-color: #dddddd; }
+.news_publicTable table {  width: 100%;  height: auto;  font-family: verdana,arial,sans-serif;  margin-top: 10px;  font-size: 12px;  color: #333333;  border-width: 1px;  border-color: #666666;  border-collapse: collapse;  }
+/*发布货源*/
+.goodsDetailsList table {  width: 60%;  min-width:943px;  }
+.goodsDetailsList tr td span {  display: inline-block;  text-align: left;  padding-top: 7px;  font-size: 12px;  color: #666869;  text-indent: 6px;  }
+.releaseGoods .releaseGoodsTable span {  width: 80px;  text-align: right;  }
+.iconChecks {  position: relative;  top: 2px;  cursor: pointer;  }
+.releaseGoods .releaseGoodsTable td {  line-height: 24px;  height: 24px;  }
+.releaseGoodsTable .publicInput {  width: 170px !important;  }
+.automaticTextBox {  display: inline-block;  position: relative;  }
+.automaticText {  width: 357px;  background: white;  position: absolute;  border: 1px solid #ccc;  border-radius: 2px;  top: 0px;  left: 65px;  border-top: 1px solid rgb(204, 204, 204);  height: 240px;  overflow: hidden;  text-align: center;  display: none;  }
+.ulListBoxTextTitle {  width: 100%;  height: 160px;  margin: 0 auto;  overflow-y: auto;  border: 1px solid #ccc;  margin-top: 8px;  border-left: none;  }
+.releaseGoods p {  margin-top: 35px;  }
+.automaticTextBox ul li {  line-height: 30px;  border-bottom: 1px solid #ccc;  text-indent: 10px !important;  text-align: left;  }
+.publicMainContainerBox {  width:100%;  margin:0px auto;  }
+.automaticText  .publicBtn {  text-indent: 0px;  margin-top: 8px;  }
+/*发布货源end*/
+/*选择计划*/
+.selectProjectMainContainer {  width: 100%;  margin: 0 auto;  }
+.selectProjectHead {  width: 100%;  height: 45px;  line-height: 45px;  }
+.selectProjectHead span {  padding-left: 20px;  }
+.selectProjectHead input[type='text'] {  margin-left: 10px;  width: 200px;  }
+.projectBtn {  margin-left: 10px;  }
+.selectProjectMainContainer .projectList ul {  width: 100%;  height: 230px;  overflow-y: auto;  margin: 0 auto;  border-top: 1px solid #ccc;  border-bottom: 1px solid #ccc;  }
+.selectProjectMainContainer .projectList ul li {  width: 100%;  height: 30px;  line-height: 30px;  text-indent: 20px;  cursor: pointer;  }
+.selectProjectMainContainer .publicBtns {  display: block;  margin: 0 auto;  margin-top: 10px;  }
+/*选择计划end*/
+/*查看货源详情*/
+.goodsDetailsContainer h4 {  width: 100%;  line-height: 26px;  margin: 0 auto;  background: #efefed;  color: #18adc8;  margin-top: 10px;  font-weight: bold;  text-indent: 6px;  }
+.detailsMap table {  width: 40%;  min-width: 900px;  }
+.goodsDetailsList tr td span {  display: inline-block;  text-align: left;  padding-top: 7px;  font-size: 12px;  color: #666869;  text-indent: 6px;  }
+.goodsDetailsList tr td a {  font-size: 12px;  }
+.mapContainer {  width: 725px;  height: 330px;  border: 1px solid #ccc;  cursor: pointer;  margin-top: 10px;  margin-left: 6px;  }
+.mapContainerBox {  width: 100%;  height: 600px;  border: 1px solid #ccc;  margin: 10px auto;  }
+/*查看货源详情*/
+/*平台车辆查看详情*/
+.vehicleContainer .vehicleMsg {  width: 98%;  height: 215px;  border-bottom: 1px solid #ccc;  margin: 0 auto;  padding-bottom: 50px; }
+.vehicleContainer .vehicleMsg .driverDetails {  width: 625px;  height: auto;  border-bottom: none;  margin-bottom: 10px;  margin-top: 20px;  margin-left: 20px;  float: left;  padding-bottom: 5px;  }
+.driverDetails .driverDetails-left {  width: 184px;  height: 100%;  float: left;  }
+.driverDetails .driverDetails-left .headPortrait {  display: block;  width: 100px;  height: 100px;  border-radius: 100px;  margin: 0px auto;  }
+.driverDetails .driverDetails-left .driverMessage {  margin-top: 15px;  }
+.driverDetails .driverDetails-left p {  padding-top: 7px;  }
+.driverDetails .driverDetails-left p span {  color: #989898;  }
+.driverDetails .driverDetails-right {  width: 385px;  height: 100%;  float: right;  }
+.driverDetails .driverDetails-right h4 {  font-weight: normal;  font-size: 16px;  color: #1cabcb;  height: 30px;  border-bottom: 1px solid #ccc;  }
+.driverDetails-right table {  width: 100%;  margin-top: 10px;  }
+.driverDetails-right table tr td {  width: 50%;  line-height: 29px;  }
+.driverDetails-right table tr td span {  color: #686868;  }
+.driverDetails-right table tr td a {  color: #686868;  }
+.vehicleContainer .vehicleMsg .vehicleChart {  width: 600px;  height: auto;  float: left;  margin-left: 55px;  margin-top: 50px;  }
+.vehicleChart .mileageChart {  width: 280px;  height: 145px;  border: 1px solid #ccc;  float: left;  }
+.vehicleChart .oilChart {  width: 280px;  height: 145px;  border: 1px solid #ccc;  float: right;  }
+.vehicleContainer .vehicleObd {  width: 98%;  margin: 0 auto;  }
+.vehicleContainer .vehicleObd h4 {  height: 40px;  color: #16b0c8;  line-height: 40px;  }
+table.tableList {  width: 100%;  height: auto;  font-family: verdana,arial,sans-serif;  font-size: 11px;  margin-top: 0px;  color: #333333;  border-width: 1px;  border-color: #666666;  border-collapse: collapse;  }
+.vehicleContainer .vehicleObd {  width: 98%;  margin: 0 auto;  }
+table.tableList td {  color: #5C5A5A;  word-break: break-all;  height: 35px;  font-size: 13px;  border-width: 1px;  line-height: 35px;  text-indent: 10px;  border-style: solid;  border-color: #dddddd;  }
+table.tableList th {  border-width: 1px;  white-space: nowrap;  font-weight: normal;  height: 32px;  line-height: 32px;  font-size: 13px;  text-align: left;  border-style: solid;  border-color: #dddddd;  text-indent: 10px;  font-weight: bold;  }
+/*平台车辆查看详情end*/
+/*地图找车样式*/
+.newSelectCarType{display: inline-block;position: relative;width:20%;margin-left: 1%;}
+.carlengthBox{    top: 44px !important;  left: 3px!important;  width: 100%!important;  height: 110px!important;  border-top: none!important;overflow-y: auto;}
+.carlengthBoxli{width:90px !important;margin-left: 11px !important;margin-top: 3px;}
+.Load_1_areaItems ul li{line-height: 40px;}
+.carlengthBoxs{top: 44px !important;  left: 3px!important;  width: 100% !important;  height: 116px!important;  border-top: none!important;}
+.carlengthBoxlis{width:56px !important;margin-left: 11px !important;}
+.socialVehicleAlertMain{width:550px;margin:0 auto;}
+.carMainBox{width:100%;height:45px;border-bottom:1px dashed #ccc;line-height:45px;}
+.carMainBoxTitle{width:182px;float: left;}
+.carMainBoxTitle span{display: inline-block;width:80px;text-align:right;color:#666666;}
+.carMainBoxImgs img{display: block;margin: 0 auto;margin-top:30px;}
+.mapTextBox li{width:100px;height:28px;border: 1px solid #f86106;text-align: center;line-height:28px;}
+.mapTextBox li img{position:relative;top:2px;}
+.automaticTextadress li{line-height: 32px;  text-indent: 4px;  border-bottom: 1px solid #ccc;}
+.tabTurnPanel table th{border-width: 1px;white-space: nowrap;font-weight: normal;height: 30px;line-height: 30px;font-size: 13px;text-align: left;border-style: solid;border-color: #dddddd;text-indent: 10px;font-weight: bold;}
+.automaticTextadress li{display:block;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.backgroundWhite{background:white;}
+/*地图找车样式end*/
+.newAddressInput{width: 22%;}
+.newPublicSelectInput{width: 20%;}
+.projectGoodsFormLeftAddNew{width: 70%;}
+.newKmPublicInput{width: 15%;}
+@media screen and (min-width:100px) and (max-width:1450px) {
+    .projectGoodsFormLeftAddNew{width: 100% !important;}
+}
+.documentaryTaskTable .new_icon_pic li:last-child {  margin-right: 5px !important; }
+/*查看行程*/
+.transportContainer h4 {  width: 100%;  height: 52px;  line-height: 60px;  margin: 0 auto;  border-bottom: 1px solid #ccc;  font-weight: normal; font-size: 18px;}
+.transportStatus {  width: 100%;  height: 175px;  margin: 20px auto; }
+.transportStatus .transportResult {  width:15%;  height: 100%;  border-right: 1px solid #dddddd;  float: left;    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;}
+.transportStatus .transportResult a {  color: #9c9c9c;}
+.transportStatus .transportResult p {  padding-top: 5px;padding-left: 20px;}
+.transportStatus .transportResult span {      padding-top: 20px;  font-size: 14px;  color: #0071db;}
+.transportStatus .transportStep {  width: 70%;  height: 100%;  float: left;  margin-left:20px; }
+.transportStep p a {  font-size: 16px; }
+.transportStatus .transportStep p img {  padding: 0 10px 0 10px; position: relative;top:5px;}
+.transportStatus .transportStep ul {  margin-top: 30px; }
+.transportStatus .transportStep ul li {  width: 7%;  height: 110px;  text-align: center;  float: left;  }
+.transportStatus .transportStep ul li img {  display: block; margin: 0 auto;  }
+.transportStatus .transportStep ul li p {  padding-top: 8px;  color: #999999;  white-space: nowrap; }
+.transportStatus .transportStep ul li p a {  color: black;  font-size: 14px; }
+.transportContainer .carMessages {  width: 100%;  height: 260px;  border-top: 1px solid #dddddd;  padding-top: 20px;  border-bottom: 1px solid #dddddd; }
+.transportContainer .carMessagesLeft {  width: 17%;  height: 100%;  float: left; }
+.transportContainer .carMessagesLeft .carMessagesText {  margin-left: 20px; background: white;overflow: hidden;}
+.carMessagesText span{color: #878789;}
+.waybillMessage{    position: relative;  margin-left: 20px;  top: 15px;}
+.waybillMessage img{position: relative;top:1px;}
+.carMessagesText table{margin-top: 6px;}
+.transportContainer .carMessagesLeft p {  color: #22222a;   }
+.transportContainer .carMessagesLeft p a{padding-left: 10px;font-size: 18px; }
+.transportContainer .carMessagesLeft p img{position: relative;top:1px; }
+.transportContainer .carMessagesLeft table tr td {  line-height: 25px;  white-space: nowrap;  }
+.carMessages .carMapRight {  width: 79%;  height: 230px;  float: left;  }
+.carMessages .carMapRight .locationAddress .locationFirst {  background: url(../imgs/icon_location1.png) no-repeat left center !important;  margin-top: 0px;  font-size: 13px;  color: #F86106;  font-weight: bold;  }
+.carMessages .carMapRight .locationAddress ul li {  width: 100%;  background: url(../imgs/icon_location2.png) no-repeat left center;  line-height: 18px;  font-size: 12px;  padding: 9px 0 0 25px;}
+.carMessages .carMapRight .locationAddress {  width: 50%;  height: 100%;  float: left;  margin-left: 15px;  overflow-y: auto;  overflow-x: hidden;}
+.transportStatus .transportStep ul .statusArrow {  float: left;  position: relative;  top: 15px;  }
+.goodsMessage .carMessagesLeft {  border-right: 1px solid #dddddd;  width: 22%; }
+/*查看行程end*/
+/*调度单*/
+.dispatchContainerShow {  width: 90%;  margin: 0 auto;}
+.dispatchContainerHeader p {  padding-top: 10px;  }
+.dispatchContainerHeader i { font-weight: 500;  }
+.dispatchContainerHeader p span {  padding-left: 20px;  color: #666666;  }
+.dispatchContainerShow .titleText {  font-size: 12px;  color: #18adc8;  font-weight: bold;  text-indent: 5px;  height: 24px;  line-height: 25px;  background: #eeeeee;  margin-bottom: 8px;  margin-top: 8px; }
+.dispatchContainerMessage {  width: 100%;  height: auto;}
+.goodsBoxTitle span {  text-align: right;  display: inline-block;  width: 70px;}
+.dispatchContainerMessage p span {  display: inline-block;  width: 70px;  text-align: right;}
+.operationBtn {  width: 100%;  text-align: center;  margin-top: 15px;}
+/*调度单end*/
+/*评价驾驶员*/
+.stars b.yellow {  background: url(../imgs/icon_star_yes.png) center center no-repeat;  }
+.stars b.gray {  background: url(../imgs/icon_star_no.png) center center no-repeat;}
+.mark_star span {  position: relative;  top: 6px;}
+.stars b {  display: inline-block;  width: 24px;  height: 24px;  margin: 0 3px;}
+.evaluateDialog p {  padding-top: 10px;}
+.evaluateDialog p span {  display: inline-block;  width: 80px;  text-align: right;}
+.evaluateDialog p a {  padding-left: 10px; }
+.evaluateTitle {  display: inline-block;  width: 80px;  text-align: right; }
+.evaluateContainer {  width: 80%;  height: 80px;  border: 1px solid #ccc;  border-radius: 5px;  display: block;  margin: 18px auto;  resize: none;  outline: none;}
+.evaluateDialog .publicBtn {  display: block;  width: 80%;  margin: 0px auto;  background: #0071db;  color: white;}
+/*评价驾驶员end*/
+/*填写备注*/
+.remarksContainer {  width: 92%;  margin: 0 auto;}
+.remarksContainer p {  padding-top: 10px;}
+.remarksShowLoad {  position: relative;  top: 15px;}
+.textareaShowLoad {  width: 300px;  height: 50px;  margin-left: 10px;  outline: none;  text-indent: 5px;  resize: none;  border-radius: 2px;}
+.remarksContainer .publicBtns {  display: block;  margin: 10px auto;  width: 100px !important; }
+/*填写备注end*/
+/*上传凭证*/
+.addPicImg_up {  width: 100px;  height: 100px;  margin: 130px auto;  text-align: center;  cursor: pointer;  }
+/*上传凭证end*/
+.dispatchContainerMessage1 p span{width: 80px !important;}
+/*拒接调度*/
+.closeCauses {  width: 90%;  margin: 0 auto;  }
+.closeCauses p {  padding-top: 12px;  }
+.closeCauses span {  padding-left: 5px;  color: #f86106;  cursor: pointer;  }
+.closeCauses input[type="button"] {  display: block;  margin: 20px auto;  }
+/*****普通用户登陆********/
+.loginPage .loginMain{width:370px;height:530px;position: absolute; }
+.icon_login_login{display: block;margin: 0 auto;margin-bottom: 30px;}
+#copyright{    width: 100%;  position: absolute;  bottom: 70px;  text-align: center;  color: #cde6fa;  font-size: 13px;  opacity: 0.6;}
+.new_login_logo{width:400px;height: 410px;float: left;background: url("../imgs/new_login_logo_bg.png") no-repeat; background-size: 100% 100%;position: relative;text-align: center;}
+.new_login_logo img{display: block;margin: 0 auto;}
+.icon_new_fkh_log{margin-top: 60px !important;}
+.icon_new_fkh_log_text{margin-top: 30px !important;}
+.new_login_logo p{width:100%;position: absolute;bottom:6px;text-align: center;color: #cde6fa;font-size: 13px;opacity: 0.6;filter: alpha(opacity=60);}
+.loginPage .formLogin{  width: 370px;height:350px;background: white;float: left;}
+.loginPage .loginLogo img{display: block;margin: 0 auto;}
+.loginPage .formLogin h4{text-align: center;padding-top: 10px;color:#5183b1;font-size: 20px;font-weight:normal;}
+.loginPage .publicInput{width:300px;height:44px; outline: none; border:1px solid #e5ebf3 ;display: block;margin: 15px auto;line-height:normal;font-size: 14px;text-indent: 35px;cursor:pointer; }
+.loginPage .inputName{margin-top: 30px;background:#e5ebf3  url("../imgs/user.png") no-repeat left center;background-position: 10px;line-height: normal; line-height: 22px\9;}
+.loginPage .inputNames{background:#e5ebf3  url("../imgs/pwd.png") no-repeat left center;background-position: 10px;}
+.loginPage .inputNameOne{background:#e5ebf3  url("../imgs/code.png") no-repeat left center;background-position: 10px;float: left;margin-top: 0px ;}
+.loginPage .inputNameTwo{background: #32c5d3;}
+.loginPage .inputNameOne{width: 180px; }
+
+.loginPage .verificationCode{width:300px;height:44px;margin: 0 auto;}
+.loginPage .imgs{    display: block;  float: right;  width: 98px;  height: 44px;}
+.loginPage .inputNameSubmit{font-size: 20px;background: #32c5d3;text-indent:0px;color: white;}
+.loginPage .forgetPwd{display: block;color:#009dc7;text-indent: 35px;cursor: pointer;}
+.loginPage .fkfFooter{margin-top:30px;font-size: 13px;text-align:center;color:#818994;}
+/**普通用户忘记密码**/
+.formForget{width:370px;height:455px;background: white;display: none;float: left;}
+.formForget h4{text-align: center;padding-top: 10px;color:#5183b1;font-size: 20px;font-weight:normal;}
+.formForget .verificationCodeName{width: 300px;  height: 44px;  margin: 0 auto; margin-top: 30px}
+.formForget .codeInput{background:#e5ebf3  url("../imgs/code.png") no-repeat left center;background-position: 10px;float: left;width:180px;margin-top: 0px !important;line-height: 44px;}
+.formForget .codeBtn{display: block;float: right;padding-left: 15px;padding-right: 15px;border:none;height:48px;background:#32c5d3;color: white;font-size: 13px; }
+.formForget .iphone {  background: #e5ebf3 url("../imgs/icon_iphone.png") no-repeat left center;  background-position: 10px;display: block;  margin-top: 30px; line-height: 44px; }
+.formForget .verificationCodeName{width: 300px;  height: 44px;  margin: 0 auto; margin-top: 14px;}
+.formForget .newPwd{background:#e5ebf3  url("../imgs/pwd.png") no-repeat left center;background-position: 10px;line-height: 44px; }
+.formForget .newPwds{background:#e5ebf3  url("../imgs/pwd.png") no-repeat left center;background-position: 10px;line-height: 44px; }
+.formForget .confirmSubmit{font-size: 20px !important;  background: #32c5d3;  text-indent: 0px;color:white;}
+.formForget .returnLogin{ display: block;  color: #009dc7;  text-indent:35px;  cursor: pointer;}
+/*========管理员登陆页面==========*/
+.managerLoginPage .formLogin{background: none;}
+.managerLoginPage .formLogin h4{color:white;}
+.managerLoginPage .publicInput{width:400px;text-indent: 35px;border:1px solid #6ea2c4;color: white;line-height: 44px;}
+.managerLoginPage .verificationCode{width:400px;}
+.managerLoginPage .inputNameSubmit{background:#e7505a;margin-top: 30px;border: 1px solid #e7505a;text-indent: 0px;}
+.managerLoginPage .formLogin{height:330px;}
+.managerLoginPage .fkfFooter{color:white;}
+.managerLoginPage .managerName{margin-top: 30px;background:#6ea2c4  url("../imgs/managerName.png") no-repeat left center;background-position: 10px;}
+.managerLoginPage .managerPwd{background:#6ea2c4  url("../imgs/managerPwd.png") no-repeat left center;background-position: 10px;}
+.managerLoginPage .managerCode{width:240px;float: left;margin-top:0px;background:#6ea2c4  url("../imgs/managerCode.png") no-repeat left center;background-position: 10px;}
+.managerLoginPage input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {  color: white;}
+.managerLoginPage input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {color: white;}
+/*待支付运单*/
+.publicMain .publicContent h4 {  font-weight: normal;  font-size: 16px;  color: #646464;  width: 99%;  height: 40px;  border-bottom: 1px solid #ccc;  line-height: 40px;  margin:0 auto;  }
+#waybillMessageTable tr td {  line-height: 26px;  }
+#waybillMessageTable tr td ul li {  float: left;  }
+.paymentForm {  width: 100%;  height: 240px;  }
+.paymentForm ul li {  margin-top: 15px;  }
+.paymentForm span {  display: inline-block;  width: 130px;  text-align: right;  color: #343434;  }
+.paymentForm a {  color: #ff0006;  font-size: 20px;  }
+.paymentMoney ul li span {  display: inline-block;  width: 160px;  text-align: right;  }
+.paymentMoney ul li a {  font-size: 18px;  color: #ff0006;  }
+#newPublicTablePayment table tr:nth-of-type(even) {  background: none;  }
+#newPublicTablePayment table tr:nth-of-type(odd) {  background: #f4f7fa;  }
+/* 浏览器滚动条自定义样式 BEGIN */
+body>.bodyBackClass {  width: 6px;  right: 0;  background: #000;  background: rgba(0, 0, 0, 0.4);  border-radius: 20px;  }
+.bodyFrontClass {  width: 6px;  height: 40px;  left: 0;  background: #fff;  background: rgba(255, 255, 255, 0.75);  border-radius: 20px;  }
+/* 浏览器滚动条自定义样式 END */
+.vehicleChart .mileageChart {  width: 280px;  height: 145px;  border: 1px solid #ccc;  float: left;  overflow: hidden;  }
+/*选择项目修改添加样式*/
+.selectProjectMessage{clear: both;}
+.selectProjectMessage span{position: relative;top:-3px;}
+.selectProjectMessage a{display: inline-block;max-width:210px; cursor:pointer;font-size: 14px;   text-overflow: ellipsis;  overflow: hidden;  white-space: nowrap;}
+.thisProjectName{float: left;}
+.thisProjectName a{font-size: 15px !important;}
+.thisProjectName span{color: #979a9a;}
+#currentProjectInfo span{color: #979a9a;}
+.newTableModify th{text-indent: 5px !important;}
+.newTableModify td{text-indent: 5px !important;}
+.selectProjectMessage img{margin-right: 0px;margin-left: 5px;}
+.publicTextMessageBtn {  width: 120px !important;  height: 34px !important;  margin-left: 64px;  margin-top: 30px;  border: none !important;  }
+.publicInputSelect{width: 150px !important;background: white;}
+.createPlanAlertMain, .showPlanAlertMain {  margin-left: 5%;  }
+.createPlanAlert span{  display: inline-block;  width: 58px;  font-size: 12px;  line-height: 30px;  color: #444444;  text-align: right;  }
+.showPlanAlert span {  display: inline-block;  width: 58px;  font-size: 12px;  line-height: 30px;  color: #444444;  text-align: right;  }
+.modifyPassWord span img{position: relative;top:-1px;padding-right: 6px;}
+#submitBox  img{position: relative;top:-1px;padding-right: 6px;}
+.PaymentPassword span img{position: relative;top:-1px;padding-right: 6px;}
+.forgetPwd span img{position: relative;top:-1px;padding-right: 6px;}
+.createPlanAlert span i{    color: #ff5534;  font-size: 18px;  position: relative;  top: 5px;}
+.applyWithdrawConcainer span img{position: relative;top:-1px;padding-right: 6px;}
+#addDriverForm span img{position: relative;top:-1px;padding-right: 6px;}
+.publicUlListBoxTextTitle{  width: 100%;  height: 160px;  margin: 0 auto;  overflow-y: auto;  border: 1px solid #ccc;  margin-top: 5px;  border-left: none;}
+.publicUlListBoxTextTitle li{line-height: 32px;  text-indent: 4px;border-bottom: 1px solid #ccc;text-align: left;}
+.textstatisticsBarbox {  font-weight: bold;  font-size: 12px;  color: #666666;  }
+.createPlanAlert input[type='text'], .showPlanAlert input[type='text'] {  width: 220px;  height: 24px;  border-radius: 2px;  border: 1px solid #ccc;  text-indent: 5px;  margin-left: 5px;  }
+.createPlanAlert td, .showPlanAlert td {  line-height: 30px;  }
+.search_btn {  width: 60px !important;  }
+.alertHeader {  font-size: 18px;  color: red;  margin-top: 2%;  margin-bottom: 2%;  }
+.alertTitle {  width: 90px;  font-size: 12px;  color: #0070db;  }
+.statisticsBarbox p {  float: left;  }
+.chartsStatistics span {  color: white;  float: right;  margin-right: 8px;  line-height: 20px;  }
+#c_arrivalAddressList .publicBtn {  text-indent: 0;  margin-top: 8px;  width: auto;  }
+#c_LoadAddressList .publicBtn {  text-indent: 0;  margin-top: 8px;  width: auto;  }
+#addOrUpdatePlanAlert #SA_1 {  left: 64px !important;  top: 28px !important;}
+#addOrUpdatePlanAlert #SA_2 {  left: 64px !important;  top: 28px !important;}
+.new_ulListBox{display: inline-block;position: relative;}
+.new_ulListBox .new_public_UlList{width: 210px !important;left: 4px;top:28px;}
+.newPublicTable tr td:last-child{text-indent: 8px !important;}
+.newShowAssignCarDialog h5{padding-top: 10px;font-size: 15px;}
+.newShowAssignCarDialog h5 a{font-size: 16px;}
+#addTableCar{margin-top: 10px;cursor:pointer;width: 100px;}
+#addTableCar img{position: relative;top:7px;}
+#addTableCar span{color:#0071db;}
+.showAssignCarBtn{width: 140px;height: 35px;background: #0071db;margin: 0 auto;display: block;margin-top: 10px;}
+.public_new_car{width:100px;background:white;height:150px;overflow-y:auto;border:1px solid #e2e2e2;position: absolute;z-index: 55;top:30px;text-indent: 0px;border-top:none;left: 9px;display: none;overflow-x: hidden;}
+.public_new_car li a{display: block;width: 100%;line-height: 30px; text-align: left; margin-left: 3px;}
+.addCargoMain{width: 80%;margin: 0 auto;margin-top: 10px;}
+.addCargoMain p{padding-top: 10px;}
+.addCargoMain p span{display: inline-block;width: 80px;text-align: right;color:#666666;}
+.addCargoMain p a{padding-left: 8px;}
+.addCargoMain p select{margin-left: 8px;}
+.addCargoMain p input{margin-left: 8px;}
+.addCargoMain p input[type="text"]{width: 80px;}
+.newOpenText{position: relative;top:-8px;}
+.newOpenIcon{position: relative;left: 8px;cursor:pointer;}
+.AddSijiMain  span img{ position: relative;  top: -1px;  padding-right: 6px;}
+.editMyVehicleDialog span img{ position: relative;  top: -1px;  padding-right: 6px;}
+.dispatchContainerShow span img{ position: relative;  top: -1px;  padding-right: 6px;}
+.AssignCarMainSuccess{width: 435px;max-height: 435px;margin: 0 auto;}
+.AssignCarMainSuccess p{padding-top: 12px;}
+.AssignCarMainSuccess p a{padding-left: 70px;color: #45DC4D;}
+.AssignCarMainSuccess p span{display: inline-block; width: 100px;}
+.AssignCarMainSuccess p i{color:#FF5151;padding-left: 100px;text-align: right;}
+.AssignCarMainSuccessList p:first-child{padding-top:30px;}
+.AssignCarMainSuccessList p:last-child{padding-bottom: 30px;}
+.assignCarMainHead{width: 100%;height:70px;border-bottom: 1px solid #e6e6ef;}
+.AssignCarMain h4{font-size: 15px;padding-top: 15px;padding-bottom: 15px;}
+#logisticCompanys{margin-left: 0px;}
+.planNumText{float: right;margin-top: -10px;color:#999999;}
+/*扫码枪*/
+.icon_new_scan_code{width: 100%;height: auto;text-align: center;cursor:pointer;}
+.icon_new_scan_code img{display: block;margin: 0 auto;margin-top:136px;}
+.icon_new_scan_code span{display: block;padding-top: 56px;font-size: 16px;color:#304053;}
+.scanCodeAlertContainer{width: 90%;margin: 0 auto;}
+.scanCodeAlertContainer h5{padding-top: 20px;font-size: 14px;font-weight:bold;}
+.scanCodeAlertContainer h5 span{font-weight: normal;color: #000000;}
+.scanCodeAlertContainer ul{  width: 100%;  max-height: 160px;  border-bottom: 1px solid #dedede;  padding-bottom: 15px;  overflow-y: auto;}
+.scanCodeAlertContainer ul li{float: left;margin-top: 14px;width: 45%;margin-left: 5%;}
+.scanCodeAlertContainer ul li:last-child{padding-bottom: 16px;}
+.scanCodeAlertContainer ul li span{color: #909090;}
+.scanCodeAlertContainer table tr input{width: 70px;}
+.getNumber{float: right;}
+.getNumber span{display: block;color: #10b13a;padding-top: 3px;padding-bottom: 3px;font-size: 12px;}
+.getNumber input{float: right;margin-bottom: 10px;}
+.new_saveBtn{display: block;margin: 0 auto;margin-top: 40px;}
+.icon_new_arrow_city{padding: 0 10px 0 10px;  position: relative;  top: 5px;}
+.new_selectProject_main{width:auto;height: 56px;line-height: 56px;}
+#switchProjectDiv{cursor: pointer;}
+#switchProjectDiv img{position: relative;top:5px;}
+#switchProjectDiv span{font-size: 14px;color: white;padding-right: 10px;}
+#viewProjectName{font-size: 14px;color: white;padding-right: 20px;}
+.sendAndAssign_img{position: relative;  left: -6px;top: 3px;}
+#planListWidth{width: 230px\9;}
+.companyAddressText{display: inline-block;width: 320px;vertical-align: inherit;}
+.icon_new_starting_point{position:relative;top:5px;margin-top: 5px;}
+.refreshMain{padding-top: 18px;}
+.refreshMain p {display: inline-block;}
+/*个人资料修改*/
+.carid1{width:260px;height:185px;border:1px solid #ccc;  }
+.boxHistoryList ul li{padding-top: 5px;padding-bottom: 5px;}
+.boxHistoryList ul li p{padding-top: 10px;}
+.boxHistoryList span{display: block;}
+#loadingBg2{width: 100%; height: 100%;  background-color: rgba(0,0,0,.8);    position: fixed;  top: 0px; left: 0px; z-index: 999999999;display: none;}
+.loadingBgBox{top:30px;width: 100%; text-align: center; height: auto; position: fixed;left: 0px; z-index: 99999999999;}
+#picTest{width:500px;height: 500px;display: none;}
+#rotatePic1{width: 58px; height: 28px; }
+/*修改凭证信息*/
+.newPictureTitle{width: 100%;}
+.new_icon_addpicImg{float: left;clear: none;border:2px solid #0071db;margin-left: 30px;}
+.new_icon_addpicImg span{color: #0071db !important;}
+.newPictureTitle ul{margin-left: 18px;}
+.newPictureTitle ul li{margin-bottom: 0px !important;margin-left: 30px !important;}
+.newPictureTitle ul li:first-child{margin-left: 0px !important;}
+.newPictureTitle{height: auto !important;margin-left: 15px;}
+.newMainPicBox{width: auto;height: auto;float: left; position: relative;}
+.newVoucherBtn{margin-left: 20px;text-align: left;float: left;}
+.new_uploadPicImgsBox{width: 530px;height: 85px !important;border: 1px solid #ccc;display: none;margin-top: 18px;border-radius:5px;position: relative;}
+.newAddPicShowLoadBox{margin-top: 6px !important;float: left !important;width: auto;}
+.new_uploadPicImgsBox .file{top:28px !important;}
+.newRotatePic img{ width: 58px !important;height: 28px !important; cursor: pointer;position:relative;z-index: 99999999;}
+.marginLeftPxPosition{margin-left: 0px !important;}
+.newBtnBoxUpload{margin-top: 26px;float: left;width: auto !important;}
+.newBtnBoxUpload .new_public_blue_bg{text-indent:0px;height:28px;margin-left: 20px;}
+.closeBtnUploads{text-indent:0px;height:28px;background:#ccc;margin-left: 10px;}
+#box{width:100%;overflow: auto;}
+.newVoucherBtn #noAdopt{background: none !important;border:1px solid #0071db;color: #0071db;}
+#markDesc input{width:470px;height:24px;}
+#markDesc{float: left;margin-left: 39px;}
+#shipperbillTbl td {  line-height: 30px;}
+.boxHistoryList{width: 710px;margin-left: 15px;text-align: justify;}
+@media screen and (min-width:100px) and (max-width:1366px) {
+    .boxHistoryList{max-height:150px;overflow-y: auto;}
+}
+@media screen and (min-width:1367px) and (max-width:5000px) {
+    .boxHistoryList{max-height:210px;overflow-y: auto;}
+}
+@media screen and (min-width:1367px) and (max-width:5000px) {
+    .boxHistoryList{max-height:210px;overflow-y: auto;}
+}
+@media screen and (min-width:100px) and (max-width:1340px) {
+    .PersonalList{height:375px; }
+}
+@media screen and (min-width:100px) and (max-width:1400px) {
+    .projectMgmtFormWidths{height: 120px;}
+    .newPublicBtnPosition{display: block !important;margin-top: -16px;width: 40% !important;}
+}
+.projectIdsNameBg{    background: url(../../newassets/imgs/icon_new_switchProjrct.png) no-repeat;
+    background-position: 98%;cursor:pointer;}
+.btnTopPositionMain{display: inline-block;}
+.newPublicBtnPosition{display: inline-block;}
+@media screen and (min-width:100px) and (max-width:1350px) {
+    .projectMgmtFormWidthTop{height: 120px;}
+    .btnTopPositionMain{display: block ;margin-top: -16px;}
+}
+@media screen and (min-width:100px) and (max-width:1280px) {
+    .publicNavMainTop{line-height: 55px !important;height: 115px;}
+    .newPublicSelect2{width: 35%;}
+    #addSearchFreightAccepts{width: 100% !important;}
+    #searchFreightAccepts{display: block !important;width: 100%!important;}
+    #searchFreightAccepts div:first-child{margin-left: 1% !important;}
+    .hideTdContent{width: 0px;}
+}
+@media screen and (min-width:100px) and (max-width:1200px) {
+    #transportingTable tr td ul li span{display: none;}
+}
+#iReviewDenyReason{margin-left: 17px;}
+.marginLeftPxPosition span:first-child{padding-left: 0px;}
+.marginLeftPxPosition span{    padding-left: 40px;  display: inline-block;  width: 70px;  text-align: right;}
+.marginLeftPxPosition a{padding-left: 10px;}
+#shipperbillTbl{margin-left: 15px;}
+.saveMainBox{margin-left: 15px;}
+.saveBillStyle{margin-top: 20px;}
+.marginLeftPxPosition .depositTitle a{display: inline-block;padding-left:23px;font-size: 13px;}
+#showContrast td p{float: right;color: #ff0000;padding-bottom:7px;display: none;}
+.todoPublicBtns{display: inline-block;  float: right;  margin-right: 30px;  padding-left: 15px;  padding-right: 15px;  height: 26px;  background: #0071db;  line-height: 26px;  color: white;  border-radius: 2px;}
+/*待办*/
+.handleBox{width: 100%;height: 26px;margin-top: 14px;}
+#msgSummary .handleBox:first-child{margin-top: 20px;}
+.goodsTextTitle{padding-top: 10px;}
+.goodsTextTitle a{color: #909090;display:inline-block;width: 90px;}
+.sendGoodsListText{width: 100%;}
+.sendGoodsListText li{margin-top: 12px;}
+.sendGoodsListText li a{color: #909090;float: left;width: 12%;display: inline-block;margin-top: 10px;}
+.sendGoodsListText li span{float: left;display:inline-block;width: 88%;word-wrap: break-word;word-break: normal;margin-top: 10px;}
+.todoTitle{width: 98%;text-align: justify;}
+
+.customerTable td {  line-height: 30px;}
+.customerTable{margin-left: 15px;}
+.customerTable .marginLeftPxPosition span{
+    width: 90px;
+}
+.customerTable a{
+    margin-bottom: -25px;
+}
+.customerTable b{
+    color: red;
+    font-size: 17px;
+}
+#paymentProjectSelect_2{z-index: 99999999999 !important;  width: 300px !important;  height: 155px !important;  left: 93px;  margin-left: 0px !important;top:33px;}
+#paymentProjectSelect_3{z-index: 99999999999 !important;  width: 182px !important;  height: 155px !important;  left: 109px;  margin-left: 0px !important;top:33px;}
+.downLoadBtn{width: 120px;height: 36px;display:none;position:relative;line-height: 36px;text-align: center;margin: 0 auto;color: white;border:1px solid white;border-radius:100px;font-size: 14px;cursor: pointer;margin-top: 80px;}
+.downLoadBtnMain{width:157px;height: 158px; position: absolute;left: -20px; background: url('../imgs/chengtImgs/icon_new_codePic.png') no-repeat center center ;}
+.downLoadBtnMainList{width: 115px;height: 100%;text-align: center;font-size: 13px;color: black;display: block;margin-left: 4px;}
+#appleAppPicDownLoad{width: 125px;  height: 125px;  display: block;  margin-top: 27px !important;}
+.downLoadBtnMainList  a{line-height: 0px !important;display: block;padding-top: 34px;}
+.appleAppPic{float: left;}
+.androidAppPic{float: right;}
+.projectGoodsAddress #SA_3{left: 4px !important;top:40px !important;}
+.projectGoodsAddress #SA_4{left: 4px !important;top:40px !important;}
+.projectGoodsAddresses{position:relative;}
+.projectGoodsAddresses #SA_5{left: 16px !important;top:45px !important;}
+/*完结*/
+#finishPayment p:first-child{padding-top: 30px;}
+#finishPayment p{padding-top: 15px;}
+#finishPayment p:last-child{padding-top:30px;}
+#finishPayment p span{display:inline-block;width:75px;text-align: right;}
+#finishPayment .newPublicAlertInput{width: 140px;}
+.carWidthInput{width: 178px !important; }
+#finishPayment a{display: block;text-align: center;font-size: 14px;padding-top: 15px;color: red;}
+/*添加提现选择项目*/
+.selectProjectName{position: relative;padding-top: 15px;}
+.selectProjectName span{display: inline-block;    width: 110px;  text-align: right;}
+.selectProjectName span img{position: relative;  top: -1px;padding-right: 6px;}
+#withdrawalProjectSelect{height: 26px;width: 260px;margin-left: 10px;}
+#withdrawalProjectSelectBox{z-index: 99999999999 !important;width: 260px !important;height:155px !important;left: 124px;margin-left: 0px !important;}
+/*备注信息*/
+.addPicImg_upParent h4{padding-left: 40px;font-size: 13px;font-weight:normal;padding-top: 15px;padding-bottom: 15px;}
+.carDriverMessage span{display:inline-block;width: 100px;text-align: right;font-size: 15px;}
+.carDriverMessage a{display:inline-block;width:210px;padding-left: 10px;font-size: 15px;}
+.carDriverTable p span{width: auto !important;padding-left: 15px;}
+.carDriverTable p a{display: inline-block;width: auto;padding-left: 15px!important;;padding-right: 15px !important;}
+.icon_check_picture{position:relative;top:7px;}
+#paymentProjectSelect{z-index: 99999999999 !important;  width: 300px !important;  height: 155px !important;  left: 94px;  margin-left: 0px !important;top:33px;}
+#statisticsInfo{padding-top: 5px;padding-bottom:5px;color:#0071db;}
+/*开票*/
+.newRemarksContainer{width: 100% !important;text-align: center;}
+.newRemarksContainer textarea{width: 84% !important;height: 150px !important;margin: 0 auto;outline: none;display: block;}
+.newRemarksContainer input[type='button']{width: 84% !important;;margin-top: 10px !important;;}
+.newPublicTicketHeader{width: 100%;  height: 50px;  border-bottom: 1px solid #e6e6ef;  line-height: 50px;  background: white;}
+.newPublicTicketHeader p{float: left;font-weight:bold;font-size: 16px;}
+.newPublicTicketHeader p span{font-size:16px;padding-left: 20px;}
+.newPublicTicketHeader p a{font-size: 16px;color: #ff6767;}
+#invoiceMoneyView{font-size: 16px;}
+.publicWidthTicket{width: 270px;}
+.newTicket p{padding-top: 15px;}
+.newTicket p span{display: inline-block;width:80px;text-align: right;}
+.newTicketModify{margin-top: 30px;}
+#nextTicket{margin-left: 20px;margin-top: 30px;float: left;}
+.uploadFiles{width:100px;margin-top:15px;text-align:center;position:relative;height:85px;border:2px solid #0071db;background: url("../imgs/icon_files_add.png") no-repeat;background-position: center;}
+.uploadImages{width:93px;margin-top:15px;text-align:center;position:relative;height:85px;border:2px solid #0071db;background: url("../imgs/icon_imgs_add.png") no-repeat;background-position: center;}
+.upload {  position: absolute;  width: 100%;  height: 100%;  z-index: 99999;  opacity: 0;  cursor: pointer;  left: 0px;  top:0px;  }
+.uploadTextAlert{color:#ff6767;display: block;padding-left: 100px;}
+.uploadImages a{    font-size: 14px;  color: #0071db;  display: block;  padding-top: 40px;}
+#addText{position: absolute;bottom: 3px;left: 20px;}
+#uploadTextAlert{display: block;padding-left: 100px;color: red;}
+#ticketPicture{position: absolute;top:0px;height: 100%;}
+.newPublicInputNoBorder{margin-left: 0px !important;border-top-right-radius: 0px !important;border-bottom-right-radius: 0px !important;}
+.newPublicInputNoBorder1{margin-left: 0px !important;border-top-left-radius: 0px !important;border-bottom-left-radius: 0px !important;}
+.searchTable{width: 98%;margin: 0 auto;padding-top: 12px;padding-bottom: 12px;}
+.operationBtnNo{width:98%;margin: 0 auto;margin-top: 160px;float: left;margin-bottom: 20px;margin-left: 1%;}
+.new_public_blue_bgNo{background: #4998e3 !important;}
+.publicConfirmMsgContainer{width: 550px;height: 300px;float: left;}
+.publicConfirmMsgContainer p a{font-size: 15px;padding-left: 5px;}
+.newPublicTableMsg{margin-top: 18px;}
+.newPublicTableMsg table{width: 90%;}
+.newPublicTableMsg table {  width: 90%;  height: auto;  font-size: 12px;  background: white;  border-width: 1px;  border-color: #dedede;  border-collapse: collapse;  }
+.newPublicTableMsg table span{display: block;font-weight: bold;text-align: center;}
+.newPublicTableMsg table td{ text-overflow: ellipsis;  overflow: hidden;  white-space: nowrap;  height: 40px;  font-size: 12px;  border-width: 1px;  line-height:40px;  text-indent: 14px;  border-style: solid;  border-color: #dddddd;}
+.seePictureShowLoad img{width: 185px;height: 132px;margin-top: 15px;}
+.invoiceInfo{width: 98%;margin: 0 auto;}
+.seePictureShowLoad{width: 100%;height: 162px;}
+.invoiceInfo .waybillMessage{top:0px !important;padding-top: 20px;padding-left: 0px !important;margin-left: 0px !important;padding-bottom: 8px;}
+.rejectInfo span{display: block;  padding-top: 10px;  padding-left: 12px;  font-size: 15px;  font-weight: bold;}
+.waybillMsgText{padding-top: 5px;}
+.waybillMsgText span a{color: #ff0000;}
+.outTicketHeader{    width: 96%;  margin: 0 auto;  height: 40px;  border-bottom: 1px solid #ccc;  line-height: 40px;}
+.outTicketHeader p{font-weight: bold;font-size: 16px;text-indent: 10px;}
+.outTicketHeader  a{color: #ff0006;padding-left: 5px;padding-right: 5px;font-size: 16px;}
+.outTicketList{margin-top: 15px;height: 50px;}
+.outTicketList span{float: left;padding-top: 18px;font-size: 13px;font-weight: bold;text-indent: 5px;padding-right: 5px;}
+.ticketForm{height: 60px;float: left;background: #f3f5f8;width: 590px;}
+.outTicketListContainer{width: 85%;margin: 0 auto;}
+.ticketData{float: left;margin-top: 6px;}
+.ticketData p{padding-top: 10px;}
+.icon_delete_picture{float: right;margin-top: 50px;}
+.ticketData input[type="text"]{margin-left: 5px !important;}
+.ticketAddBtn{width: 591px;border:none;height: 27px;color:#0071db;background: #f3f5f8;margin-left: 49px;margin-top: 5px;cursor: pointer; }
+.outTicketList img{    float: right;  margin-right: 5px;  margin-top: 18px;  cursor: pointer;}
+#remainingBalanceSecendView{font-size: 16px;}
+/*拆单运输*/
+.carPosition a{padding-left: 15px;padding-right: 15px;}
+.addCarMsgShowName{width: 153px;height: 85px;border:1px solid #e6e6ef;margin-top: 5px;margin-bottom: 5px;margin-left: 8px; line-height: 85px;text-align: center;float: left;text-indent: 0px;background: #f9fbfc;}
+.addCarMsgShowName a{color: #649be4;text-decoration:underline;text-indent: 0px;}
+.addCarMsgShowNameStyle{width: 153px;height: 85px;border:1px solid #e6e6ef;background: #f9fbfc;margin-top: 5px;margin-bottom: 5px;margin-left: 8px;float: left;text-indent: 0px;text-align: center;line-height: 20px;}
+.newTable table {  width: 400px;  font-size: 12px;  color: #333333;  background: white;  border-width: 1px;  border-color: #dedede;  border-collapse: collapse;  }
+.newTable table td {  color: #555;  text-overflow: ellipsis;  overflow: hidden;  white-space: nowrap;  height: 36px;  font-size: 12px;  border-width: 1px;  line-height: 36px;  text-indent: 14px;  border-style: solid;  border-color: #dddddd;  text-align: center;  }
+/*配置*/
+.carImgCfgContainer p{padding-top: 30px;}
+.carImgCfgContainer p span{display: inline-block;width: 90px;text-align: right;}
+.carImgCfgContainer p label{padding-left: 20px; cursor: pointer;}
+.carImgCfgContainer p label a{display: inline-block;width: 60px;padding-left: 5px;}
+.carImgCfgContainer p input[type="checkbox"]{position: relative;top:1px;}
+.carImgCfgBtn{width: 80px;  height: 30px;  display: block;  margin: 0 auto;  margin-top: 30px;}
+/*敬业平台修改*/
+.rateText{margin-left: 1%;margin-top: 20px;}
+.rateText input{width: 90px;}
+.rateText label{padding-left: 5px;}
+.ticketMsg{padding-top: 10px;}
+.ticketMsg span{display: inline-block;width: 60px;padding-left: 25px;}
+.ticketMsg select{width: 240px;}
+.ticketMsg input{width: 240px;}
+.rateText span{padding-right: 5px;}
+.paymentBtnLoading{float: right;  margin-right: 15px;  margin-top: 17px;}
+/*修改土石方样式*/
+.remarksContainerHeader{width:100%;border-bottom: 1px solid #dedede;}
+#diffProgramTipsNum{padding-top: 10px;padding-bottom: 10px;}
+#diffProgramTips{padding-bottom: 10px;}
+.remarksContainerHeader div{font-size: 15px;}
+.newRemarksContainer p{width: 100%;}
+.newRemarksContainer p span{display: inline-block;width: 90px;font-size: 15px;}
+.newRemarksContainer{width: 96% !important;margin-left: 4% !important;text-align: left!important;}
+.editRemarksContainer p span{font-size: 14px;}
+.editRemarksContainer p a{font-size: 14px;}
+.waybillNumContainer span{display: inline-block;width: 80px;font-size: 16px;}
+.waybillNumPublicBtnName{width: 80px !important;line-height: 30px;margin-top: 50px !important;height: 30px;}
+.tablePublicBtn{outline: none;border: none;height: 26px;width: 75px;color: white;border-radius:5px;cursor: pointer;}
+.isRed{background: #f07577;}
+.isBlue{background: #598eee;}
+.publicBtnOli{outline: none;  border: none;  padding:0 12px;  border-radius: 3px;  color: white;  height: 28px;  cursor: pointer;}
+.isBlue {
+    background: #53a5f1 !important;
+}
+.isViolet {
+    background: #7485ef !important;
+}
+.isRed {
+    background: #f07474 !important;
+}
+.isOrangeOli {
+    background: #eb783e !important;
+}
+.sumAmountColor{position: relative;top:-10px;color:#fe682b;display: block;margin-top: 10px }
+.tabs-close{display: inline-block;background: #408bcf;width: 70px;height: 22px;line-height: 22px;color: white;border-radius: 3px;    text-align: center;  text-indent: 0px;}
+.tabs-close u{text-decoration: none;}
+.avtiveNames{
+    border-left: 6px solid #75bbff;
+    border-top: 1px solid #ebf0f6;
+    border-bottom: 1px solid #ebf0f6;
+}

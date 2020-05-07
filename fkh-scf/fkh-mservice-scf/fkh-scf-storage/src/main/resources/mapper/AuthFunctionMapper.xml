@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fkhwl.scf.dao.AuthFunctionDao">
+
+    <!-- PO映射结果 -->
+    <resultMap id="AuthFunctionResultMap" type="com.fkhwl.scf.entity.po.AuthFunction">
+        <result column="id" property="id"/>
+        <result column="deleted" property="deleted"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="parent_id" property="parentId"/>
+        <result column="func_key" property="funcKey"/>
+        <result column="func_name" property="funcName"/>
+        <result column="func_desc" property="funcDesc"/>
+        <result column="func_url" property="funcUrl"/>
+        <result column="func_type" property="funcType"/>
+        <result column="func_sort" property="funcSort"/>
+    </resultMap>
+
+    <select id="listPage" resultType="com.fkhwl.scf.entity.dto.AuthFunctionDTO">
+        <choose>
+            <when test="map.userType != null and map.userType == 1">
+                SELECT
+                    f.*
+                FROM
+                  auth_function f
+                WHERE
+                  f.deleted = 0
+                <if test="map.funcType != null ">
+                    AND f.func_type = #{map.funcType}
+                </if>
+                <if test="map.funcName != null and map.funcName != '' ">
+                    AND f.func_name LIKE concat(#{map.funcName},'%')
+                </if>
+                ORDER BY f.func_sort ASC
+            </when>
+            <otherwise>
+                SELECT
+                  f.*
+                FROM
+                  auth_function f
+                LEFT JOIN auth_role_func rf ON rf.auth_func_id = f.id
+                WHERE
+                  rf.auth_role_id = #{map.roleId}
+                <if test="map.funcType != null ">
+                    AND f.func_type = #{map.funcType}
+                </if>
+                AND f.deleted = 0 AND rf.deleted = 0
+                ORDER BY f.func_sort ASC
+            </otherwise>
+        </choose>
+    </select>
+
+    <select id="listFuncKey" resultType="String">
+        <choose>
+            <when test="roleId == null">
+                SELECT
+                  f.func_key
+                FROM
+                  auth_function f
+                WHERE
+                  f.func_type = 2 AND f.deleted = 0
+            </when>
+            <otherwise>
+                SELECT
+                  f.func_key
+                FROM
+                  auth_function f
+                LEFT JOIN auth_role_func rf ON rf.auth_func_id = f.id
+                WHERE
+                  rf.auth_role_id = #{roleId} AND f.func_type = 2 AND f.deleted = 0 AND rf.deleted = 0
+            </otherwise>
+        </choose>
+    </select>
+</mapper>

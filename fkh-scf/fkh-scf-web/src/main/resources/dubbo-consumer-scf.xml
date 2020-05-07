@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd        http://dubbo.apache.org/schema/dubbo        http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
+    <dubbo:consumer id="scfConsumer" retries="0" timeout="50000" />
+    <!-- 引用服务接口 -->
+    <dubbo:reference id="authFunctionProvider" interface="com.fkhwl.scf.AuthFunctionProvider" version="${dubbo.version}" consumer="scfConsumer"/>
+    <dubbo:reference id="authRoleProvider" interface="com.fkhwl.scf.AuthRoleProvider" version="${dubbo.version}" consumer="scfConsumer"/>
+    <dubbo:reference id="companyProvider" interface="com.fkhwl.scf.CompanyProvider" version="${dubbo.version}" consumer="scfConsumer"/>
+    <dubbo:reference id="departmentProvider" interface="com.fkhwl.scf.DepartmentProvider" version="${dubbo.version}" consumer="scfConsumer"/>
+    <dubbo:reference id="scfUserProvider" interface="com.fkhwl.scf.ScfUserProvider" version="${dubbo.version}" consumer="scfConsumer"/>
+    <dubbo:reference id="waybillProvider" interface="com.fkhwl.scf.WaybillProvider" version="${dubbo.version}" consumer="scfConsumer"/>
+    <dubbo:reference id="subjectClaimsOrderProvider" interface="com.fkhwl.scf.SubjectClaimsOrderProvider" version="${dubbo.version}" consumer="scfConsumer"/>
+    <dubbo:reference id="scfConfigProvider" interface="com.fkhwl.scf.ScfConfigProvider" version="${dubbo.version}" consumer="scfConsumer"/>
+    <dubbo:reference id="counterpartyProvider" interface="com.fkhwl.scf.CounterpartyProvider" version="${dubbo.version}" consumer="scfConsumer"/>
+    <dubbo:reference id="projectProvider" interface="com.fkhwl.scf.ProjectProvider" version="${dubbo.version}" consumer="scfConsumer"/>
+    <dubbo:reference id="programProvider" interface="com.fkhwl.scf.ProgramProvider" version="${dubbo.version}" consumer="scfConsumer"/>
+    <dubbo:reference id="creditApplyProvider" interface="com.fkhwl.scf.CreditApplyProvider" version="${dubbo.version}" consumer="scfConsumer"/>
+    <dubbo:reference id="accountBillProvider" interface="com.fkhwl.scf.AccountBillProvider" version="${dubbo.version}" consumer="scfConsumer"/>
+    <dubbo:reference id="creditApplyDetailProvider" interface="com.fkhwl.scf.CreditApplyDetailProvider" version="${dubbo.version}" consumer="scfConsumer"/>
+
+    <dubbo:reference id="scfUserConfigProvider" interface="com.fkhwl.scf.ScfUserConfigProvider" version="${dubbo.version}" consumer="scfConsumer"/>
+    <dubbo:reference id="companyContractProvider" interface="com.fkhwl.scf.CompanyContractProvider" version="${dubbo.version}" consumer="scfConsumer"/>
+    <dubbo:reference id="chinaAreaProvider" interface="com.fkhwl.scf.ChinaAreaProvider" version="${dubbo.version}" consumer="scfConsumer"/>
+    <dubbo:reference id="reviewRecordProvider" interface="com.fkhwl.scf.ReviewRecordProvider" version="${dubbo.version}" consumer="scfConsumer"/>
+    <dubbo:reference id="waybillOperationHistoryProvider" interface="com.fkhwl.scf.WaybillOperationHistoryProvider" version="${dubbo.version}" consumer="scfConsumer"/>
+    <dubbo:reference id="waybillCheckRecordProvider" interface="com.fkhwl.scf.WaybillCheckRecordProvider" version="${dubbo.version}" consumer="scfConsumer"/>
+    <dubbo:reference id="repayBillProvider" interface="com.fkhwl.scf.RepayBillProvider" version="${dubbo.version}" consumer="scfConsumer"/>
+
+    <!-- <dubbo:protocol name="dubbo" port="20890" /> -->
+</beans>

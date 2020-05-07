@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fkhwl.scf.dao.DepartmentDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="DepartmentResultMap" type="com.fkhwl.scf.entity.po.Department">
+        <result column="id" property="id"/>
+        <result column="deleted" property="deleted"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="owner_id" property="ownerId"/>
+        <result column="dept_name" property="deptName"/>
+        <result column="dept_title" property="deptTitle"/>
+        <result column="parent_id" property="parentId"/>
+    </resultMap>
+
+    <select id="listPage" resultType="com.fkhwl.scf.entity.dto.DepartmentDTO">
+        SELECT
+          d.*
+        FROM
+          department d
+        WHERE
+          d.deleted = 0 and d.owner_id = #{map.ownerId}
+        <if test="map.deptName != null and map.deptName != '' ">
+            AND d.dept_name LIKE concat('%',#{map.deptName},'%')
+        </if>
+        order by d.create_time desc
+    </select>
+
+    <update id="deleteByIds">
+        UPDATE department SET deleted = 1
+        WHERE
+          id IN
+        <foreach collection="ids" open="(" close=")" separator="," item="item">
+          #{item}
+        </foreach>
+    </update>
+</mapper>

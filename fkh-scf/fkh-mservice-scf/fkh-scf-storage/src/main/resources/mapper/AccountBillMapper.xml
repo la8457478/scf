@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fkhwl.scf.dao.AccountBillDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="AccountBillResultMap" type="com.fkhwl.scf.entity.po.AccountBill">
+        <result column="id" property="id"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="deleted" property="deleted"/>
+        <result column="repay_status" property="repayStatus"/>
+        <result column="due_status" property="dueStatus"/>
+        <result column="bill_no" property="billNo"/>
+        <result column="bill_balance" property="billBalance"/>
+        <result column="repay_balance" property="repayBalance"/>
+        <result column="remain_repay_balance" property="remainRepayBalance"/>
+        <result column="waybill_count" property="waybillCount"/>
+        <result column="credit_apply_id" property="creditApplyId"/>
+        <result column="subject_claims_order_id" property="subjectClaimsOrderId"/>
+        <result column="repay_date" property="repayDate"/>
+        <result column="bill_date" property="billDate"/>
+        <result column="owner_id" property="ownerId"/>
+        <result column="create_user_id" property="createUserId"/>
+        <result column="manage_rate" property="manageRate"/>
+        <result column="interest_rate" property="interestRate"/>
+        <result column="payment_days" property="paymentDays"/>
+        <result column="grace_rate" property="graceRate"/>
+        <result column="overdue_rate" property="overdueRate"/>
+        <result column="grace_days" property="graceDays"/>
+        <result column="fact_repay_date" property="factRepayDate"/>
+        <result column="grace_date" property="graceDate"/>
+        <result column="interest_rate_balance" property="interestRateBalance"/>
+        <result column="grace_rate_balance" property="graceRateBalance"/>
+        <result column="overdue_rate_balance" property="overdueRateBalance"/>
+    </resultMap>
+    <sql id="commonOwnerIdCondition">
+        <if test="map.ownerIds != null and map.ownerIds.size >null">
+            AND a.owner_id IN
+            <foreach collection="map.ownerIds" item="item" separator="," open="(" close=")">
+                #{item}
+            </foreach>
+        </if>
+    </sql>
+    <update id="updateRepayBalance" parameterType="java.util.Map">
+   update account_bill
+        set remain_repay_balance = remain_repay_balance - #{map.repayBalance} ,
+            repay_balance =repay_balance + #{map.repayBalance} ,
+            fact_repay_date = #{map.repayDate} ,
+            interest_rate_balance =interest_rate_balance + #{map.interestRateBalance} ,
+            grace_rate_balance =grace_rate_balance + #{map.graceRateBalance} ,
+            overdue_rate_balance =overdue_rate_balance + #{map.overdueRateBalance} ,
+            repay_status = CASE
+            WHEN  remain_repay_balance > 0 THEN
+            2
+            ELSE
+            3
+            END,
+             due_status = CASE
+            WHEN  fact_repay_date > grace_date THEN
+            2
+            WHEN fact_repay_date > repay_date THEN
+            1
+            ELSE
+            0
+            END,
+            update_time=now()
+        where id=#{map.id} and remain_repay_balance - #{map.repayBalance} >=0
+
+    </update>
+    <!-- DTO通用查询映射结果 -->
+    <select id="listPage" resultType="com.fkhwl.scf.entity.dto.AccountBillDTO">
+        SELECT
+        a.*
+        FROM
+        account_bill a
+        WHERE
+        a.deleted = 0
+        <include refid="commonOwnerIdCondition"/>
+        <if test="map.repayStatus != null and map.repayStatus != '' ">
+            AND a.repay_status = #{map.repayStatus}
+        </if>
+        <if test="map.dueStatus != null and map.dueStatus != '' ">
+            AND a.due_status = #{map.dueStatus}
+        </if>
+        <if test="map.billNo != null and map.billNo != '' ">
+            AND a.bill_no LIKE concat('%',#{map.billNo},'%')
+        </if>
+
+        order by a.create_time desc
+    </select>
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="AccountBillListMap" type="com.fkhwl.scf.entity.vo.AccountBillListVO"  extends="AccountBillResultMap">
+        <result column="company_borrower_id" property="companyBorrowerId"/>
+        <result column="credit_apply_no" property="creditApplyNo"/>
+        <result column="apply_transfer_date" property="applyTransferDate"/>
+        <result column="manage_balance" property="manageBalance"/>
+        <result column="counterparty_name" property="counterpartyName"/>
+        <result column="company_name" property="companyName"/>
+
+
+    </resultMap>    <!-- DTO通用查询映射结果 -->
+    <!-- DTO通用查询映射结果 -->
+    <select id="listAccountBillListPage" resultType="com.fkhwl.scf.entity.vo.AccountBillListVO">
+        SELECT
+        a.*,c.credit_apply_no,DATE(c.create_time) as apply_transfer_date,c.manage_balance,c.interest_balance,c2.counterparty_name,c2.counterparty_name,c3.company_name
+
+        FROM
+        account_bill a LEFT JOIN credit_apply c on a.credit_apply_id=c.id LEFT JOIN  counterparty c2 on c.counterparty_id =c2.id left  join company c3 on c3.id=c2.company_borrower_id
+        WHERE
+        a.deleted = 0
+        <include refid="commonOwnerIdCondition"/>
+        <if test="map.companyName != null and map.companyName != '' ">
+            AND c3.company_name LIKE concat('%',#{map.companyName},'%')
+        </if>
+        <if test="map.counterpartyName != null and map.counterpartyName != '' ">
+            AND c2.counterparty_name LIKE concat('%',#{map.counterpartyName},'%')
+        </if>
+        <if test="map.repayStatus != null and map.repayStatus != '' ">
+            <choose>
+                <when test="map.repayStatus == 1">
+                    AND a.repay_status in (-1,1,2)
+                </when>
+                <when test="map.repayStatus == 3">
+                    AND a.repay_status in (3)
+                </when>
+            </choose>
+        </if>
+        <if test="map.dueStatus != null and map.dueStatus>=0">
+        <choose>
+            <when test="map.dueStatus ==1">
+                AND a.due_status in (1,2)
+            </when>
+            <otherwise>
+                AND a.due_status = #{map.dueStatus}
+            </otherwise>
+        </choose>
+        </if>
+        <if test="map.creditApplyNo != null and map.creditApplyNo != '' ">
+            AND c.credit_apply_no LIKE concat('%',#{map.creditApplyNo},'%')
+        </if>
+        <if test="map.repayDate != null  ">
+            AND a.repay_date 	<![CDATA[ <= #{map.repayDate} ]]> and a.repay_status != 3
+        </if>
+        <if test="map.searchTimeType != null">
+            <choose>
+                <when test="map.searchTimeType == 1">
+                    <if test="map.beginTime != null">
+                        <![CDATA[ AND DATE(c.create_time)>= #{map.beginTime} ]]>
+                    </if>
+                    <if test="map.overTime != null">
+                        <![CDATA[ AND DATE(c.create_time) <= #{map.overTime} ]]>
+                    </if>
+                </when>
+                <when test="map.searchTimeType == 2">
+                    <if test="map.beginTime != null">
+                        <![CDATA[ AND a.repay_date >= #{map.beginTime} ]]>
+                    </if>
+                    <if test="map.overTime != null">
+                        <![CDATA[ AND a.repay_date <= #{map.overTime} ]]>
+                    </if>
+                </when>
+
+            </choose>
+        </if>
+        order by a.repay_date asc,a.id asc
+    </select>
+
+    <!-- 查找需要还款的账单列表，逾期》宽限期》即将到期 -->
+    <select id="listPageForRepay" resultType="com.fkhwl.scf.entity.dto.AccountBillDTO">
+        SELECT
+        a.*
+        FROM
+        account_bill a
+        WHERE
+        a.deleted = 0
+        <include refid="commonOwnerIdCondition"/>
+        <if test="map.counterpartyId != null and map.counterpartyId != '' ">
+            AND a.counterparty_id =#{map.counterpartyId}
+        </if>
+        and a.repay_status in (-1,1,2)
+        ORDER BY repay_date,id
+    </select>
+
+    <!-- DTO通用查询映射结果 -->
+    <select id="listRepayPage" resultType="java.util.Map">
+        SELECT
+        a.id
+        as id,
+        a.bill_balance
+        as billBalance,a.repay_date
+        as repayDate,a.repay_status
+        as repayStatus,a.due_status
+        as dueStatus,c2.counterparty_name
+        as counterpartyName,c1.credit_apply_no as creditApplyNo,
+        c3.company_name as companyName
+        FROM
+        account_bill a
+        LEFT JOIN credit_apply c1 ON a.credit_apply_id = c1.id
+        LEFT JOIN counterparty c2 ON c1.counterparty_id = c2.id
+        LEFT JOIN company c3 ON c2.company_borrower_id = c3.id
+        WHERE
+        c1.STATUS >4 and
+        a.deleted = 0
+        <include refid="commonOwnerIdCondition"/>
+
+        <if test="map.repayStatus != null and map.repayStatus != '' ">
+            <choose>
+                <when test="map.repayStatus ==0">
+                    AND a.repay_status in (1,2)
+                </when>
+                <otherwise>
+                    AND a.repay_status = #{map.repayStatus}
+
+                </otherwise>
+
+            </choose>
+        </if>
+        <if test="map.dueStatus != null and map.dueStatus != '' ">
+            AND a.due_status = #{map.dueStatus}
+        </if>
+        <if test="map.creditApplyNo != null and map.creditApplyNo != '' ">
+            AND c1.credit_apply_no LIKE concat('%',#{map.creditApplyNo},'%')
+        </if>
+        <if test="map.counterpartyName != null and map.counterpartyName != '' ">
+            AND c2.counterparty_name LIKE concat('%',#{map.counterpartyName},'%')
+        </if>
+        <if test="map.companyName != null and map.companyName != '' ">
+            AND c3.company_name LIKE concat('%',#{map.companyName},'%')
+        </if>
+        <if test="map.repayDate != null  ">
+            AND a.repay_date 	<![CDATA[ <= #{map.repayDate} ]]>
+        </if>
+    </select>
+    <select id="getSumRemainRepayBalance" resultType="java.util.Map">
+        SELECT SUM(remain_repay_balance) AS sumRemainRepayBalance,MAX(bill_date) as billDate from account_bill a  where a.counterparty_id =
+            #{counterpartyId} and a.repay_status in (1,2,-1)
+   </select>
+
+</mapper>

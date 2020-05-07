@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fkhwl.scf.dao.FlowDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="FlowResultMap" type="com.fkhwl.scf.entity.po.Flow">
+        <result column="id" property="id"/>
+        <result column="flow_name" property="flowName"/>
+        <result column="remark" property="remark"/>
+        <result column="company_capital_id" property="companyCapitalId"/>
+    </resultMap>
+
+
+</mapper>

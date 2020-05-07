@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fkhwl.scf.dao.WaybillValidateDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="WaybillValidateResultMap" type="com.fkhwl.scf.entity.po.WaybillValidate">
+        <result column="id" property="id"/>
+        <result column="deleted" property="deleted"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="third_id" property="thirdId"/>
+        <result column="waybill_no" property="waybillNo"/>
+        <result column="departure_city" property="departureCity"/>
+        <result column="arrival_city" property="arrivalCity"/>
+        <result column="driver_name" property="driverName"/>
+        <result column="driver_mobile_no" property="driverMobileNo"/>
+        <result column="license_plate_no" property="licensePlateNo"/>
+        <result column="upload_send_invoice" property="uploadSendInvoice"/>
+        <result column="upload_receive_invoice" property="uploadReceiveInvoice"/>
+        <result column="gross_weight_by_send" property="grossWeightBySend"/>
+        <result column="tare_weight_by_send" property="tareWeightBySend"/>
+        <result column="net_weight_by_send" property="netWeightBySend"/>
+        <result column="send_gross_weight" property="sendGrossWeight"/>
+        <result column="send_tare_weight" property="sendTareWeight"/>
+        <result column="send_net_weight" property="sendNetWeight"/>
+        <result column="receive_gross_weight" property="receiveGrossWeight"/>
+        <result column="receive_tare_weight" property="receiveTareWeight"/>
+        <result column="receive_net_weight" property="receiveNetWeight"/>
+        <result column="allow_difference" property="allowDifference"/>
+        <result column="allow_difference_val" property="allowDifferenceVal"/>
+        <result column="allow_difference_amount" property="allowDifferenceAmount"/>
+        <result column="unit_price" property="unitPrice"/>
+        <result column="value_price" property="valuePrice"/>
+        <result column="total_price" property="totalPrice"/>
+        <result column="income_price" property="incomePrice"/>
+        <result column="etc_card_amount" property="etcCardAmount"/>
+        <result column="cash_pay_amount" property="cashPayAmount"/>
+        <result column="deposit_amount" property="depositAmount"/>
+        <result column="oil_card_amount" property="oilCardAmount"/>
+        <result column="gas_card_amount" property="gasCardAmount"/>
+        <result column="oil_used_credit" property="oilUsedCredit"/>
+        <result column="oil_credit_limit" property="oilCreditLimit"/>
+        <result column="operator_type" property="operatorType"/>
+        <result column="loading_time" property="loadingTime"/>
+        <result column="receive_time" property="receiveTime"/>
+        <result column="bill_pass_time" property="billPassTime"/>
+        <result column="pay_freight_time" property="payFreightTime"/>
+        <result column="edit_send_time" property="editSendTime"/>
+        <result column="edit_receive_time" property="editReceiveTime"/>
+        <result column="review_send_time" property="reviewSendTime"/>
+        <result column="review_receive_time" property="reviewReceiveTime"/>
+        <result column="subject_claims_order_id" property="subjectClaimsOrderId"/>
+        <result column="pdf_path" property="pdfPath"/>
+        <result column="cfca_pdf_path" property="cfcaPdfPath"/>
+        <result column="waybill_status" property="waybillStatus"/>
+        <result column="id_card_no_send" property="idCardNoSend"/>
+        <result column="id_card_picture_send" property="idCardPictureSend"/>
+        <result column="id_card_picture_back_send" property="idCardPictureBackSend"/>
+        <result column="business_license_no_send" property="businessLicenseNoSend"/>
+        <result column="legal_person_send" property="legalPersonSend"/>
+        <result column="business_license_picture_send" property="businessLicensePictureSend"/>
+        <result column="vehicle_operating_no" property="vehicleOperatingNo"/>
+        <result column="licenceo_picture" property="licenceoPicture"/>
+        <result column="load_location" property="loadLocation"/>
+        <result column="arrival_location" property="arrivalLocation"/>
+        <result column="id_card_no_consignee" property="idCardNoConsignee"/>
+        <result column="id_card_picture_consignee" property="idCardPictureConsignee"/>
+        <result column="id_card_picture_back_consignee" property="idCardPictureBackConsignee"/>
+        <result column="business_license_no_consignee" property="businessLicenseNoConsignee"/>
+        <result column="legal_person_consignee" property="legalPersonConsignee"/>
+        <result column="business_license_picture_consignee" property="businessLicensePictureConsignee"/>
+        <result column="waybill_validate" property="waybillValidate"/>
+        <result column="invoice_money" property="invoiceMoney"/>
+        <result column="gps_count" property="gpsCount"/>
+        <result column="waybill_create_time" property="waybillCreateTime"/>
+    </resultMap>
+
+
+</mapper>

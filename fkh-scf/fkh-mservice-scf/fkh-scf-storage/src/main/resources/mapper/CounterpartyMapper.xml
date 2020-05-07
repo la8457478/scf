@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fkhwl.scf.dao.CounterpartyDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="CounterpartyResultMap" type="com.fkhwl.scf.entity.po.Counterparty">
+        <result column="id" property="id"/>
+        <result column="company_contract_id" property="companyContractId"/>
+        <result column="company_capital_id" property="companyCapitalId"/>
+        <result column="company_borrower_id" property="companyBorrowerId"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="deleted" property="deleted"/>
+        <result column="subitem_limit_balance" property="subitemLimitBalance"/>
+        <result column="counterparty_name" property="counterpartyName"/>
+        <result column="rule_ratio" property="ruleRatio"/>
+        <result column="subitem_used_balance" property="subitemUsedBalance"/>
+        <result column="subitem_remain_balance" property="subitemRemainBalance"/>
+        <result column="returned_balance" property="returnedBalance"/>
+        <result column="had_receivable_balance" property="hadReceivableBalance"/>
+        <result column="total_lending_balance" property="totalLendingBalance"/>
+        <result column="manage_rate" property="manageRate"/>
+        <result column="interest_rate" property="interestRate"/>
+        <result column="payment_days" property="paymentDays"/>
+        <result column="grace_rate" property="graceRate"/>
+        <result column="overdue_rate" property="overdueRate"/>
+        <result column="grace_days" property="graceDays"/>
+        <result column="status" property="status"/>
+        <result column="contract_link" property="contractLink"/>
+        <result column="returned_transfer_balance" property="returnedTransferBalance"/>
+        <result column="factor_contract_no" property="factorContractNo"/>
+        <result column="factor_limit_check_list_no" property="factorLimitCheckListNo"/>
+        <result column="factor_service_agreement_no" property="factorServiceAgreementNo"/>
+        <result column="transfer_balance_contract_no" property="transferBalanceContractNo"/>
+        <result column="base_contract_name" property="baseContractName"/>
+        <result column="base_contract_no" property="baseContractNo"/>
+
+    </resultMap>
+    <!-- DTO通用查询映射结果 -->
+
+    <select id="listByCompanyId" resultType="com.fkhwl.scf.entity.dto.CounterpartyDTO">
+        SELECT
+        cp.counterparty_name,cp.id
+        FROM
+        counterparty cp
+        WHERE
+        cp.deleted = 0
+        <if test="companyBorrowerId != null and companyBorrowerId != '' ">
+            AND cp.company_borrower_id  =#{companyBorrowerId}
+        </if>
+        order by cp.create_time desc
+    </select>
+
+    <select id="findPage" resultType="com.fkhwl.scf.entity.dto.CounterpartyDTO">
+        SELECT * FROM counterparty WHERE 1=1
+        <if test="map.counterpartyName != null and map.counterpartyName != ''">
+            AND counterparty_name like concat('%',#{map.counterpartyName},'%')
+        </if>
+        <if test="map.companyBorrowerId != null and map.companyBorrowerId != '' ">
+            AND company_borrower_id  = #{map.companyBorrowerId}
+        </if>
+        ORDER BY id DESC
+    </select>
+
+    <select id="listByParams" resultType="com.fkhwl.scf.entity.dto.CounterpartyDTO">
+        SELECT
+          c.*
+        FROM
+          counterparty c
+        WHERE
+          c.deleted = 0
+        <if test="map.ids != null">
+            AND c.id IN
+            <foreach collection="map.ids" item="item" separator="," open="(" close=")">
+                #{item}
+            </foreach>
+        </if>
+    </select>
+
+    <update id="updateBaseConfig" parameterType="com.fkhwl.scf.entity.po.Counterparty">
+        update counterparty
+        set  rule_ratio =#{ruleRatio} ,
+         subitem_remain_balance =#{subitemLimitBalance}-subitem_used_balance ,
+         subitem_limit_balance =#{subitemLimitBalance} ,
+        manage_rate = #{manageRate},
+        interest_rate = #{interestRate},
+        payment_days = #{paymentDays} ,
+        grace_rate = #{graceRate} ,
+        overdue_rate = #{overdueRate} ,
+        grace_days = #{graceDays} ,
+        manage_rate = #{manageRate},
+        contract_link = #{contractLink},
+        status = #{status},
+        factor_contract_no = #{factorContractNo},
+        factor_limit_check_list_no = #{factorLimitCheckListNo},
+        factor_service_agreement_no = #{factorServiceAgreementNo},
+        transfer_balance_contract_no = #{transferBalanceContractNo},
+        base_contract_name = #{baseContractName},
+        base_contract_no = #{baseContractNo},
+         update_time=now()
+        where id=#{id} and  #{subitemLimitBalance}-subitem_used_balance>=0
+    </update>
+    <!-- 审核运营添加的新客户合同-->
+    <update id="review" parameterType="com.fkhwl.scf.entity.po.Counterparty">
+    update counterparty
+    set status =#{map.status} ,
+    update_time=now()
+    where id=#{map.id}
+    </update>
+
+    <update id="updateLoanBalance" parameterType="java.util.Map">
+         update counterparty
+        set subitem_used_balance = subitem_used_balance + #{map.applyBalance} ,
+            total_lending_balance =total_lending_balance + #{map.applyBalance} ,
+            subitem_remain_balance =subitem_remain_balance - #{map.applyBalance} ,
+            had_receivable_balance =had_receivable_balance + #{map.transferBalance} ,
+            update_time=now()
+        where id=#{map.id} and subitem_remain_balance - #{map.applyBalance}>=0
+    </update>
+    <update id="updateRepayBalance" parameterType="java.util.Map">
+             update counterparty
+        set  subitem_remain_balance =subitem_remain_balance + #{map.repayBalance} ,
+         subitem_used_balance = subitem_used_balance - #{map.repayBalance} ,
+            returned_balance =returned_balance + #{map.repayBalance} ,
+            returned_transfer_balance =returned_transfer_balance + #{map.repayTransferBalance} ,
+            update_time=now()
+        where id=#{map.id} and  subitem_used_balance - #{map.repayBalance}>=0
+    </update>
+
+    <select id="getByParams" resultType="com.fkhwl.scf.entity.dto.CounterpartyDTO">
+        SELECT
+        c.*
+        FROM
+        counterparty c
+        WHERE
+        c.deleted = 0
+        <if test="map.counterpartyName != null">
+            AND c.counterparty_name = #{map.counterpartyName}
+        </if>
+        ORDER BY id DESC
+        LIMIT 1
+    </select>
+</mapper>

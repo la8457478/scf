@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>fkh-mservice-scf</artifactId>
+        <groupId>com.fkhwl</groupId>
+        <version>1.0.1</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>fkh-scf-service</artifactId>
+    <properties>
+        <start.class>com.fkhwl.scf.ScfApplication</start.class>
+        <maven.deploy.skip>true</maven.deploy.skip>
+        <maven.install.skip>true</maven.install.skip>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.fkhwl</groupId>
+            <artifactId>fkh-scf-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fkhwl</groupId>
+            <artifactId>fkh-scf-storage</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fkhwl</groupId>
+            <artifactId>fkh-scf-client-dubbo</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fkhwl</groupId>
+            <artifactId>fkh-starter-ssm</artifactId>
+            <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>com.fkhwl</groupId>
+            <artifactId>fkh-starter-dubbo</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fkhwl</groupId>
+            <artifactId>fkh-starter-cloud</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fkhwl</groupId>
+            <artifactId>fkh-starter-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fkhwl</groupId>
+            <artifactId>fkh-starter-mongo</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fkhwl</groupId>
+            <artifactId>fkh-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fkhwl</groupId>
+            <artifactId>fkh-starter-log4j2</artifactId>
+        </dependency>
+        <dependency>
+        <groupId>com.fkhwl</groupId>
+        <artifactId>fkh-starter-swagger-rest</artifactId>
+        <type>pom</type>
+    </dependency>
+        <dependency>
+            <groupId>com.fkhwl</groupId>
+            <artifactId>fkh-starter-sms</artifactId>
+        </dependency>
+
+
+        <!-- http client引入开始 -->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpcore</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpmime</artifactId>
+        </dependency>
+        <!-- http client引入结束 -->
+
+        <!-- cfca存证 引入开始 -->
+        <dependency>
+            <groupId>com.cfca</groupId>
+            <artifactId>cfca-sadk</artifactId>
+            <version>3.5.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.cfca</groupId>
+            <artifactId>logback-cfca-jdk1.6</artifactId>
+            <version>3.2.0.0</version>
+        </dependency>
+        <!-- cfca存证 引入结束 -->
+        <dependency>
+            <groupId>com.itextpdf</groupId>
+            <artifactId>itext-asian</artifactId>
+            <version>5.2.0</version>
+        </dependency>
+        <!-- cfca的安心签 引入开始 -->
+        <dependency>
+            <groupId>com.cfca</groupId>
+            <artifactId>anxinsign-sadk</artifactId>
+            <version>3.4.1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.cfca</groupId>
+            <artifactId>anxinsign-seal-sadk</artifactId>
+            <version>3.1.3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.cfca</groupId>
+            <artifactId>anxinsign-common-tsvo</artifactId>
+            <version>3.4.12.3</version>
+        </dependency>
+        <dependency>
+            <groupId>com.cfca</groupId>
+            <artifactId>anxinsign-logback</artifactId>
+            <version>3.2.0.0</version>
+        </dependency>
+        <!-- cfca的安心签 引入开始 -->
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-jar-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-dependency-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+
+        </plugins>
+    </build>
+
+</project>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fkhwl.scf.dao.FlowNodeDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="FlowNodeResultMap" type="com.fkhwl.scf.entity.po.FlowNode">
+        <result column="id" property="id"/>
+        <result column="deleted" property="deleted"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="flow_node_name" property="flowNodeName"/>
+        <result column="flow_id" property="flowId"/>
+        <result column="role_id" property="roleId"/>
+        <result column="remark" property="remark"/>
+        <result column="prev_node_id" property="prevNodeId"/>
+        <result column="next_node_id" property="nextNodeId"/>
+        <result column="flow_type_id" property="flowTypeId"/>
+        <result column="limit_balance" property="limitBalance"/>
+        <result column="status" property="status"/>
+    </resultMap>
+    <select id="getNextNode" resultType="com.fkhwl.scf.entity.po.FlowNode">
+
+select * from flow_node where id =(select next_node_id  from flow_node where id= #{cuurentFlowNodeId})
+
+    </select>
+    <select id="getPrevNode" resultType="com.fkhwl.scf.entity.po.FlowNode">
+            select * from flow_node where id =(select prev_node_id from flow_node where id= #{cuurentFlowNodeId})
+</select>
+</mapper>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>fkh-scf</artifactId>
+        <groupId>com.fkhwl</groupId>
+        <version>1.0.1</version>
+    </parent>
+
+    <artifactId>fkh-scf-openapi</artifactId>
+    <description>供应链金融监管服务对外接口</description>
+
+    <properties>
+        <start.class>com.fkhwl.fkhserver.openapi.OpenAPIApplication</start.class>
+        <maven.deploy.skip>true</maven.deploy.skip>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>com.fkhwl</groupId>
+            <artifactId>fkh-starter-launcher</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fkhwl</groupId>
+            <artifactId>fkh-starter-log4j2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fkhwl</groupId>
+            <artifactId>fkh-starter-rest</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fkhwl</groupId>
+            <artifactId>fkh-starter-swagger-rest</artifactId>
+            <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>com.fkhwl</groupId>
+            <artifactId>fkh-starter-cloud</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fkhwl</groupId>
+            <artifactId>fkh-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fkhwl</groupId>
+            <artifactId>fkh-starter-dubbo</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fkhwl</groupId>
+            <artifactId>fkh-scf-client-dubbo</artifactId>
+<!--            <exclusions>-->
+<!--                <exclusion>-->
+<!--                    <groupId>com.fkhwl</groupId>-->
+<!--                    <artifactId>fkh-starter-mybatis</artifactId>-->
+<!--                </exclusion>-->
+<!--            </exclusions>-->
+        </dependency>
+        <!-- ELK:logback中logstash的 配置 -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+    </dependencies>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-jar-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-dependency-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>pl.project13.maven</groupId>
+                <artifactId>git-commit-id-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.yml</include>
+                    <include>**/*.xml</include>
+                    <include>**/*.pdf</include>
+                    <include>**/*.png</include>
+                    <include>**/*.html</include>
+                    <include>**/*.jpg</include>
+                    <include>**/*.txt</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
+</project>

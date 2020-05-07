@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fkhwl.scf.dao.ProjectContractDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="ProjectContractResultMap" type="com.fkhwl.scf.entity.po.ProjectContract">
+        <result column="id" property="id"/>
+        <result column="deleted" property="deleted"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="third_id" property="thirdId"/>
+        <result column="project_id" property="projectId"/>
+        <result column="contract" property="contract"/>
+        <result column="consign_name" property="consignName"/>
+        <result column="transport_name" property="transportName"/>
+        <result column="transport_company_id" property="transportCompanyId"/>
+        <result column="good_name" property="goodName"/>
+        <result column="good_price" property="goodPrice"/>
+        <result column="tax_number" property="taxNumber"/>
+        <result column="address" property="address"/>
+        <result column="phone_number" property="phoneNumber"/>
+        <result column="bank_name" property="bankName"/>
+        <result column="bank_nccount_number" property="bankNccountNumber"/>
+        <result column="contract_number" property="contractNumber"/>
+        <result column="calculation_type" property="calculationType"/>
+        <result column="priceHandle_type" property="pricehandleType"/>
+        <result column="execution_start_time" property="executionStartTime"/>
+        <result column="execution_end_time" property="executionEndTime"/>
+        <result column="supplementary_agreement" property="supplementaryAgreement"/>
+        <result column="tax_rate" property="taxRate"/>
+        <result column="calc_time_type" property="calcTimeType"/>
+        <result column="preset_record" property="presetRecord"/>
+    </resultMap>
+    <!-- DTO通用查询映射结果 -->
+    <resultMap id="ProjectContractResultDTOMap" type="com.fkhwl.scf.entity.dto.ProjectContractDTO" extends="ProjectContractResultMap"/>
+
+    <select id="listPage" resultMap="ProjectContractResultDTOMap">
+        SELECT
+        p.*
+        FROM
+        project_contract p
+        WHERE
+        p.deleted = 0
+        <if test="map.projectName != null and map.projectName != '' ">
+            AND p.project_name LIKE concat('%',#{map.projectName},'%')
+        </if>
+        order by p.create_time desc
+
+    </select>
+
+
+</mapper>
